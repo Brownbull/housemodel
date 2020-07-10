@@ -106,17 +106,6 @@ def join(loader, node):
   seq = loader.construct_sequence(node)
   return ''.join([str(i) for i in seq])
 
-def readConfg(fConfig):
-  # INIT FUNCTIONS
-  yaml.add_constructor('!join', join)
-
-  # GET README CONFIG
-  if Path(fConfig).is_file():
-    with open(fConfig, 'r') as configFile:
-      return yaml.load(configFile)
-  else:
-    sys.exit('Error: File ' + fConfig + " was not found.")
-
 # SAVE Dataframes on EXCEL format
 def save2xlsx(folderPath, fileName, excelJson, idx, dataType):
   """

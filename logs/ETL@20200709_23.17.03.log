@@ -1,0 +1,10 @@
+2020-07-09 23:17:03: ETL Start: 2020-07-09 23:17:03.706153
+2020-07-09 23:17:03: Available Snapshots: 20200707
+2020-07-09 23:17:03: Processing Snapshot: 20200707
+2020-07-09 23:17:03: Processing Source: portal inmobiliario
+2020-07-09 23:17:03: Processing Source: toctoc
+2020-07-09 23:17:03: Processing Source: propiedades emol
+2020-07-09 23:17:03: Processing Source: icasas
+2020-07-09 23:17:03: Processing Source: chile propiedades
+2020-07-09 23:17:03: ETL End: 2020-07-09 23:17:03.880152
+2020-07-09 23:17:03: Total Execution: 0.17399883270263672

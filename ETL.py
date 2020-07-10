@@ -10,21 +10,73 @@ from include.files import *
 
 # CHECK ARGUMENTS
 parser = argparse.ArgumentParser(description='Main process of Transform Module.')
-parser.add_argument('-tConfig','-tc', '-c', help='Tranform Config File Path', default="config/A02_T_config.yaml")
+parser.add_argument('-etlConfig','-etlc', '-c', help='Tranform Config File Path', default="config/ETL.yaml")
 parser.add_argument('-sample','-sm', '-sp', required=False, help='Numbers of records to take as sample', default=0)
-parser.add_argument('-info','-i', action='store_const', const=True, default=True, help='Dataframes Information Flag.')
-parser.add_argument('-force','-f', action='store_const', const=True, default=False, help='Force Flag, delete any output file in place.')
-parser.add_argument('-stats','-s', action='store_const', const=True, default=True, help='Stats Flag')
-parser.add_argument('-debug','-d', action='store_const', const=True, default=True, help='Debug Flag')
 args = parser.parse_args()
 
-if args.debug:
+# READ CONFIG FILE
+etlCfg = readConfg(args.etlConfig)
+if etlCfg['debug']: print(etlCfg)
+
+# LIBS CHECK
+if etlCfg['debug']:
   print("# Imported Libraries:") 
   getVersions()
-  print("# Debug Options:\n{}". format(args))
+  print("# Debug Options:\n{}".format(args))
 
-logPath = initFileInPath("logs", "log")
+# INITIALIZE TIMING & LOG
+startTime, startStamp = getTimeAndStamp()
+log = logInit("logs", "ETL")
+logPrint(log, "ETL Start: {}".format(str(startStamp)))
 
-logPrint(logPath,"asd")
+# GET INPUT DATA INDEX
+dataIndex = pd.read_csv(etlCfg['dataIndex'])
 
-print ("\neof ETL.py")
+# GET AVAILABLE DATA SNAPSHOTS
+snapshots = os.listdir(etlCfg['dataFolder'])
+logPrint(log, "Available Snapshots: " + array2Str(snapshots, '-'))
+
+# PROCESS 
+## SNAPSHOTS
+for snap in snapshots:
+  if int(etlCfg['procDtIni']) <= int(snap) <= int(etlCfg['procDtEnd']):
+    logPrint(log, "Processing Snapshot: {}".format(snap))
+    currSnap = etlCfg['dataFolder'] + "/" + snap + "/"
+    ## SOURCES
+    for srce in etlCfg['dataSrces']:
+      logPrint(log, "Processing Source: {}".format(srce))
+      currSnapSrce = currSnap + "/" + srce + "/"
+      csvFiles = os.listdir(currSnapSrce)
+      ## CSV
+      for csv in csvFiles:
+        currSnapSrceCsv = currSnapSrce + csv
+        csvId = csv.split('.')[0]
+        print("csvId: " + csvId)
+        dataIndex.loc[dataIndex['SrceId'] == csvId]
+        
+
+      # logPrint(log, "Available csv files: " + array2Str(csvFiles, '-'))
+
+      # print("currentSnap: "+currentSnap)
+
+# GET INPUT DATA
+# if args.sample:
+#   houses_raw = pd.read_csv(args.enrolls, nrows = args.sample)
+# else:
+#   houses_raw = pd.read_csv(args.enrolls) 
+
+# # end stage
+# finishedStage = "ETL_01_GET_RAW"
+# stageEndSet(finishedStage, dfs, args.info, args.debug)
+
+
+
+
+
+
+
+
+# END TIMING & LOG
+endTime, endStamp = getTimeAndStamp()
+logPrint(log, "ETL End: {}".format(str(endStamp)))
+logPrint(log, "Total Execution: {}".format(str(endTime - startTime)))

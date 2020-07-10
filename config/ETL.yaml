@@ -1,0 +1,20 @@
+# Transformation configuration file
+# Input Setup
+dataIndex: D:/Reference/housemodel/data/E/byHand/segment1_dataSources.csv
+dataFolder: D:/Reference/housemodel/data/E/webscrapper
+dataSrces: &dataSrces [ 'portal inmobiliario', 'toctoc', 'propiedades emol', 'icasas', 'chile propiedades' ]
+# Processing Initial Date format YYYYMMDD
+procDtIni: 20200701
+# Processing End Date format YYYYMMDD
+procDtEnd: 20210101
+# Execution setup
+info: False
+force: False
+stats: True
+debug: True
+# Author details
+version: 1
+author:
+  alias: Brownbull
+  name: Gabriel Carcamo
+  email: carcamo.gabriel@gmail.com

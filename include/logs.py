@@ -5,17 +5,16 @@
 """
 import time
 from datetime import datetime
-from include.logs import *
-
-def timerPlay(dbg):
-  timeStart = time.time()
-  dtStart = datetime.fromtimestamp(timeStart)
-  if dbg:
-    print("\nPreprocessing Script Start: " + str(dtStart) + "\n" + "-"*25 )
+from include.files import *
 
 def logPrint(logPath, msg):
-  now = datetime.now().strftime('%Y-%m-%d %M:%S.%f')[:-4]
+  now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
   logMsg = "{}: {}". format(now, msg)
-  print(logMsg)
-  with open(logPath, 'w') as log:
-    log.write(logMsg)
+  print("# " + logMsg)
+  with open(logPath, 'a') as log:
+    log.write(logMsg + "\n")
+
+def logInit(path, prefix):
+  now = datetime.now().strftime('%Y%m%d_%H.%M.%S')
+  logName = prefix + "@" + now + ".log"
+  return initFilePath(path, logName)
