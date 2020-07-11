@@ -7,6 +7,7 @@
 from main.ETL.imports import *
 from include.logs import *
 from include.files import *
+from include.program import *
 
 # CHECK ARGUMENTS
 parser = argparse.ArgumentParser(description='Main process of Transform Module.')
@@ -23,6 +24,10 @@ if etlCfg['debug']:
   print("# Imported Libraries:") 
   getVersions()
   print("# Debug Options:\n{}".format(args))
+
+# LOAD TRANSFORM LIB
+imp.load_source('etlTransformLib', etlCfg['etlTransformLib'])
+from etlTransformLib import *
 
 # INITIALIZE TIMING & LOG
 startTime, startStamp = getTimeAndStamp()
@@ -45,19 +50,31 @@ for snap in snapshots:
     ## SOURCES
     for srce in etlCfg['dataSrces']:
       logPrint(log, "Processing Source: {}".format(srce))
+
+      # Set Outfile
+      outPath = etlCfg['etlTransformPath'] + "/" + snap
+      outFile = initFilePath(outPath, srce + ".csv")
+      # WRITE HEADER
+      with open(outFile, 'w') as outCsv:
+        outCsv.write(array2Str(etlCfg['etlTransformCols'], ',') + "\n")
+
+      # Get Available csv files
       currSnapSrce = currSnap + "/" + srce + "/"
       csvFiles = os.listdir(currSnapSrce)
+
       ## CSV
       for csv in csvFiles:
-        currSnapSrceCsv = currSnapSrce + csv
+        # Get Parms to process single csv into outPath file
+        currSnapSrceCsvPath = currSnapSrce + csv
         csvId = csv.split('.')[0]
-        print("csvId: " + csvId)
-        dataIndex.loc[dataIndex['SrceId'] == csvId]
+        idxRow = dataIndex.iloc[int(csvId)-1]
+        ## TRANSFORM
+        etlTransform(outFile, snap, srce, idxRow, currSnapSrceCsvPath)
+        exit()
+
         
 
-      # logPrint(log, "Available csv files: " + array2Str(csvFiles, '-'))
 
-      # print("currentSnap: "+currentSnap)
 
 # GET INPUT DATA
 # if args.sample:

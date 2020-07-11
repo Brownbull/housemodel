@@ -15,11 +15,6 @@ from pandas import ExcelWriter
 import xlsxwriter
 import win32com.client as win32
 
-def setOrCreatePath(outDir):
-  # SET WRITE DIRECTORY
-  if not Path(outDir).exists():
-    os.makedirs(outDir)
-
 def props(cls):   
   return [i for i in cls.__dict__.keys() if i[:1] != '_']
 

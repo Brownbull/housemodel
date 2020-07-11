@@ -7,6 +7,11 @@ dataSrces: &dataSrces [ 'portal inmobiliario', 'toctoc', 'propiedades emol', 'ic
 procDtIni: 20200701
 # Processing End Date format YYYYMMDD
 procDtEnd: 20210101
+# Extract Setup
+# Transform Setup
+etlTransformLib: D:\Reference\housemodel\main\ETL\T4houses.py
+etlTransformCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link]
+etlTransformPath: D:\Reference\housemodel\data\T\ETL
 # Execution setup
 info: False
 force: False
