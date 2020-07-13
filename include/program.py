@@ -7,10 +7,17 @@ import time
 import inspect
 from datetime import datetime
 
+# https://stackoverflow.com/questions/10711116/strip-spaces-tabs-newlines-python
+def rmEscSep(string):
+  return ' '.join(str(string).split())
+
 # https://stackoverflow.com/questions/19926089/python-equivalent-of-java-stringbuffer/29000388
 def array2Str(array, separator):
-    out_str = separator.join(num for num in array)
-    return out_str
+  out_str = separator.join(num for num in array)
+  # out_str = ""
+  # for e in array:
+  #   out_str = out_str + separator + e
+  return out_str
 
 def getTimeAndStamp():
   nowTime = time.time()

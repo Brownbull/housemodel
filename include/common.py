@@ -54,7 +54,7 @@ def dfStats(df, dfName, stageName):
   print("Stats INI: " + dfName + " after " + stageName) 
 
   # INFO
-  fInfo = open(outDir + "/info.txt", 'w+')
+  fInfo = open(outDir + "/info.txt", 'w+', encoding="utf-8")
   df.info(buf=fInfo)
   fInfo.close()
   print(outDir +"/info.txt Created")
@@ -74,7 +74,7 @@ def dfStats(df, dfName, stageName):
   print(outDir +"/nulls.txt Created")
 
   # 0s
-  fNull = open(outDir +"/ceros.txt", 'w+')
+  fNull = open(outDir +"/ceros.txt", 'w+', encoding="utf-8")
   fNull.write(dfName + ' columns with 0 values:\n')
   ceros = (df == 0).sum(axis=0)
   for key,value in ceros.iteritems():

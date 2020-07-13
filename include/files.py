@@ -15,10 +15,12 @@ def initPath(path):
 def initFilePath(path, file):
   initPath(path)
   filePath = path + "/" + file
-  print ("filePath: " + filePath)
   if Path(filePath).is_file():
     os.remove(filePath)
   return filePath
+
+def getRawFileName(Path):
+  return (os.path.splitext(os.path.basename(Path))[0])
 
 # YAML CONSTRUCTORS
 def join(loader, node):
@@ -30,7 +32,7 @@ def readConfg(fConfig):
   yaml.add_constructor('!join', join)
   # read yaml
   if Path(fConfig).is_file():
-    with open(fConfig, 'r') as configFile:
+    with open(fConfig, 'r', encoding="utf-8") as configFile:
       return yaml.load(configFile)
   else:
     sys.exit('Error: File ' + fConfig + " was not found.")

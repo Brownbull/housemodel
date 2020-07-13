@@ -1,0 +1,12 @@
+,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link,Description
+count,382,382,377,382,377,377,377.0,377.0,376.0,382,377,377
+unique,1,6,149,2,2,107,,,,158,377,359
+top,portal inmobiliario,Huechuraba,12/5/2020,Aparment,Propiedades usadas,100 m²,,,,5.5 UF,https://www.portalinmobiliario.com/venta/departamento/santiago-metropolitana/5685766-universidad-andres-bello-gorbea-uda#position=4&type=item&tracking_id=1192ceb3-9d37-4d7d-9b70-27954d945045,Descripción -AMPLIO DEPARTAMENTO -MUY LUMINOSO -CON ASCENSOR -HALL DE ENTRADA -RECIBOS CON SALIDA A TERRAZA( CERRADA) AHORA SE UTILIZA COMO SALA DE ESTAR Y ESCRITORIO -2 DORMITORIOS -1 EN SUITE -2 BAÑOS -MÁS SERVICIOS COMPLETOS (DORMITORIO Y BAÑO) -COCINA EQUIPADA LOGGIA -2 ESTACIONAMIENTOS (TANDEM) -AMPLIA BODEGA -EDIFICIO SOLO CUENTA CON ESTACIONAMIENTOS DE VISITAS -CONSULTAS LLAMAR AL + 56 9 54003843 Características propiedad despensa hall loggia cocina amoblada cocina equipada Características comunidad accesos controlados estacionamiento de visitas Gastos Gastos comunes: $ 180.000 Estacionamientos y bodegas Estacionamientos: 2 Bodegas: 1
+freq,382,156,14,233,296,36,,,,17,1,3
+mean,,,,,,,3.442970822281167,2.6923076923076925,1.6888297872340425,,,
+std,,,,,,,0.6624902100421679,0.7792312296930668,0.7529375097689192,,,
+min,,,,,,,3.0,1.0,1.0,,,
+25%,,,,,,,3.0,2.0,1.0,,,
+50%,,,,,,,3.0,3.0,2.0,,,
+75%,,,,,,,4.0,3.0,2.0,,,
+max,,,,,,,6.0,5.0,4.0,,,

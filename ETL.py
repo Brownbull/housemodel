@@ -25,9 +25,11 @@ if etlCfg['debug']:
   getVersions()
   print("# Debug Options:\n{}".format(args))
 
-# LOAD TRANSFORM LIB
-imp.load_source('etlTransformLib', etlCfg['etlTransformLib'])
-from etlTransformLib import *
+# LOAD TRANSFORM LIBS
+imp.load_source('collectLib', etlCfg['collectLib'])
+from collectLib import *
+imp.load_source('formatLib', etlCfg['formatLib'])
+from formatLib import *
 
 # INITIALIZE TIMING & LOG
 startTime, startStamp = getTimeAndStamp()
@@ -39,61 +41,37 @@ dataIndex = pd.read_csv(etlCfg['dataIndex'])
 
 # GET AVAILABLE DATA SNAPSHOTS
 snapshots = os.listdir(etlCfg['dataFolder'])
-logPrint(log, "Available Snapshots: " + array2Str(snapshots, '-'))
+logPrint(log, "Available Snapshots: " + array2Str(snapshots, ' '))
 
-# PROCESS 
-## SNAPSHOTS
+# MAIN
+## iterate SNAPSHOTS
 for snap in snapshots:
   if int(etlCfg['procDtIni']) <= int(snap) <= int(etlCfg['procDtEnd']):
     logPrint(log, "Processing Snapshot: {}".format(snap))
-    currSnap = etlCfg['dataFolder'] + "/" + snap + "/"
-    ## SOURCES
-    for srce in etlCfg['dataSrces']:
-      logPrint(log, "Processing Source: {}".format(srce))
 
-      # Set Outfile
-      outPath = etlCfg['etlTransformPath'] + "/" + snap
-      outFile = initFilePath(outPath, srce + ".csv")
-      # WRITE HEADER
-      with open(outFile, 'w') as outCsv:
-        outCsv.write(array2Str(etlCfg['etlTransformCols'], ',') + "\n")
-
-      # Get Available csv files
-      currSnapSrce = currSnap + "/" + srce + "/"
-      csvFiles = os.listdir(currSnapSrce)
-
-      ## CSV
-      for csv in csvFiles:
-        # Get Parms to process single csv into outPath file
-        currSnapSrceCsvPath = currSnapSrce + csv
-        csvId = csv.split('.')[0]
-        idxRow = dataIndex.iloc[int(csvId)-1]
-        ## TRANSFORM
-        etlTransform(outFile, snap, srce, idxRow, currSnapSrceCsvPath)
-        exit()
-
-        
-
-
-
-# GET INPUT DATA
-# if args.sample:
-#   houses_raw = pd.read_csv(args.enrolls, nrows = args.sample)
-# else:
-#   houses_raw = pd.read_csv(args.enrolls) 
-
-# # end stage
-# finishedStage = "ETL_01_GET_RAW"
-# stageEndSet(finishedStage, dfs, args.info, args.debug)
-
-
-
-
-
-
+    ## ETL Step - COLLECT
+    collectFiles = collectMain(
+      log, 
+      dataIndex, # index of sources
+      etlCfg['dataFolder'], # baseInPath
+      etlCfg['transformPath'], # baseOutPath
+      etlCfg['statsPath'], # statsPath
+      snap, 
+      etlCfg['dataSrces'], 
+      etlCfg['collectionCols'])
+              
+    ## ETL Step - FORMAT
+    formatFiles = formatMain(
+      log, 
+      etlCfg['transformPath'], # baseOutPath
+      etlCfg['statsPath'], # statsPath
+      snap, 
+      collectFiles, 
+      etlCfg['formationCols'])
+              
 
 
 # END TIMING & LOG
 endTime, endStamp = getTimeAndStamp()
 logPrint(log, "ETL End: {}".format(str(endStamp)))
-logPrint(log, "Total Execution: {}".format(str(endTime - startTime)))
+logPrint(log, "ETL Total Execution Time: {}".format(str(endTime - startTime)))

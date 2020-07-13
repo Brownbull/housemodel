@@ -11,7 +11,7 @@ def logPrint(logPath, msg):
   now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
   logMsg = "{}: {}". format(now, msg)
   print("# " + logMsg)
-  with open(logPath, 'a') as log:
+  with open(logPath, 'a', encoding="utf-8") as log:
     log.write(logMsg + "\n")
 
 def logInit(path, prefix):
