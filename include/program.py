@@ -3,6 +3,7 @@
   @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
   Program functions module
 """
+import re
 import time
 import inspect
 from datetime import datetime
@@ -18,7 +19,7 @@ def rmEscSep(string):
 
 # https://stackoverflow.com/questions/19926089/python-equivalent-of-java-stringbuffer/29000388
 def array2Str(array, separator):
-  out_str = separator.join(num for num in array)
+  out_str = separator.join(str(num) for num in array)
   # out_str = ""
   # for e in array:
   #   out_str = out_str + separator + e
@@ -66,3 +67,11 @@ def isDate(string, fuzzy=False):
 
 def strToDate(string, format="%Y/%m/%d", fuzzy=False):
   return parse(string, fuzzy=fuzzy).strftime(format)
+
+# https://stackoverflow.com/questions/4703390/how-to-extract-a-floating-number-from-a-string
+def getNumbrs(string):
+  if string is not None and not isNaN(string):
+    # return [int(s) for s in string.split() if s.isdigit()]
+    return re.findall(r"[-+]?\d*\.\d+|\d+", str(string))
+  else:
+    return []
