@@ -25,6 +25,13 @@ def array2Str(array, separator):
   #   out_str = out_str + separator + e
   return out_str
 
+# https://stackoverflow.com/questions/3271478/check-list-of-words-in-another-string
+def strOfListInPhrase(strList, Phrase):
+  return any(word in Phrase for word in strList)
+  
+def strListInPhrase(strList, Phrase):
+  return all(word in Phrase for word in strList)
+
 # https://stackoverflow.com/questions/18425225/getting-the-name-of-a-variable-as-a-string/18425523
 def retrieveName(var):
   """

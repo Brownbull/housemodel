@@ -37,13 +37,28 @@ class TrasformHouse:
       self.PriceUF,
       self.Link)
 
-def getHouseState(string):
+def getPropertyState(string):
   return "nueva" if "nueva" in str(string).lower() else "usada"
+
+def inferPropertyState(Description):
+  Description = Description.lower()
+  newKeys = ["nueva", "nuevo"]
+  usedKeys = ["antiguo", "antigua", "usado", "usada", "remodelar", 
+    "estado", "condiciones", "arriendo", "actualmente", "remodelar", 
+    "remodelado", "remodelada", "mantenida", "mantenido", "rehicieron",
+    "fue", "fueron"]
+  if strOfListInPhrase(usedKeys, Description):
+    return "usada"
+  elif strOfListInPhrase(newKeys, Description):
+    return "nueva"
+  else:
+    return "usada"
 
 def getMtot(string, default):
   numbrs = getNumbrs(string)
   if len(numbrs) > 0:
-    return int(float(numbrs[0]))    
+    Mtot = int(float(numbrs[0]))
+    return Mtot if Mtot > 80 else default  
   else:
     return default
 
@@ -68,6 +83,16 @@ def getParking(string, default):
   else:
     return default
 
+def inferParking(Description):
+  Description = Description.lower()
+  noParkingKeys = ["no", "tiene"]
+  if "estacionamientos" in Description:
+    return 2
+  elif "estacionamiento" in Description and not strListInPhrase(noParkingKeys, Description):
+    return 1
+  else:
+    return 0
+
 def getPriceUF(string, default):
   UF = 28800 # 07/13/2020 = $28.684 CLP
   floatCorrectionUF = 1000
@@ -91,9 +116,8 @@ def format_portalinmobiliario(inDf, outCsvPath):
       Province = row['Province']
       PublishedDate = ifDateSave(row['PublishedDate'], default)
       PropertyType = row['PropertyType']
-      PropertyState = getHouseState(row['PropertyState'])
+      PropertyState = getPropertyState(row['PropertyState'])
       MtTot = getMtot(row['MtTot'], default)      
-      
       Bdroom = getBdroom(row['Bdroom'], default)
       Bath = getBath(row['Bath'], default)
       Parking = getParking(row['Parking'], default)
@@ -105,19 +129,20 @@ def format_portalinmobiliario(inDf, outCsvPath):
       outCsv.write(houseToWrite.toCsvRow())
 
 def format_toctoc(inDf, outCsvPath):
+  default = "TBD"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       # GET values
       Srce = row['Srce']
       Province = row['Province']
-      PublishedDate = row['PublishedDate']
+      PublishedDate = ifDateSave(row['PublishedDate'], default)
       PropertyType = row['PropertyType']
-      PropertyState = row['PropertyState']
-      MtTot = row['MtTot']
-      Bdroom = row['Bdroom']
-      Bath = row['Bath']
-      Parking = row['Parking']
-      PriceUF = row['PriceUF']
+      PropertyState = inferPropertyState(row['Description'])
+      MtTot = getMtot(row['MtTot'], default)
+      Bdroom = getBdroom(row['Bdroom'], default)
+      Bath = getBath(row['Bath'], default)
+      Parking = inferParking(row['Description'])
+      PriceUF = getPriceUF(row['PriceUF'], default)
       Link = row['Link']
 
       # WRITE row

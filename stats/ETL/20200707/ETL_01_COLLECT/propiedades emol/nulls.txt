@@ -1,13 +1,13 @@
 propiedades emol columns with null values:
                           Srce                     0
                       Province                     0
-                 PublishedDate                     8
+                 PublishedDate                     0
                   PropertyType                     0
                  PropertyState                     0
-                         MtTot                     9
-                        Bdroom                     8
-                          Bath                     8
+                         MtTot                     0
+                        Bdroom                     0
+                          Bath                     0
                        Parking                     0
-                       PriceUF                     8
-                          Link                     8
-                   Description                     8
+                       PriceUF                     0
+                          Link                     0
+                   Description                     0

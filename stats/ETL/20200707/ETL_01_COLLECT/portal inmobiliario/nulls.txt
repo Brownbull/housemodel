@@ -1,13 +1,13 @@
 portal inmobiliario columns with null values:
                           Srce                     0
                       Province                     0
-                 PublishedDate                     5
+                 PublishedDate                     0
                   PropertyType                     0
-                 PropertyState                     5
-                         MtTot                     5
-                        Bdroom                     5
-                          Bath                     5
-                       Parking                     6
+                 PropertyState                     0
+                         MtTot                     0
+                        Bdroom                     0
+                          Bath                     0
+                       Parking                     1
                        PriceUF                     0
-                          Link                     5
-                   Description                     5
+                          Link                     0
+                   Description                     0

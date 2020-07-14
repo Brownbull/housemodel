@@ -1,10 +1,10 @@
 ,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link,Description
-count,382,382,377,382,377,377,377.0,377.0,376.0,382,377,377
-unique,1,6,149,2,2,107,,,,158,377,359
-top,portal inmobiliario,Huechuraba,21-04-2020,Aparment,Propiedades usadas,100 m²,,,,5.5 UF,https://www.portalinmobiliario.com/venta/departamento/huechuraba-metropolitana/5635109-hermoso-dpto-en-cond-gran-vista-al-valle-de-huechuraba-uda#position=26&type=item&tracking_id=f8a93820-f54f-4e81-bd59-3b87761810c2,Descripción MAGNIFICA VISTA...........PISO 25..........ORIENTACION ORIENTE..........AMPLIOS E ILUMINADOS ESPACIOS...........A PASOS DEL METRO.......ESTACIONAMIENTO....BODEGA.......OPORTUNIDAD......TRES DORMITORIOS MAS SERVICIOS............GASTOS COMUNES $120.000.- APROXIMADO SIN CALEFACCION........OPORTUNIDAD...NO DEJE DE VISTAR Estacionamientos y bodegas Estacionamientos: 1 Bodegas: 1
-freq,382,156,14,233,296,36,,,,17,1,3
+count,377,377,377,377,377,377,377.0,377.0,376.0,377,377,377
+unique,1,6,149,2,2,107,,,,157,377,359
+top,portal inmobiliario,Huechuraba,12/5/2020,Aparment,Propiedades usadas,100 m²,,,,5.5 UF,https://www.portalinmobiliario.com/venta/departamento/huechuraba-metropolitana/5613782-excelente-departamento-en-el-mejor-sector-pv-uda#position=34&type=item&tracking_id=f8a93820-f54f-4e81-bd59-3b87761810c2,Descripción MAGNIFICA VISTA...........PISO 25..........ORIENTACION ORIENTE..........AMPLIOS E ILUMINADOS ESPACIOS...........A PASOS DEL METRO.......ESTACIONAMIENTO....BODEGA.......OPORTUNIDAD......TRES DORMITORIOS MAS SERVICIOS............GASTOS COMUNES $120.000.- APROXIMADO SIN CALEFACCION........OPORTUNIDAD...NO DEJE DE VISTAR Estacionamientos y bodegas Estacionamientos: 1 Bodegas: 1
+freq,377,156,14,230,296,36,,,,17,1,3
 mean,,,,,,,3.442970822281167,2.6923076923076925,1.6888297872340425,,,
-std,,,,,,,0.6624902100421679,0.7792312296930668,0.7529375097689192,,,
+std,,,,,,,0.6624902100421679,0.7792312296930667,0.7529375097689192,,,
 min,,,,,,,3.0,1.0,1.0,,,
 25%,,,,,,,3.0,2.0,1.0,,,
 50%,,,,,,,3.0,3.0,2.0,,,

@@ -1,13 +1,13 @@
 toctoc columns with null values:
                           Srce                     0
                       Province                     0
-                 PublishedDate                     7
+                 PublishedDate                     0
                   PropertyType                     0
                  PropertyState                     0
-                         MtTot                     7
-                        Bdroom                     7
-                          Bath                     7
+                         MtTot                     0
+                        Bdroom                     0
+                          Bath                     0
                        Parking                     0
-                       PriceUF                     7
+                       PriceUF                     0
                           Link                     0
                    Description                     0
