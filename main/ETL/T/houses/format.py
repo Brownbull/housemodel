@@ -38,12 +38,15 @@ class TrasformHouse:
       self.Link)
 
 def format_portalinmobiliario(inDf, outCsvPath):
+  default = "TBD"
+  # dateFormat = "%Y/%m/%d"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       # GET values
       Srce = row['Srce']
       Province = row['Province']
-      PublishedDate = row['PublishedDate']
+      PublishedDate = ifDateSave(row['PublishedDate'], default)
+
       PropertyType = row['PropertyType']
       PropertyState = row['PropertyState']
       MtTot = row['MtTot']
