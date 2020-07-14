@@ -37,11 +37,18 @@ class TrasformHouse:
       self.PriceUF,
       self.Link)
 
+def inferPublishedDate(string, default):
+  for e in string.split():
+    e = ifDateSave(e, default)
+    if e != default:
+      return e
+  return default
+
 def getPropertyState(string):
   return "nueva" if "nueva" in str(string).lower() else "usada"
 
 def inferPropertyState(Description):
-  Description = Description.lower()
+  Description = str(Description).lower()
   newKeys = ["nueva", "nuevo"]
   usedKeys = ["antiguo", "antigua", "usado", "usada", "remodelar", 
     "estado", "condiciones", "arriendo", "actualmente", "remodelar", 
@@ -54,13 +61,20 @@ def inferPropertyState(Description):
   else:
     return "usada"
 
-def getMtot(string, default):
+def getMtTot(string, default):
   numbrs = getNumbrs(string)
   if len(numbrs) > 0:
     Mtot = int(float(numbrs[0]))
     return Mtot if Mtot > 80 else default  
   else:
     return default
+
+def inferMtTot(string, default):
+  for e in string.split():
+    e = getMtTot(e, default)
+    if e != default and e < 1000:
+      return e
+  return default
 
 def getBdroom(string, default):
   numbrs = getNumbrs(string)
@@ -69,12 +83,26 @@ def getBdroom(string, default):
   else:
     return default
 
+def inferBdroom(string, default):
+  for e in str(string).split():
+    e = getBdroom(e, default)
+    if e != default and e < 100:
+      return e
+  return default
+
 def getBath(string, default):
   numbrs = getNumbrs(string)
   if len(numbrs) > 0:
     return int(float(numbrs[0]))    
   else:
     return default
+
+def inferBath(string, default):
+  for e in str(string).split():
+    e = getBath(e, default)
+    if e != default and e < 100:
+      return e
+  return default
 
 def getParking(string, default):
   numbrs = getNumbrs(string)
@@ -84,7 +112,7 @@ def getParking(string, default):
     return default
 
 def inferParking(Description):
-  Description = Description.lower()
+  Description = str(Description).lower()
   noParkingKeys = ["no", "tiene"]
   if "estacionamientos" in Description:
     return 2
@@ -117,7 +145,7 @@ def format_portalinmobiliario(inDf, outCsvPath):
       PublishedDate = ifDateSave(row['PublishedDate'], default)
       PropertyType = row['PropertyType']
       PropertyState = getPropertyState(row['PropertyState'])
-      MtTot = getMtot(row['MtTot'], default)      
+      MtTot = getMtTot(row['MtTot'], default)      
       Bdroom = getBdroom(row['Bdroom'], default)
       Bath = getBath(row['Bath'], default)
       Parking = getParking(row['Parking'], default)
@@ -138,7 +166,7 @@ def format_toctoc(inDf, outCsvPath):
       PublishedDate = ifDateSave(row['PublishedDate'], default)
       PropertyType = row['PropertyType']
       PropertyState = inferPropertyState(row['Description'])
-      MtTot = getMtot(row['MtTot'], default)
+      MtTot = getMtTot(row['MtTot'], default)
       Bdroom = getBdroom(row['Bdroom'], default)
       Bath = getBath(row['Bath'], default)
       Parking = inferParking(row['Description'])
@@ -150,19 +178,20 @@ def format_toctoc(inDf, outCsvPath):
       outCsv.write(houseToWrite.toCsvRow())
 
 def format_propiedadesemol(inDf, outCsvPath):
+  default = "TBD"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       # GET values
       Srce = row['Srce']
       Province = row['Province']
-      PublishedDate = row['PublishedDate']
+      PublishedDate = inferPublishedDate(row['PublishedDate'], default)
       PropertyType = row['PropertyType']
-      PropertyState = row['PropertyState']
-      MtTot = row['MtTot']
-      Bdroom = row['Bdroom']
-      Bath = row['Bath']
-      Parking = row['Parking']
-      PriceUF = row['PriceUF']
+      PropertyState = inferPropertyState(row['Description'])
+      MtTot = inferMtTot(row['MtTot'], default)
+      Bdroom = inferBdroom(row['Bdroom'], default)
+      Bath = inferBath(row['Bath'], default)
+      Parking = inferParking(row['Description'])
+      PriceUF = getPriceUF(row['PriceUF'], default)
       Link = row['Link']
 
       # WRITE row
@@ -170,6 +199,7 @@ def format_propiedadesemol(inDf, outCsvPath):
       outCsv.write(houseToWrite.toCsvRow())
 
 def format_icasas(inDf, outCsvPath):
+  default = "TBD"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       # GET values
@@ -177,12 +207,12 @@ def format_icasas(inDf, outCsvPath):
       Province = row['Province']
       PublishedDate = row['PublishedDate']
       PropertyType = row['PropertyType']
-      PropertyState = row['PropertyState']
-      MtTot = row['MtTot']
-      Bdroom = row['Bdroom']
-      Bath = row['Bath']
-      Parking = row['Parking']
-      PriceUF = row['PriceUF']
+      PropertyState = inferPropertyState(row['Description'])
+      MtTot = getMtTot(row['MtTot'], default)
+      Bdroom = inferBdroom(row['Bdroom'], default)
+      Bath = inferBath(row['Bath'], default)
+      Parking = inferParking(row['Description'])
+      PriceUF = getPriceUF(row['PriceUF'], default)
       Link = row['Link']
 
       # WRITE row
@@ -190,6 +220,7 @@ def format_icasas(inDf, outCsvPath):
       outCsv.write(houseToWrite.toCsvRow())
 
 def format_chilepropiedades(inDf, outCsvPath):
+  default = "TBD"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       # GET values
@@ -197,12 +228,12 @@ def format_chilepropiedades(inDf, outCsvPath):
       Province = row['Province']
       PublishedDate = row['PublishedDate']
       PropertyType = row['PropertyType']
-      PropertyState = row['PropertyState']
-      MtTot = row['MtTot']
+      PropertyState = inferPropertyState(row['Description'])
+      MtTot = getMtTot(row['MtTot'], default)
       Bdroom = row['Bdroom']
       Bath = row['Bath']
-      Parking = row['Parking']
-      PriceUF = row['PriceUF']
+      Parking = inferParking(row['Description'])
+      PriceUF = getPriceUF(row['PriceUF'], default)
       Link = row['Link']
 
       # WRITE row

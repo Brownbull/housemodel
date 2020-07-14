@@ -53,7 +53,7 @@ def collect_portalinmobiliario(srce, province, propertyType, inDf, outCsvPath):
       Description = rmEscSep(row['Description']).replace(",","")
 
       # WRITE row
-      if not isNaN(Link) and not isNaN(MtTot):
+      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
 
@@ -71,16 +71,16 @@ def collect_toctoc(srce, province, propertyType, inDf, outCsvPath):
       Description = rmEscSep(row['Description']).replace(",","")
 
       # WRITE row
-      if not isNaN(Link) and not isNaN(MtTot):
+      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
 
 def collect_propiedadesemol(srce, province, propertyType, inDf, outCsvPath):
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
-      PublishedDate = row['PublishedDate']
+      PublishedDate = rmEscSep(row['PublishedDate'])
       PropertyState = "TBD"
-      MtTot = row['MtTot']
+      MtTot = rmEscSep(row['MtTot'])
       Bdroom = row['Bdroom']
       Bath = row['Bath']
       Parking = "TBD"
@@ -89,7 +89,8 @@ def collect_propiedadesemol(srce, province, propertyType, inDf, outCsvPath):
       Description = rmEscSep(row['Description']).replace(",","")
 
       # WRITE row
-      if not isNaN(Link) and not isNaN(MtTot):
+      MtTotnumbers = getNumbrs(MtTot)
+      if not isNaN(Link) and not isNaN(MtTot) and len(MtTotnumbers) > 0 and not isNaN(Description):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
 
@@ -107,7 +108,7 @@ def collect_icasas(srce, province, propertyType, inDf, outCsvPath):
       Description = rmEscSep(row['Description']).replace(",","")
 
       # WRITE row
-      if not isNaN(Link) and not isNaN(MtTot):
+      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
   
@@ -125,7 +126,7 @@ def collect_chilepropiedades(srce, province, propertyType, inDf, outCsvPath):
       Description = rmEscSep(row['Description']).replace(",","")
       
       # WRITE row
-      if not isNaN(Link) and not isNaN(MtTot):
+      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
 
