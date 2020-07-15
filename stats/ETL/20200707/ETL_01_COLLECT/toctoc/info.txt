@@ -7,13 +7,13 @@ Data columns (total 12 columns):
  1   Province       233 non-null    object 
  2   PublishedDate  233 non-null    object 
  3   PropertyType   233 non-null    object 
- 4   PropertyState  233 non-null    object 
+ 4   PropertyState  0 non-null      float64
  5   MtTot          233 non-null    object 
  6   Bdroom         233 non-null    float64
  7   Bath           233 non-null    float64
- 8   Parking        233 non-null    object 
+ 8   Parking        0 non-null      float64
  9   PriceUF        233 non-null    object 
  10  Link           233 non-null    object 
  11  Description    233 non-null    object 
-dtypes: float64(2), object(10)
-memory usage: 12.8+ KB
+dtypes: float64(4), object(8)
+memory usage: 14.6+ KB

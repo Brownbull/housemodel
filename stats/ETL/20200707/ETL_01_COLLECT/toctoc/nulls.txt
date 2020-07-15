@@ -3,11 +3,11 @@ toctoc columns with null values:
                       Province                     0
                  PublishedDate                     0
                   PropertyType                     0
-                 PropertyState                     0
+                 PropertyState                   233
                          MtTot                     0
                         Bdroom                     0
                           Bath                     0
-                       Parking                     0
+                       Parking                   233
                        PriceUF                     0
                           Link                     0
                    Description                     0

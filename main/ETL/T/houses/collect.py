@@ -40,6 +40,7 @@ class CollectHouse:
       self.Description)
 
 def collect_portalinmobiliario(srce, province, propertyType, inDf, outCsvPath):
+  default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       PublishedDate = row['PublishedDate']
@@ -58,14 +59,15 @@ def collect_portalinmobiliario(srce, province, propertyType, inDf, outCsvPath):
         outCsv.write(houseToWrite.toCsvRow())
 
 def collect_toctoc(srce, province, propertyType, inDf, outCsvPath):
+  default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       PublishedDate = row['PublishedDate']
-      PropertyState = "TBD"
+      PropertyState = default
       MtTot = row['MtTot']
       Bdroom = row['Bdroom']
       Bath = row['Bath']
-      Parking = "TBD"
+      Parking = default
       PriceUF = row['FullPrice']
       Link = row['item-href']
       Description = rmEscSep(row['Description']).replace(",","")
@@ -76,14 +78,15 @@ def collect_toctoc(srce, province, propertyType, inDf, outCsvPath):
         outCsv.write(houseToWrite.toCsvRow())
 
 def collect_propiedadesemol(srce, province, propertyType, inDf, outCsvPath):
+  default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       PublishedDate = rmEscSep(row['PublishedDate'])
-      PropertyState = "TBD"
+      PropertyState = default
       MtTot = rmEscSep(row['MtTot'])
       Bdroom = row['Bdroom']
       Bath = row['Bath']
-      Parking = "TBD"
+      Parking = default
       PriceUF = row['FullPrice']
       Link = row['item-href']
       Description = rmEscSep(row['Description']).replace(",","")
@@ -95,14 +98,15 @@ def collect_propiedadesemol(srce, province, propertyType, inDf, outCsvPath):
         outCsv.write(houseToWrite.toCsvRow())
 
 def collect_icasas(srce, province, propertyType, inDf, outCsvPath):
+  default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
-      PublishedDate = "TBD"
-      PropertyState = "TBD"
+      PublishedDate = default
+      PropertyState = default
       MtTot = row['MtTot']
       Bdroom = row['Bdroom']
       Bath = row['Bath']
-      Parking = "TBD"
+      Parking = default
       PriceUF = row['FullPrice']
       Link = row['item-href']
       Description = rmEscSep(row['Description']).replace(",","")
@@ -113,14 +117,15 @@ def collect_icasas(srce, province, propertyType, inDf, outCsvPath):
         outCsv.write(houseToWrite.toCsvRow())
   
 def collect_chilepropiedades(srce, province, propertyType, inDf, outCsvPath):
+  default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
-      PublishedDate = "TBD"
-      PropertyState = "TBD"
+      PublishedDate = default
+      PropertyState = default
       MtTot = row['MtTot']
       Bdroom = row['Bdroom']
       Bath = row['Bath']
-      Parking = "TBD"
+      Parking = default
       PriceUF = row['FullPrice']
       Link = row['item-href']
       Description = rmEscSep(row['Description']).replace(",","")
@@ -130,7 +135,6 @@ def collect_chilepropiedades(srce, province, propertyType, inDf, outCsvPath):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
 
-# CSV processing
 def collectCsv(outFile, srce, idxRow, inCsvPath):
   # Initial Vars
   inDf = pd.read_csv(inCsvPath)
@@ -156,7 +160,6 @@ def collectMain(log, dataIndex, baseInPath, baseOutPath, statsPath, snap, srces,
   # INIT
   currStep = "ETL_01_COLLECT"
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
-  # logPrint(log, "ETL Step Start: {}".format(currStep))
 
   # SET
   inSnapPath = baseInPath + "/" + snap 

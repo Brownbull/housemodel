@@ -1,0 +1,12 @@
+icasas columns with null values:
+                          Srce                     0
+                      Province                     0
+                 PublishedDate                   101
+                  PropertyType                     0
+                 PropertyState                     0
+                         MtTot                     1
+                        Bdroom                     0
+                          Bath                     1
+                       Parking                     0
+                       PriceUF                     0
+                          Link                     0

@@ -1,8 +1,8 @@
 ,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link,Description
-count,233,233,233,233,233,233,233.0,233.0,233,233,233,233
-unique,1,6,129,2,1,48,,,1,105,233,231
-top,toctoc,Huechuraba,11-05-2020,Aparment,TBD,0 m²,,,TBD,UF  6.500,https://www.toctoc.com/propiedades/compracorredorasr/casa/huechuraba/dentro-de-condominio-seguridad-ga/1511267?o=resultado_lista_seo_info,Casa en Avda Colon 3 Dormitorios Mas Living Comedor Cocina.
-freq,233,60,11,144,233,94,,,233,11,1,2
+count,233,233,233,233,0.0,233,233.0,233.0,0.0,233,233,233
+unique,1,6,129,2,,48,,,,105,233,231
+top,toctoc,Santiago,11-05-2020,Aparment,,0 m²,,,,UF  6.500,https://www.toctoc.com/propiedades/compracorredorasr/departamento/providencia/lyon-carlos-antunez/831386?o=resultado_lista_seo_info,Casa en Avda Colon 3 Dormitorios Mas Living Comedor Cocina.
+freq,233,60,11,144,,94,,,,11,1,2
 mean,,,,,,,3.742489270386266,2.4377682403433476,,,,
 std,,,,,,,1.1827593326171644,0.7291576371739142,,,,
 min,,,,,,,3.0,0.0,,,,

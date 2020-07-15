@@ -30,6 +30,8 @@ imp.load_source('collectLib', etlCfg['collectLib'])
 from collectLib import *
 imp.load_source('formatLib', etlCfg['formatLib'])
 from formatLib import *
+imp.load_source('fillLib', etlCfg['fillLib'])
+from fillLib import *
 
 # INITIALIZE TIMING & LOG
 startTime, startStamp = getTimeAndStamp()
@@ -67,7 +69,16 @@ for snap in snapshots:
       etlCfg['statsPath'], # statsPath
       snap, 
       collectFiles, 
-      etlCfg['formationCols'])
+      etlCfg['formatCols'])
+              
+    ## ETL Step - FILL
+    fillFiles = fillMain(
+      log, 
+      etlCfg['transformPath'], # baseOutPath
+      etlCfg['statsPath'], # statsPath
+      snap, 
+      formatFiles, 
+      etlCfg['fillCols'])
               
 
 

@@ -1,0 +1,12 @@
+,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link
+count,233,233,233,233,233,233.0,233.0,233.0,233.0,233.0,233
+unique,1,6,120,2,2,,,,,,233
+top,toctoc,Santiago,11/05/2020,Aparment,usada,,,,,,https://www.toctoc.com/propiedades/compracorredorasr/departamento/providencia/lyon-carlos-antunez/831386?o=resultado_lista_seo_info
+freq,233,60,11,144,231,,,,,,1
+mean,,,,,,121.50643776824035,3.742489270386266,2.4377682403433476,0.703862660944206,6059.648068669528,
+std,,,,,,29.064304474447603,1.1827593326171644,0.7291576371739142,0.7386104253035065,768.7142286088182,
+min,,,,,,100.0,3.0,0.0,0.0,3993.0,
+25%,,,,,,112.0,3.0,2.0,0.0,5600.0,
+50%,,,,,,117.0,3.0,2.0,1.0,6250.0,
+75%,,,,,,120.0,4.0,3.0,1.0,6690.0,
+max,,,,,,469.0,13.0,4.0,2.0,7000.0,

@@ -2,7 +2,7 @@
 # Input Setup
 dataIndex: D:/Reference/housemodel/data/E/byHand/segment1_dataSources.csv
 dataFolder: D:/Reference/housemodel/data/E/webscrapper
-dataSrces: &dataSrces [ 'portal inmobiliario', 'toctoc', 'propiedades emol', 'icasas', 'chile propiedades' ]
+dataSrces: &dataSrces [ 'portal inmobiliario', 'toctoc', 'propiedades emol', 'icasas' ]
 # Processing Initial Date format YYYYMMDD
 procDtIni: 20200701
 # Processing End Date format YYYYMMDD
@@ -17,7 +17,10 @@ collectLib: D:\Reference\housemodel\main\ETL\T\houses\collect.py
 collectionCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description]
 ## Format
 formatLib: D:\Reference\housemodel\main\ETL\T\houses\format.py
-formationCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link]
+formatCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link]
+## Fill
+fillLib: D:\Reference\housemodel\main\ETL\T\houses\fill.py
+fillCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link]
 # Execution setup
 info: False
 force: False

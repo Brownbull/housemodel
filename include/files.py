@@ -37,3 +37,4 @@ def readConfg(fConfig):
   else:
     sys.exit('Error: File ' + fConfig + " was not found.")
 
+

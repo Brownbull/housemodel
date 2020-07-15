@@ -1,5 +1,12 @@
 ,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link,Description
-count,101,101,101,101,101,101,101,100,101,101,101,99
-unique,1,5,1,2,1,45,4,5,1,65,97,94
-top,icasas,Huechuraba,TBD,House,TBD,100m2,3 Dormitorios,2 Baños,TBD,UF 6.900,https://www.icasas.cl/propiedad/421443,Excelente departamento en residencial ubicación de la comuna de las condes. Hall de acceso amplio living comedor con terraza incorporada. Cocina de buen tamaño con loggia. Tres dormitorios (principal en suite) dos baños completos más dormitorio y baño de servicio. Un estacionamiento y una bodega. Edificio con conserjería las 24 horas estacionamientos de visita sala de juegos solo dos departamentos por piso. Gastos comunes: $90. 000 aprox.
-freq,101,28,101,55,101,17,53,40,101,7,2,2
+count,101,101,0.0,101,0.0,101,101,100,0.0,101,101,99
+unique,1,5,,2,,45,4,5,,65,97,94
+top,icasas,Huechuraba,,House,,100m2,3 Dormitorios,2 Baños,,UF 6.900,https://www.icasas.cl/propiedad/456152,General rondizzoni / club hipico hermosa casa patrimonial 163/144 m2 barrio residencial patrimonio cultural. @¬1er piso living comedor separados baño de visita cocina cerrada patio techado remodelado lavadero bodega piso cerámica. @¬cuenta con amplio departamento interior independiente living comedor 1 dormitorio baño cocina cerrada. @¬2do piso 2 amplios dormitorios 1 baño. . Yohara macarena stewart tel.
+freq,101,28,,55,,17,53,40,,7,2,2
+mean,,,,,,,,,,,,
+std,,,,,,,,,,,,
+min,,,,,,,,,,,,
+25%,,,,,,,,,,,,
+50%,,,,,,,,,,,,
+75%,,,,,,,,,,,,
+max,,,,,,,,,,,,

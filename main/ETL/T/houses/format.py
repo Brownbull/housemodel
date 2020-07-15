@@ -72,7 +72,7 @@ def getMtTot(string, default):
 def inferMtTot(string, default):
   for e in string.split():
     e = getMtTot(e, default)
-    if e != default and e < 1000:
+    if e != default and e < 300:
       return e
   return default
 
@@ -115,11 +115,11 @@ def inferParking(Description):
   Description = str(Description).lower()
   noParkingKeys = ["no", "tiene"]
   if "estacionamientos" in Description:
-    return 2
+    return int(2)
   elif "estacionamiento" in Description and not strListInPhrase(noParkingKeys, Description):
-    return 1
+    return int(1)
   else:
-    return 0
+    return int(0)
 
 def getPriceUF(string, default):
   UF = 28800 # 07/13/2020 = $28.684 CLP
@@ -135,7 +135,7 @@ def getPriceUF(string, default):
     return default
 
 def format_portalinmobiliario(inDf, outCsvPath):
-  default = "TBD"
+  default = ""
   # dateFormat = "%Y/%m/%d"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
@@ -157,7 +157,7 @@ def format_portalinmobiliario(inDf, outCsvPath):
       outCsv.write(houseToWrite.toCsvRow())
 
 def format_toctoc(inDf, outCsvPath):
-  default = "TBD"
+  default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       # GET values
@@ -178,7 +178,7 @@ def format_toctoc(inDf, outCsvPath):
       outCsv.write(houseToWrite.toCsvRow())
 
 def format_propiedadesemol(inDf, outCsvPath):
-  default = "TBD"
+  default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       # GET values
@@ -199,7 +199,7 @@ def format_propiedadesemol(inDf, outCsvPath):
       outCsv.write(houseToWrite.toCsvRow())
 
 def format_icasas(inDf, outCsvPath):
-  default = "TBD"
+  default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       # GET values
@@ -220,7 +220,7 @@ def format_icasas(inDf, outCsvPath):
       outCsv.write(houseToWrite.toCsvRow())
 
 def format_chilepropiedades(inDf, outCsvPath):
-  default = "TBD"
+  default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
       # GET values
@@ -248,15 +248,15 @@ def formatCsv(srce, inCsvPath, outCsvPath):
 
   # SRCE switch
   if srce == "portal inmobiliario":
-    houseToWrite = format_portalinmobiliario(inDf, outCsvPath)
+    format_portalinmobiliario(inDf, outCsvPath)
   elif srce == "toctoc":
-    houseToWrite = format_toctoc(inDf, outCsvPath)
+    format_toctoc(inDf, outCsvPath)
   elif srce == "propiedades emol":
-    houseToWrite = format_propiedadesemol(inDf, outCsvPath)
+    format_propiedadesemol(inDf, outCsvPath)
   elif srce == "icasas":
-    houseToWrite = format_icasas(inDf, outCsvPath)
+    format_icasas(inDf, outCsvPath)
   elif srce == "chile propiedades":
-    houseToWrite = format_chilepropiedades(inDf, outCsvPath)
+    format_chilepropiedades(inDf, outCsvPath)
 
 # MAIN
 def formatMain(log, baseOutPath, statsPath, snap, inCsvPaths, formatCols):
@@ -264,7 +264,7 @@ def formatMain(log, baseOutPath, statsPath, snap, inCsvPaths, formatCols):
   startTime, startStamp = getTimeAndStamp()
   # INIT
   currStep = "ETL_02_FORMAT"
-  logPrint(log, "asd {} Start: {}".format(currStep, str(startStamp)))
+  logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET
   outSnapPath = baseOutPath + "/" + snap
@@ -285,13 +285,12 @@ def formatMain(log, baseOutPath, statsPath, snap, inCsvPaths, formatCols):
       outCsv.write(array2Str(formatCols, ',') + "\n")
 
     ## FORMAT
-    outCsv = formatCsv(
+    formatCsv(
       srce, 
       inCsvPath, # inFile
       outCsvPath) # outFile
 
     outFormatFiles.append(outCsvPath)
-  exit()
   ## FINISH
   # END TIMING & LOG
   endTime, endStamp = getTimeAndStamp()

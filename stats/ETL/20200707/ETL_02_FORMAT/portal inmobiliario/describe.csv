@@ -1,0 +1,12 @@
+,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link
+count,377,377,360,377,377,377.0,377.0,377.0,376.0,377.0,377
+unique,1,6,109,2,1,,,,,,377
+top,portal inmobiliario,Huechuraba,12/05/2020,Aparment,usada,,,,,,https://www.portalinmobiliario.com/venta/departamento/santiago-metropolitana/5641861-san-diego-516-departamento-1018-uda#position=25&type=item&tracking_id=1192ceb3-9d37-4d7d-9b70-27954d945045
+freq,377,156,17,230,377,,,,,,1
+mean,,,,,,172.83554376657824,3.442970822281167,2.6923076923076925,1.6888297872340425,6063.145888594165,
+std,,,,,,356.92048627182317,0.6624902100421679,0.7792312296930667,0.7529375097689192,792.9144512897772,
+min,,,,,,100.0,3.0,1.0,1.0,3993.0,
+25%,,,,,,109.0,3.0,2.0,1.0,5500.0,
+50%,,,,,,129.0,3.0,3.0,2.0,6250.0,
+75%,,,,,,180.0,4.0,3.0,2.0,6700.0,
+max,,,,,,5000.0,6.0,5.0,4.0,7000.0,
