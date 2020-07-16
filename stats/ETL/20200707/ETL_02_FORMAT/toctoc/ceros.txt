@@ -7,6 +7,6 @@ toctoc columns with 0 values:
                          MtTot                     0
                         Bdroom                     0
                           Bath                     2
-                       Parking                    92
+                       Parking                    90
                        PriceUF                     0
                           Link                     0

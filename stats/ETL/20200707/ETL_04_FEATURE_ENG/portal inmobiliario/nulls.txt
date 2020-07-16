@@ -1,4 +1,5 @@
 portal inmobiliario columns with null values:
+                      SnapDate                     0
                           Srce                     0
                       Province                     0
                  PublishedDate                     0

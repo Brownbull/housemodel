@@ -84,7 +84,7 @@ for snap in snapshots:
 
     ## ETL Step - FEATURE ENG
     fEngFiles = fEngMain(
-      log, 
+      log,
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
       snap, 

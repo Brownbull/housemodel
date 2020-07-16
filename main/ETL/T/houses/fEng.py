@@ -12,11 +12,12 @@ from main.ETL.stats import *
 global PublishedDateLastMode
 
 # CSV processing
-def fEngCsv(srce, inCsvPath, outCsvPath, cols):
+def fEngCsv(snap, srce, inCsvPath, outCsvPath, cols):
   # Initial Vars
   inDf = pd.read_csv(inCsvPath)
 
   # NEW cols
+  inDf['SnapDate'] = inDf.apply(lambda row: snap, axis=1)
   inDf['UFxMt2'] = inDf.apply(lambda row: int(row['PriceUF']/row['MtTot']), axis=1)
   inDf['ValueScore'] = inDf.apply(lambda row: int(((row['Bdroom']*4)+(row['Bath']*4)+(row['Parking']*2))*(row['MtTot'])), axis=1)
   # inDf['ValueScore'] = inDf.apply(lambda row: int(((row['Bdroom']*4)+(row['Bath']*4)+(row['Parking']*2))*(row['MtTot'])*(1 if row['PropertyType'] == "Aparment" else 0.7)), axis=1)
@@ -55,6 +56,7 @@ def fEngMain(log, baseOutPath, statsPath, snap, inCsvPaths, cols):
 
     ## FORMAT
     fEngCsv(
+      snap,
       srce, 
       inCsvPath, # inFile
       outCsvPath, # outFile
