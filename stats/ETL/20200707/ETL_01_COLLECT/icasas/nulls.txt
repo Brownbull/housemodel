@@ -1,13 +1,13 @@
 icasas columns with null values:
                           Srce                     0
                       Province                     0
-                 PublishedDate                   101
+                 PublishedDate                    93
                   PropertyType                     0
-                 PropertyState                   101
+                 PropertyState                    93
                          MtTot                     0
                         Bdroom                     0
                           Bath                     1
-                       Parking                   101
+                       Parking                    93
                        PriceUF                     0
                           Link                     0
                    Description                     2

@@ -39,7 +39,7 @@ class CollectHouse:
       self.Link,
       self.Description)
 
-def collect_portalinmobiliario(srce, province, propertyType, inDf, outCsvPath):
+def collect_portalinmobiliario(srce, province, propertyType, inDf, outCsvPath, collDropKeys):
   default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
@@ -51,14 +51,14 @@ def collect_portalinmobiliario(srce, province, propertyType, inDf, outCsvPath):
       Parking = row['Parking']
       PriceUF = "{} {}".format(row['Price'], row['PriceUnit'])
       Link = row['item-href']
-      Description = rmEscSep(row['Description']).replace(",","")
+      Description = rmEscSep(row['Description']).replace(",","").lower()
 
       # WRITE row
-      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description):
+      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description) and not strOfListInPhrase(collDropKeys, Description) and not strOfListInPhrase(collDropKeys, Link):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
 
-def collect_toctoc(srce, province, propertyType, inDf, outCsvPath):
+def collect_toctoc(srce, province, propertyType, inDf, outCsvPath, collDropKeys):
   default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
@@ -70,14 +70,14 @@ def collect_toctoc(srce, province, propertyType, inDf, outCsvPath):
       Parking = default
       PriceUF = row['FullPrice']
       Link = row['item-href']
-      Description = rmEscSep(row['Description']).replace(",","")
+      Description = rmEscSep(row['Description']).replace(",","").lower()
 
       # WRITE row
-      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description):
+      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description) and not strOfListInPhrase(collDropKeys, Description) and not strOfListInPhrase(collDropKeys, Link):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
 
-def collect_propiedadesemol(srce, province, propertyType, inDf, outCsvPath):
+def collect_propiedadesemol(srce, province, propertyType, inDf, outCsvPath, collDropKeys):
   default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
@@ -89,15 +89,15 @@ def collect_propiedadesemol(srce, province, propertyType, inDf, outCsvPath):
       Parking = default
       PriceUF = row['FullPrice']
       Link = row['item-href']
-      Description = rmEscSep(row['Description']).replace(",","")
+      Description = rmEscSep(row['Description']).replace(",","").lower()
 
       # WRITE row
       MtTotnumbers = getNumbrs(MtTot)
-      if not isNaN(Link) and not isNaN(MtTot) and len(MtTotnumbers) > 0 and not isNaN(Description):
+      if not isNaN(Link) and not isNaN(MtTot) and len(MtTotnumbers) > 0 and not isNaN(Description) and not strOfListInPhrase(collDropKeys, Description) and not strOfListInPhrase(collDropKeys, Link):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
 
-def collect_icasas(srce, province, propertyType, inDf, outCsvPath):
+def collect_icasas(srce, province, propertyType, inDf, outCsvPath, collDropKeys):
   default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
@@ -109,14 +109,14 @@ def collect_icasas(srce, province, propertyType, inDf, outCsvPath):
       Parking = default
       PriceUF = row['FullPrice']
       Link = row['item-href']
-      Description = rmEscSep(row['Description']).replace(",","")
+      Description = rmEscSep(row['Description']).replace(",","").lower()
 
       # WRITE row
-      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description):
+      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description) and not strOfListInPhrase(collDropKeys, Description) and not strOfListInPhrase(collDropKeys, Link):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
   
-def collect_chilepropiedades(srce, province, propertyType, inDf, outCsvPath):
+def collect_chilepropiedades(srce, province, propertyType, inDf, outCsvPath, collDropKeys):
   default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
@@ -128,14 +128,14 @@ def collect_chilepropiedades(srce, province, propertyType, inDf, outCsvPath):
       Parking = default
       PriceUF = row['FullPrice']
       Link = row['item-href']
-      Description = rmEscSep(row['Description']).replace(",","")
+      Description = rmEscSep(row['Description']).replace(",","").lower()
       
       # WRITE row
-      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description):
+      if not isNaN(Link) and not isNaN(MtTot) and not isNaN(Description) and not strOfListInPhrase(collDropKeys, Description) and not strOfListInPhrase(collDropKeys, Link):
         houseToWrite = CollectHouse( srce, province, PublishedDate, propertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description)
         outCsv.write(houseToWrite.toCsvRow())
 
-def collectCsv(outFile, srce, idxRow, inCsvPath):
+def collectCsv(outFile, srce, idxRow, inCsvPath, collDropKeys):
   # Initial Vars
   inDf = pd.read_csv(inCsvPath)
   province = idxRow['Province']
@@ -143,18 +143,18 @@ def collectCsv(outFile, srce, idxRow, inCsvPath):
 
   # SRCE switch
   if srce == "portal inmobiliario":
-    collect_portalinmobiliario(srce, province, propertyType, inDf, outFile)
+    collect_portalinmobiliario(srce, province, propertyType, inDf, outFile, collDropKeys)
   elif srce == "toctoc":
-    collect_toctoc(srce, province, propertyType, inDf, outFile)
+    collect_toctoc(srce, province, propertyType, inDf, outFile, collDropKeys)
   elif srce == "propiedades emol":
-    collect_propiedadesemol(srce, province, propertyType, inDf, outFile)
+    collect_propiedadesemol(srce, province, propertyType, inDf, outFile, collDropKeys)
   elif srce == "icasas":
-    collect_icasas(srce, province, propertyType, inDf, outFile)
+    collect_icasas(srce, province, propertyType, inDf, outFile, collDropKeys)
   elif srce == "chile propiedades":
-    collect_chilepropiedades(srce, province, propertyType, inDf, outFile)
+    collect_chilepropiedades(srce, province, propertyType, inDf, outFile, collDropKeys)
 
 # MAIN
-def collectMain(log, dataIndex, baseInPath, baseOutPath, statsPath, snap, srces, collectionCols):
+def collectMain(log, dataIndex, baseInPath, baseOutPath, statsPath, snap, srces, collectionCols, collDropKeys):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
@@ -195,8 +195,8 @@ def collectMain(log, dataIndex, baseInPath, baseOutPath, statsPath, snap, srces,
         outSrcPath, # outFile
         srce, 
         idxRow, 
-        inCsvPath) # csvPath
-
+        inCsvPath, # csvPath
+        collDropKeys)
     # SAVE output
     outCollectFiles.append(outSrcPath)
 

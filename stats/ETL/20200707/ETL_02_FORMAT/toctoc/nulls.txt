@@ -4,7 +4,7 @@ toctoc columns with null values:
                  PublishedDate                     0
                   PropertyType                     0
                  PropertyState                     0
-                         MtTot                    95
+                         MtTot                    83
                         Bdroom                     0
                           Bath                     0
                        Parking                     0

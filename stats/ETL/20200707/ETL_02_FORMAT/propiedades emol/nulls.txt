@@ -4,7 +4,7 @@ propiedades emol columns with null values:
                  PublishedDate                     0
                   PropertyType                     0
                  PropertyState                     0
-                         MtTot                     5
+                         MtTot                     4
                         Bdroom                     0
                           Bath                     0
                        Parking                     0

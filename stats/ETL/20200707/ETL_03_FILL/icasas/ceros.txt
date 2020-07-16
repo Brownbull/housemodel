@@ -7,6 +7,6 @@ icasas columns with 0 values:
                          MtTot                     0
                         Bdroom                     0
                           Bath                     0
-                       Parking                    46
+                       Parking                    42
                        PriceUF                     0
                           Link                     0

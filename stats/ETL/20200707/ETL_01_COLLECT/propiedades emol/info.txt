@@ -1,19 +1,19 @@
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 107 entries, 0 to 106
+RangeIndex: 96 entries, 0 to 95
 Data columns (total 12 columns):
  #   Column         Non-Null Count  Dtype  
 ---  ------         --------------  -----  
- 0   Srce           107 non-null    object 
- 1   Province       107 non-null    object 
- 2   PublishedDate  107 non-null    object 
- 3   PropertyType   107 non-null    object 
+ 0   Srce           96 non-null     object 
+ 1   Province       96 non-null     object 
+ 2   PublishedDate  96 non-null     object 
+ 3   PropertyType   96 non-null     object 
  4   PropertyState  0 non-null      float64
- 5   MtTot          107 non-null    object 
- 6   Bdroom         107 non-null    object 
- 7   Bath           107 non-null    object 
+ 5   MtTot          96 non-null     object 
+ 6   Bdroom         96 non-null     object 
+ 7   Bath           96 non-null     object 
  8   Parking        0 non-null      float64
- 9   PriceUF        107 non-null    object 
- 10  Link           107 non-null    object 
- 11  Description    107 non-null    object 
+ 9   PriceUF        96 non-null     object 
+ 10  Link           96 non-null     object 
+ 11  Description    96 non-null     object 
 dtypes: float64(2), object(10)
-memory usage: 5.9+ KB
+memory usage: 5.3+ KB

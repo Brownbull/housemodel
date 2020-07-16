@@ -7,6 +7,6 @@ propiedades emol columns with 0 values:
                          MtTot                     0
                         Bdroom                     0
                           Bath                     0
-                       Parking                    48
+                       Parking                    43
                        PriceUF                     0
                           Link                     0

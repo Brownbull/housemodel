@@ -3,11 +3,11 @@ propiedades emol columns with null values:
                       Province                     0
                  PublishedDate                     0
                   PropertyType                     0
-                 PropertyState                   107
+                 PropertyState                    96
                          MtTot                     0
                         Bdroom                     0
                           Bath                     0
-                       Parking                   107
+                       Parking                    96
                        PriceUF                     0
                           Link                     0
                    Description                     0

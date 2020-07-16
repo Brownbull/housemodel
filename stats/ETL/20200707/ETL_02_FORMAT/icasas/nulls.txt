@@ -1,7 +1,7 @@
 icasas columns with null values:
                           Srce                     0
                       Province                     0
-                 PublishedDate                   101
+                 PublishedDate                    93
                   PropertyType                     0
                  PropertyState                     0
                          MtTot                     1

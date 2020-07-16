@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
   @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
-  Fill - Format Module inside Transform on ETL for houses model
+  Fill Module inside Transform on ETL for houses model
 """
 import pandas as pd
 from include.logs import *
@@ -10,34 +10,6 @@ from include.program import *
 from main.ETL.stats import *
 
 global PublishedDateLastMode
-
-class FillHouse:
-  def __init__(self, Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link):
-    self.Srce = Srce
-    self.Province = Province
-    self.PublishedDate = PublishedDate
-    self.PropertyType = PropertyType
-    self.PropertyState = PropertyState
-    self.MtTot = MtTot
-    self.Bdroom = Bdroom
-    self.Bath = Bath
-    self.Parking = Parking
-    self.PriceUF = PriceUF
-    self.Link = Link
-
-  def toCsvRow(self):
-    return "\"{}\",\"{}\",\"{}\",\"{}\",\"{}\",\"{}\",\"{}\",\"{}\",\"{}\",\"{}\",\"{}\"\n".format(
-      self.Srce ,
-      self.Province ,
-      self.PublishedDate ,
-      self.PropertyType ,
-      self.PropertyState ,
-      self.MtTot ,
-      self.Bdroom ,
-      self.Bath ,
-      self.Parking ,
-      self.PriceUF,
-      self.Link)
 
 # CSV processing
 def fillCsv(srce, inCsvPath, outCsvPath):
@@ -96,7 +68,7 @@ def fillCsv(srce, inCsvPath, outCsvPath):
   inDf.to_csv(outCsvPath, index=False)
 
 # MAIN
-def fillMain(log, baseOutPath, statsPath, snap, inCsvPaths, formatCols):
+def fillMain(log, baseOutPath, statsPath, snap, inCsvPaths):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
@@ -116,10 +88,6 @@ def fillMain(log, baseOutPath, statsPath, snap, inCsvPaths, formatCols):
     # OUTPUT setup
     outSnapStepPath = outSnapPath + "/" + currStep
     outCsvPath = initFilePath(outSnapStepPath, srce + ".csv")
-
-    # WRITE header
-    with open(outCsvPath, 'w', encoding="utf-8") as outCsv:
-      outCsv.write(array2Str(formatCols, ',') + "\n")
 
     ## FORMAT
     fillCsv(
