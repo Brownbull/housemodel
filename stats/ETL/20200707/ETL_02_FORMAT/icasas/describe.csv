@@ -1,7 +1,7 @@
 ,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link
 count,92,92,0.0,92,92,91.0,92.0,91.0,92.0,92.0,92
 unique,1,5,,2,2,,,,,,88
-top,icasas,Huechuraba,,House,usada,,,,,,https://www.icasas.cl/propiedad/411796
+top,icasas,Huechuraba,,House,usada,,,,,,https://www.icasas.cl/propiedad/421443
 freq,92,25,,50,89,,,,,,2
 mean,,,,,,132.4945054945055,3.597826086956522,2.4285714285714284,0.75,5985.271739130435,
 std,,,,,,38.744855895510284,0.6962976281765577,0.8319035353113317,0.7649606755675975,761.7624893505571,

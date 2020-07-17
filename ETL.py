@@ -32,8 +32,10 @@ imp.load_source('formatLib', etlCfg['formatLib'])
 from formatLib import *
 imp.load_source('fillLib', etlCfg['fillLib'])
 from fillLib import *
-imp.load_source('fEng', etlCfg['fEngLib'])
-from fEng import *
+imp.load_source('fEngLib', etlCfg['fEngLib'])
+from fEngLib import *
+imp.load_source('loadLib', etlCfg['loadLib'])
+from loadLib import *
 
 # INITIALIZE TIMING & LOG
 startTime, startStamp = getTimeAndStamp()
@@ -90,6 +92,16 @@ for snap in snapshots:
       snap, 
       fillFiles,
       etlCfg['fEngCols'])
+
+    ## ETL Step - LOAD
+    loadMain(
+      log,
+      etlCfg['transformPath'], # baseOutPath
+      etlCfg['statsPath'], # statsPath
+      snap, 
+      fEngFiles,
+      etlCfg['fEngCols'],
+      etlCfg['dbCfg'])
               
 
 

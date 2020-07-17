@@ -1,0 +1,19 @@
+SELECT 
+  "ID", 
+  "SNAP_DT", 
+  "SRCE", 
+  "PROVINCE", 
+  "PUBLISHED_DT", 
+  "PUBLISHED_TIMESMTP", 
+  "PROPERTY_TYPE", 
+  "PROPERTY_STATE", 
+  "BDROOM", 
+  "BATH", 
+  "PARKING", 
+  "POOL", 
+  "MT_UTIL", 
+  "MT_TOT", 
+  "PRICE_UF", 
+  "LINK"
+FROM 
+  public.houses;

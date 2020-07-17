@@ -8,8 +8,8 @@ icasas columns with 0 values:
                         Bdroom                     0
                           Bath                     0
                        Parking                    41
-                       PriceUF                     0
                          MtTot                     0
+                       PriceUF                     0
                         UFxMt2                     0
                     ValueScore                     0
                          Score                     0

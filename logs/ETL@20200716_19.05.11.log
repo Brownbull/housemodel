@@ -1,0 +1,118 @@
+2020-07-16 19:05:11: ETL Start: 2020-07-16 19:05:11.159833
+2020-07-16 19:05:11: Available Snapshots: 20200707
+2020-07-16 19:05:11: Processing Snapshot: 20200707
+2020-07-16 19:05:11: ETL_01_COLLECT Start: 2020-07-16 19:05:11.164867
+2020-07-16 19:05:11: Processing Source: portal inmobiliario
+2020-07-16 19:05:11: Processing Source: toctoc
+2020-07-16 19:05:11: Processing Source: propiedades emol
+2020-07-16 19:05:11: Processing Source: icasas
+2020-07-16 19:05:11: ETL_01_COLLECT Output Files: D:\Reference\housemodel\data\T\ETL/20200707/ETL_01_COLLECT/portal inmobiliario.csv
+	D:\Reference\housemodel\data\T\ETL/20200707/ETL_01_COLLECT/toctoc.csv
+	D:\Reference\housemodel\data\T\ETL/20200707/ETL_01_COLLECT/propiedades emol.csv
+	D:\Reference\housemodel\data\T\ETL/20200707/ETL_01_COLLECT/icasas.csv
+2020-07-16 19:05:11: ETL_01_COLLECT End: 2020-07-16 19:05:11.560835
+2020-07-16 19:05:11: ETL_01_COLLECT Total Execution Time: 0.3959677219390869
+2020-07-16 19:05:11: ETL_01_COLLECT Creating stats files for portal inmobiliario
+2020-07-16 19:05:11: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/portal inmobiliario/info.txt
+2020-07-16 19:05:11: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/portal inmobiliario/describe.csv
+2020-07-16 19:05:11: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/portal inmobiliario/nulls.txt
+2020-07-16 19:05:11: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/portal inmobiliario/ceros.txt
+2020-07-16 19:05:11: ETL_01_COLLECT Creating stats files for toctoc
+2020-07-16 19:05:11: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/toctoc/info.txt
+2020-07-16 19:05:11: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/toctoc/describe.csv
+2020-07-16 19:05:11: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/toctoc/nulls.txt
+2020-07-16 19:05:11: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/toctoc/ceros.txt
+2020-07-16 19:05:11: ETL_01_COLLECT Creating stats files for propiedades emol
+2020-07-16 19:05:11: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/propiedades emol/info.txt
+2020-07-16 19:05:11: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/propiedades emol/describe.csv
+2020-07-16 19:05:11: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/propiedades emol/nulls.txt
+2020-07-16 19:05:11: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/propiedades emol/ceros.txt
+2020-07-16 19:05:11: ETL_01_COLLECT Creating stats files for icasas
+2020-07-16 19:05:11: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/icasas/info.txt
+2020-07-16 19:05:11: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/icasas/describe.csv
+2020-07-16 19:05:11: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/icasas/nulls.txt
+2020-07-16 19:05:11: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_01_COLLECT/icasas/ceros.txt
+2020-07-16 19:05:11: ETL_02_FORMAT Start: 2020-07-16 19:05:11.767831
+2020-07-16 19:05:11: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_01_COLLECT/portal inmobiliario.csv
+2020-07-16 19:05:11: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_01_COLLECT/toctoc.csv
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_01_COLLECT/propiedades emol.csv
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_01_COLLECT/icasas.csv
+2020-07-16 19:05:12: ETL_02_FORMAT End: 2020-07-16 19:05:12.096865
+2020-07-16 19:05:12: ETL_02_FORMAT Total Execution Time: 0.32903432846069336
+2020-07-16 19:05:12: ETL_02_FORMAT Creating stats files for portal inmobiliario
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/portal inmobiliario/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/portal inmobiliario/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/portal inmobiliario/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/portal inmobiliario/ceros.txt
+2020-07-16 19:05:12: ETL_02_FORMAT Creating stats files for toctoc
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/toctoc/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/toctoc/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/toctoc/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/toctoc/ceros.txt
+2020-07-16 19:05:12: ETL_02_FORMAT Creating stats files for propiedades emol
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/propiedades emol/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/propiedades emol/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/propiedades emol/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/propiedades emol/ceros.txt
+2020-07-16 19:05:12: ETL_02_FORMAT Creating stats files for icasas
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/icasas/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/icasas/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/icasas/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_02_FORMAT/icasas/ceros.txt
+2020-07-16 19:05:12: ETL_03_FILL Start: 2020-07-16 19:05:12.275835
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_02_FORMAT/portal inmobiliario.csv
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_02_FORMAT/toctoc.csv
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_02_FORMAT/propiedades emol.csv
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_02_FORMAT/icasas.csv
+2020-07-16 19:05:12: ETL_03_FILL End: 2020-07-16 19:05:12.351830
+2020-07-16 19:05:12: ETL_03_FILL Total Execution Time: 0.07599520683288574
+2020-07-16 19:05:12: ETL_03_FILL Creating stats files for portal inmobiliario
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/portal inmobiliario/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/portal inmobiliario/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/portal inmobiliario/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/portal inmobiliario/ceros.txt
+2020-07-16 19:05:12: ETL_03_FILL Creating stats files for toctoc
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/toctoc/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/toctoc/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/toctoc/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/toctoc/ceros.txt
+2020-07-16 19:05:12: ETL_03_FILL Creating stats files for propiedades emol
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/propiedades emol/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/propiedades emol/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/propiedades emol/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/propiedades emol/ceros.txt
+2020-07-16 19:05:12: ETL_03_FILL Creating stats files for icasas
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/icasas/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/icasas/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/icasas/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_03_FILL/icasas/ceros.txt
+2020-07-16 19:05:12: ETL_04_FEATURE_ENG Start: 2020-07-16 19:05:12.532833
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_03_FILL/portal inmobiliario.csv
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_03_FILL/toctoc.csv
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_03_FILL/propiedades emol.csv
+2020-07-16 19:05:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200707/ETL_03_FILL/icasas.csv
+2020-07-16 19:05:12: ETL_04_FEATURE_ENG End: 2020-07-16 19:05:12.679831
+2020-07-16 19:05:12: ETL_04_FEATURE_ENG Total Execution Time: 0.14699792861938477
+2020-07-16 19:05:12: ETL_04_FEATURE_ENG Creating stats files for portal inmobiliario
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/portal inmobiliario/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/portal inmobiliario/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/portal inmobiliario/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/portal inmobiliario/ceros.txt
+2020-07-16 19:05:12: ETL_04_FEATURE_ENG Creating stats files for toctoc
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/toctoc/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/toctoc/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/toctoc/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/toctoc/ceros.txt
+2020-07-16 19:05:12: ETL_04_FEATURE_ENG Creating stats files for propiedades emol
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/propiedades emol/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/propiedades emol/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/propiedades emol/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/propiedades emol/ceros.txt
+2020-07-16 19:05:12: ETL_04_FEATURE_ENG Creating stats files for icasas
+2020-07-16 19:05:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/icasas/info.txt
+2020-07-16 19:05:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/icasas/describe.csv
+2020-07-16 19:05:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/icasas/nulls.txt
+2020-07-16 19:05:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200707/ETL_04_FEATURE_ENG/icasas/ceros.txt
+2020-07-16 19:05:12: ETL_05_LOAD Start: 2020-07-16 19:05:12.907838
+2020-07-16 19:05:14: Connection OK
+2020-07-16 19:05:14: Connection Closed OK

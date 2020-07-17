@@ -1,7 +1,7 @@
 ,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link
 count,96,96,96,96,96,96.0,96.0,96.0,96.0,96.0,96
 unique,1,5,2,2,2,,,,,,96
-top,propiedades emol,Huechuraba,07/07/2020,Aparment,usada,,,,,,https://www.propiedades.emol.com/propiedad/ficha/casa-en-venta-en-santiago-5-dormitorios-1-bano-codR24095969-0L0-101009702.html
+top,propiedades emol,Huechuraba,07/07/2020,Aparment,usada,,,,,,https://www.propiedades.emol.com/propiedad/ficha/departamento-en-venta-en-nunoa-4-dormitorios-2-banos-codR76888194-4L0-102032631.html
 freq,96,24,93,59,93,,,,,,1
 mean,,,,,,120.57291666666667,3.6666666666666665,2.40625,0.78125,5885.666666666667,
 std,,,,,,20.272223564414784,0.8292884288627294,0.6581972988477895,0.7974053317842155,755.9072299898164,

@@ -12,8 +12,8 @@ Data columns (total 15 columns):
  6   Bdroom         96 non-null     int64  
  7   Bath           96 non-null     int64  
  8   Parking        96 non-null     int64  
- 9   PriceUF        96 non-null     int64  
- 10  MtTot          96 non-null     float64
+ 9   MtTot          96 non-null     float64
+ 10  PriceUF        96 non-null     int64  
  11  UFxMt2         96 non-null     int64  
  12  ValueScore     96 non-null     int64  
  13  Score          96 non-null     int64  

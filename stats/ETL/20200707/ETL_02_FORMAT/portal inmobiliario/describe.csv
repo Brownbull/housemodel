@@ -1,7 +1,7 @@
 ,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link
 count,314,314,297,314,314,314.0,314.0,314.0,314.0,314.0,314
 unique,1,6,104,2,1,,,,,,314
-top,portal inmobiliario,Huechuraba,12/05/2020,Aparment,usada,,,,,,https://www.portalinmobiliario.com/venta/casa/huechuraba-metropolitana/5601619-santa-marta-uda#position=13&type=item&tracking_id=0a1c54e0-b7c7-415b-a722-cdf45f6aa394
+top,portal inmobiliario,Huechuraba,12/05/2020,Aparment,usada,,,,,,https://www.portalinmobiliario.com/venta/casa/huechuraba-metropolitana/5610874-lombardia-berta-correa-uda#position=39&type=item&tracking_id=a0a59148-8980-47aa-ac54-2b9fe2217d12
 freq,314,135,17,191,314,,,,,,1
 mean,,,,,,159.05732484076432,3.4554140127388533,2.6751592356687897,1.6656050955414012,6051.359872611465,
 std,,,,,,277.6212452403366,0.6779875223350306,0.7517099613127354,0.7102367310687726,784.1201380175822,

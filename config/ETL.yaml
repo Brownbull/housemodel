@@ -25,7 +25,14 @@ formatCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, 
 fillLib: D:\Reference\housemodel\main\ETL\T\houses\fill.py
 ## fEng
 fEngLib: D:\Reference\housemodel\main\ETL\T\houses\fEng.py
-fEngCols: [SnapDate, Srce, Province, PublishedDate, PropertyType, PropertyState, Bdroom, Bath, Parking,  PriceUF, MtTot, UFxMt2, ValueScore, Score, Link]
+fEngCols: [SnapDate, Srce, Province, PublishedDate, PropertyType, PropertyState, Bdroom, Bath, Parking,  MtTot, PriceUF, UFxMt2, ValueScore, Score, Link]
+## Load
+loadLib: D:\Reference\housemodel\main\ETL\L\houses\postgreSQL.py
+dbCfg:
+  db: houses
+  user: postgres
+  hst: localhost
+  prt: 5432
 # Execution setup
 info: False
 force: False
