@@ -1,7 +1,9 @@
 SELECT 
   "houses"."SNAP_DT", 
+  "houses"."SRCE", 
   "houses"."PROVINCE", 
   "houses"."PROPERTY_TYPE", 
+  count(*) as COUNT,
   ceil(AVG("houses"."MT_TOT")) MT_AVG, 
   ceil(AVG("houses"."PRICE_UF")) PRICE_AVG,
   ceil(AVG("housesplus"."uf_x_mt2")) UF_X_MT2_AVG,
@@ -15,6 +17,7 @@ ON
   "houses"."ID" = "housesplus"."ID"
 GROUP BY
   "houses"."SNAP_DT", 
+  "houses"."SRCE", 
   "houses"."PROVINCE", 
   "houses"."PROPERTY_TYPE" 
 ORDER BY
