@@ -66,6 +66,7 @@ for snap in snapshots:
       etlCfg['dataSrces'], 
       etlCfg['collectionCols'],
       etlCfg['collDropKeys'])
+    exit()
               
     ## ETL Step - FORMAT
     formatFiles = formatMain(

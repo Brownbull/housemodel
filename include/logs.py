@@ -15,6 +15,8 @@ def logPrint(logPath, msg):
     log.write(logMsg + "\n")
 
 def logInit(path, prefix):
-  now = datetime.now().strftime('%Y%m%d_%H.%M.%S')
-  logName = prefix + "@" + now + ".log"
-  return initFilePath(path, logName)
+  today = datetime.now().strftime('%Y%m%d')
+  logPath = path + "/" + prefix + "/" + today
+  now = datetime.now().strftime('%H.%M.%S')
+  logName = now + ".log"
+  return initFilePath(logPath, logName)
