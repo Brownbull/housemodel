@@ -16,18 +16,27 @@ def fillCsv(srce, inCsvPath, outCsvPath):
   # Initial Vars
   inDf = pd.read_csv(inCsvPath)
   """
-  Houses Fills
-  Srce = never null
-  Province = never null
-  PublishedDate = mode
-  PropertyType = never null
-  PropertyState = mode
-  MtTot = median
-  Bdroom = median
-  Bath = median
-  Parking = median
-  PriceUF = median
-  Link = never null
+  Srce : never null
+  Region : never null
+  Province : mode
+  PublishedDate : mode
+  PropertyType : never null
+  PropertyState : mode
+  Age : -16
+  Stage : -16
+  Delivery : -16
+  CommonExpnsCLP : -16 
+  Floor : -16
+  ForInvestment : N 
+  MtTot : custom
+  MtUtil : custom
+  Bdroom : custom median
+  Bath : custom median
+  Parking : custom median
+  Storage : custom median
+  Pool : 0
+  PriceUF : never null 
+  Link : never null
   """
   # Means
   mean_MtTot = round(inDf['MtTot'].mean(skipna=True),0)
@@ -46,6 +55,8 @@ def fillCsv(srce, inCsvPath, outCsvPath):
     PublishedDateLastMode = tempMode[0]
   else:
     inDf['PublishedDate'].fillna(PublishedDateLastMode, inplace = True)
+
+  df['column'] = df['column'].replace(np.nan, 0)
   inDf['PropertyState'].fillna(inDf['PropertyState'].mode()[0], inplace = True)
   inDf['MtTot'].fillna(inDf['MtTot'].median(), inplace = True)
   inDf['Bdroom'].fillna(inDf['Bdroom'].median(), inplace = True)
@@ -68,7 +79,7 @@ def fillCsv(srce, inCsvPath, outCsvPath):
   inDf.to_csv(outCsvPath, index=False)
 
 # MAIN
-def fillMain(log, baseOutPath, statsPath, snap, inCsvPaths):
+def fillMain(log, snap, inCsvPaths, baseOutPath, statsPath):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
