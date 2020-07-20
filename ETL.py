@@ -28,6 +28,10 @@ if etlCfg['debug']:
 # LOAD TRANSFORM LIBS
 imp.load_source('collectLib', etlCfg['collectLib'])
 from collectLib import *
+imp.load_source('buildLib', etlCfg['buildLib'])
+from buildLib import *
+imp.load_source('cleanLib', etlCfg['cleanLib'])
+from cleanLib import *
 imp.load_source('formatLib', etlCfg['formatLib'])
 from formatLib import *
 imp.load_source('fillLib', etlCfg['fillLib'])
@@ -58,14 +62,32 @@ for snap in snapshots:
     ## ETL Step - COLLECT
     collectFiles = collectMain(
       log, 
+      snap, 
       dataIndex, # index of sources
       etlCfg['dataFolder'], # baseInPath
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
-      snap, 
       etlCfg['dataSrces'], 
-      etlCfg['collectionCols'],
-      etlCfg['collDropKeys'])
+      etlCfg['collectionCols'])
+              
+    ## ETL Step - BUILD
+    buildFiles = buildMain(
+      log, 
+      snap, 
+      collectFiles, 
+      etlCfg['transformPath'], # baseOutPath
+      etlCfg['statsPath'], # statsPath
+      etlCfg['buildCols'])
+    exit()
+
+    ## ETL Step - CLEAN
+    cleanFiles = cleanMain(
+      log, 
+      etlCfg['transformPath'], # baseOutPath
+      etlCfg['statsPath'], # statsPath
+      snap, 
+      buildFiles, 
+      etlCfg['cleanCols'])
     exit()
               
     ## ETL Step - FORMAT
@@ -74,7 +96,7 @@ for snap in snapshots:
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
       snap, 
-      collectFiles, 
+      cleanFiles, 
       etlCfg['formatCols'])
               
     ## ETL Step - FILL

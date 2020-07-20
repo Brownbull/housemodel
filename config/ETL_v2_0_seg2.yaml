@@ -14,10 +14,13 @@ statsPath: D:\Reference\housemodel\stats\ETL
 transformPath: D:\Reference\housemodel\data\T\ETL
 ## Collect
 collectLib: D:\Reference\housemodel\main\ETL\T\houses\collect.py
-collDropKeys: ["pincoya","pudahuel", "batuco", "colina", "bosque", "maipu", "florida", "puente", 
-"bernardo", "quilicura","chicureo", "valles", "cisterna", "maipú", "melipilla", "frei","bolivia", 
-"inversionista", "remodelación", "refaccionar", "invertir", "lampa", "embalse"]
-collectionCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link, Description]
+collectionCols: [Srce, Region, PropertyType, PropertyState, PublishedDate, Title, Section, Models, fld0, fld1, fld2, fld3, fld4, fld5, FullPrice, Link, Description]
+## Build
+buildLib: D:\Reference\housemodel\main\ETL\T\houses\build.py
+buildCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
+## Clean
+cleanLib: D:\Reference\housemodel\main\ETL\T\houses\clean.py
+cleanCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link]
 ## Format
 formatLib: D:\Reference\housemodel\main\ETL\T\houses\format.py
 formatCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link]

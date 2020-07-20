@@ -1,0 +1,22 @@
+2020-07-19 16:05:32: ETL Start: 2020-07-19 16:05:32.449617
+2020-07-19 16:05:32: Available Snapshots: 20200707 20200718
+2020-07-19 16:05:32: Processing Snapshot: 20200718
+2020-07-19 16:05:32: ETL_00_COLLECT Start: 2020-07-19 16:05:32.461619
+2020-07-19 16:05:32: Processing Source: portal inmobiliario
+2020-07-19 16:05:34: ETL_00_COLLECT Output Files: D:\Reference\housemodel\data\T\ETL/20200718/ETL_00_COLLECT/portal inmobiliario.csv
+2020-07-19 16:05:34: ETL_00_COLLECT End: 2020-07-19 16:05:34.027617
+2020-07-19 16:05:34: ETL_00_COLLECT Total Execution Time: 1.565997838973999
+2020-07-19 16:05:34: ETL_00_COLLECT Creating stats files for portal inmobiliario
+2020-07-19 16:05:34: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/info.txt
+2020-07-19 16:05:34: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/describe.csv
+2020-07-19 16:05:34: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/nulls.txt
+2020-07-19 16:05:34: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/ceros.txt
+2020-07-19 16:05:34: ETL_01_BUILD Start: 2020-07-19 16:05:34.163621
+2020-07-19 16:05:34: Processing Source: D:\Reference\housemodel\data\T\ETL/20200718/ETL_00_COLLECT/portal inmobiliario.csv
+2020-07-19 16:05:34: ETL_01_BUILD End: 2020-07-19 16:05:34.684620
+2020-07-19 16:05:34: ETL_01_BUILD Total Execution Time: 0.5209989547729492
+2020-07-19 16:05:34: ETL_01_BUILD Creating stats files for portal inmobiliario
+2020-07-19 16:05:34: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/info.txt
+2020-07-19 16:05:34: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/describe.csv
+2020-07-19 16:05:34: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/nulls.txt
+2020-07-19 16:05:34: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/ceros.txt

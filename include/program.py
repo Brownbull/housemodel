@@ -6,6 +6,7 @@
 import re
 import time
 import inspect
+import unicodedata
 from datetime import datetime
 from dateutil.parser import parse
 
@@ -16,6 +17,20 @@ def isNaN(num):
 # https://stackoverflow.com/questions/10711116/strip-spaces-tabs-newlines-python
 def rmEscSep(string):
   return ' '.join(str(string).split())
+
+# https://stackoverflow.com/questions/44431730/how-to-replace-accented-characters-in-python
+def stripAccents(text):
+    try:
+        text = unicode(text, 'utf-8')
+    except NameError: # unicode is a default on python 3 
+        pass
+    text = unicodedata.normalize('NFD', text)\
+           .encode('ascii', 'ignore')\
+           .decode("utf-8")
+    return str(text)
+
+def sanitize(string, rmve=","):
+  return stripAccents(rmEscSep(string).replace(rmve,"").lower())
 
 # https://stackoverflow.com/questions/19926089/python-equivalent-of-java-stringbuffer/29000388
 def array2Str(array, separator):
@@ -48,7 +63,7 @@ def getTimeAndStamp():
   nowTime = time.time()
   return nowTime, datetime.fromtimestamp(nowTime)
 
-def ifDateSave(string, default, format="%m/%d/%Y"):
+def ifDateSave(string, default, format="%d/%m/%Y"):
   if string is not None and not isNaN(string):
     if isDate(string):
       return strToDate(string, format)

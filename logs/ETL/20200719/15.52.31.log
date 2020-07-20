@@ -1,0 +1,22 @@
+2020-07-19 15:52:31: ETL Start: 2020-07-19 15:52:31.571935
+2020-07-19 15:52:31: Available Snapshots: 20200707 20200718
+2020-07-19 15:52:31: Processing Snapshot: 20200718
+2020-07-19 15:52:31: ETL_00_COLLECT Start: 2020-07-19 15:52:31.583902
+2020-07-19 15:52:31: Processing Source: portal inmobiliario
+2020-07-19 15:52:32: ETL_00_COLLECT Output Files: D:\Reference\housemodel\data\T\ETL/20200718/ETL_00_COLLECT/portal inmobiliario.csv
+2020-07-19 15:52:32: ETL_00_COLLECT End: 2020-07-19 15:52:32.954414
+2020-07-19 15:52:32: ETL_00_COLLECT Total Execution Time: 1.3705124855041504
+2020-07-19 15:52:33: ETL_00_COLLECT Creating stats files for portal inmobiliario
+2020-07-19 15:52:33: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/info.txt
+2020-07-19 15:52:33: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/describe.csv
+2020-07-19 15:52:33: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/nulls.txt
+2020-07-19 15:52:33: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/ceros.txt
+2020-07-19 15:52:33: ETL_01_BUILD Start: 2020-07-19 15:52:33.092578
+2020-07-19 15:52:33: Processing Source: D:\Reference\housemodel\data\T\ETL/20200718/ETL_00_COLLECT/portal inmobiliario.csv
+2020-07-19 15:52:33: ETL_01_BUILD End: 2020-07-19 15:52:33.618634
+2020-07-19 15:52:33: ETL_01_BUILD Total Execution Time: 0.5260562896728516
+2020-07-19 15:52:33: ETL_01_BUILD Creating stats files for portal inmobiliario
+2020-07-19 15:52:33: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/info.txt
+2020-07-19 15:52:33: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/describe.csv
+2020-07-19 15:52:33: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/nulls.txt
+2020-07-19 15:52:33: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/ceros.txt

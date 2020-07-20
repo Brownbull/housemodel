@@ -1,4 +1,4 @@
-﻿SrceId,WebName,Region,PropertyType,Link
+﻿SrceId,Srce,Region,PropertyType,Link
 1,portal inmobiliario,RM,Aparment,https://www.portalinmobiliario.com/venta/departamento/metropolitana/_OrderId_BEGINS*DESC_PriceRange_1000CLF-25000CLF
 1,portal inmobiliario,RM,House,https://www.portalinmobiliario.com/venta/casa/metropolitana/_OrderId_BEGINS*DESC_PriceRange_1000CLF-25000CLF
 2,toctoc,RM,Aparment,
