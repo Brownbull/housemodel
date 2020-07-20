@@ -20,7 +20,8 @@ buildLib: D:\Reference\housemodel\main\ETL\T\houses\build.py
 buildCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
 ## Clean
 cleanLib: D:\Reference\housemodel\main\ETL\T\houses\clean.py
-cleanCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link]
+cleanCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
+
 ## Format
 formatLib: D:\Reference\housemodel\main\ETL\T\houses\format.py
 formatCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link]

@@ -78,15 +78,14 @@ for snap in snapshots:
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
       etlCfg['buildCols'])
-    exit()
 
     ## ETL Step - CLEAN
     cleanFiles = cleanMain(
       log, 
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath'], # statsPath
       snap, 
       buildFiles, 
+      etlCfg['transformPath'], # baseOutPath
+      etlCfg['statsPath'], # statsPath
       etlCfg['cleanCols'])
     exit()
               

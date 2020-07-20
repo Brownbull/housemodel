@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
   @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
-  Format - Format Module inside Transform on ETL for houses model
+  Build - Build Module inside Transform on ETL for houses model
 """
 import pandas as pd
 from include.logs import *
@@ -411,7 +411,7 @@ class buildHouse:
         self.Bdroom = 2
       elif strOfListInPhrase(BdroomKeys, Description):
         self.Bdroom = 1
-    if self.Bath == default:
+    if self.Bath == default or self.Bath > 8:
       if "banos" in Description:
         self.Bath = 2
       elif "bano" in Description:
@@ -491,7 +491,7 @@ def buildMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
       outCsvPath) # outFile
 
     outFormatFiles.append(outCsvPath)
-    
+
   ## FINISH
   # END TIMING & LOG
   endTime, endStamp = getTimeAndStamp()
