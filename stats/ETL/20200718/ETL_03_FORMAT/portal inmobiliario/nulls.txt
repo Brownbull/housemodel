@@ -1,11 +1,11 @@
-portal inmobiliario columns with 0 values:
+portal inmobiliario columns with null values:
                           Srce                     0
                         Region                     0
                       Province                     0
                  PublishedDate                     0
                   PropertyType                     0
                  PropertyState                     0
-                           Age                     1
+                           Age                     0
                          Stage                     0
                       Delivery                     0
                 CommonExpnsCLP                     0
@@ -15,8 +15,8 @@ portal inmobiliario columns with 0 values:
                         MtUtil                     0
                         Bdroom                     0
                           Bath                     0
-                       Parking                  1238
-                       Storage                  1893
-                          Pool                  2068
+                       Parking                     0
+                       Storage                     0
+                          Pool                     0
                        PriceUF                     0
                           Link                     0

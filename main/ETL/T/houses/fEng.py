@@ -37,7 +37,7 @@ def fEngMain(log, baseOutPath, statsPath, snap, inCsvPaths, cols):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
-  currStep = "ETL_04_FEATURE_ENG"
+  currStep = "ETL_05_FEATURE_ENG"
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET

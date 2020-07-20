@@ -35,12 +35,12 @@ def toCsvRow(row):
 
 def clean_portalinmobiliario(inDf, outCsvPath):
   default = -16
-  writeRow = True
   # dateFormat = "%Y/%m/%d"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
+      writeRow = True
       # EVALUATE values
-      if row['Parking'] > 10 or isNaN(row['Link']) or (row['MtUtil'] == default and row['MtTot'] == default):
+      if row['Parking'] > 10 or (row['MtUtil'] == default and row['MtTot'] == default):
         writeRow = False
       # WRITE row
       if writeRow:

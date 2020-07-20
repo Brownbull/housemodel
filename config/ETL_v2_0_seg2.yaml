@@ -21,10 +21,10 @@ buildCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, 
 ## Clean
 cleanLib: D:\Reference\housemodel\main\ETL\T\houses\clean.py
 cleanCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
-
 ## Format
 formatLib: D:\Reference\housemodel\main\ETL\T\houses\format.py
-formatCols: [Srce, Province, PublishedDate, PropertyType, PropertyState, MtTot, Bdroom, Bath, Parking,  PriceUF, Link]
+formatCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
+
 ## Fill
 fillLib: D:\Reference\housemodel\main\ETL\T\houses\fill.py
 ## fEng

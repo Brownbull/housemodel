@@ -87,16 +87,16 @@ for snap in snapshots:
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
       etlCfg['cleanCols'])
-    exit()
               
     ## ETL Step - FORMAT
     formatFiles = formatMain(
       log, 
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath'], # statsPath
       snap, 
       cleanFiles, 
+      etlCfg['transformPath'], # baseOutPath
+      etlCfg['statsPath'], # statsPath
       etlCfg['formatCols'])
+    exit()
               
     ## ETL Step - FILL
     fillFiles = fillMain(
@@ -125,8 +125,6 @@ for snap in snapshots:
       etlCfg['fEngCols'],
       etlCfg['dbCfg'])
               
-
-
 # END TIMING & LOG
 endTime, endStamp = getTimeAndStamp()
 logPrint(log, "ETL End: {}".format(str(endStamp)))
