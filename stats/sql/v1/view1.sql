@@ -17,4 +17,4 @@ SELECT
   ELSE
     ceil(((("BDROOM"*4)+("BATH"*4)+("PARKING"*2) * "MT_TOT"::decimal * 0.7) *1000)/"PRICE_UF") 
   END AS SCORE
-FROM houses;
+FROM houses_v1;

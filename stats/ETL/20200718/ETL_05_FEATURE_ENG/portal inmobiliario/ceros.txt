@@ -14,8 +14,8 @@ portal inmobiliario columns with 0 values:
                  ForInvestment                     0
                         Sector                     0
                          MtTot                     0
-               MtTotInUtilPerc                   561
                         MtUtil                     0
+               MtTotInUtilPerc                   561
                         Bdroom                     0
                           Bath                     0
                        Balcony                  2630

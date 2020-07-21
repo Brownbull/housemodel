@@ -16,4 +16,4 @@ SELECT
   "PRICE_UF", 
   "LINK"
 FROM 
-  public.houses;
+  public.houses_v1;

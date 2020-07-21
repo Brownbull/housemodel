@@ -18,8 +18,8 @@ Data columns (total 28 columns):
  12  ForInvestment    4004 non-null   object 
  13  Sector           4004 non-null   float64
  14  MtTot            4004 non-null   int64  
- 15  MtTotInUtilPerc  4004 non-null   float64
- 16  MtUtil           4004 non-null   int64  
+ 15  MtUtil           4004 non-null   int64  
+ 16  MtTotInUtilPerc  4004 non-null   float64
  17  Bdroom           4004 non-null   int64  
  18  Bath             4004 non-null   int64  
  19  Balcony          4004 non-null   float64
