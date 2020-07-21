@@ -9,22 +9,153 @@ from include.files import *
 from include.program import *
 from main.ETL.stats import *
 
-global PublishedDateLastMode
+def sectorPoints(sector, default=-16):
+  if sector == "santiago":
+    return 4
+  elif sector == "huechuraba":
+    return 3
+  elif sector == "nunoa":
+    return 4
+  elif sector == "providencia":
+    return 5
+  elif sector == "las condes":
+    return 5
+  elif sector == "vitacura":
+    return 5
+  elif sector == "lo barnechea":
+    return 3
+  elif sector == "la florida":
+    return 2
+  elif sector == "maipu":
+    return 1
+  elif sector == "penalolen":
+    return 2
+  elif sector == "puente alto":
+    return 1
+  elif sector == "estacion central":
+    return 1
+  elif sector == "quinta normal":
+    return 1
+  elif sector == "lo prado":
+    return 1
+  elif sector == "lo conchali":
+    return 2
+  elif sector == "quilicura":
+    return 1
+  elif sector == "macul":
+    return 2
+  elif sector == "la reina":
+    return 3
+  elif sector == "penaflor":
+    return 1
+  elif sector == "colina":
+    return 1
+  elif sector == "pirque":
+    return 1
+  elif sector == "independencia":
+    return 2
+  elif sector == "pudahuel":
+    return 1
+  elif sector == "recoleta":
+    return 2
+  elif sector == "renca":
+    return 1
+  elif sector == "lampa":
+    return 1
+  elif sector == "paine":
+    return 1
+  elif sector == "tiltil":
+    return 1
+  elif sector == "buin":
+    return 1
+  elif sector == "melipilla":
+    return 1
+  elif sector == "el monte":
+    return 1
+  elif sector == "curacavi":
+    return 1
+  elif sector == "cerrillos":
+    return 1
+  elif sector == "talagante":
+    return 1
+  elif sector == "la granja":
+    return 1
+  elif sector == "maria pinto":
+    return 1
+  elif sector == "padre hurtado":
+    return 1
+  elif sector == "la cisterna":
+    return 1
+  elif sector == "san miguel":
+    return 2
+  elif sector == "san bernardo":
+    return 1
+  elif sector == "el bosque":
+    return 1
+  elif sector == "la pintana":
+    return 1
+  elif sector == "san joaquin":
+    return 1
+  elif sector == "san ramon":
+    return 1
+  elif sector == "cerro navia":
+    return 1
+  elif sector == "pedro aguirre cerda":
+    return 1
+  elif sector == "calera de tango":
+    return 1
+  elif sector == "san jose de maipo":
+    return 1
+  elif sector == "isla de maipo":
+    return 1
+  else:
+    return default
+
+def getValue(row, default=-16):
+  Bdroom = row['Bdroom'] * 4
+  Bath = row['Bath'] * 4
+  Balcony = row['Balcony'] * 1
+  Parking = row['Parking'] * 3
+  Storage = row['Storage'] * 2
+  Pool = row['Pool'] * 1
+  Sector = row['Sector'] * 1.5
+  MtTot = (row['MtTot'] * 0.2) if row['MtTot'] != default else 0
+  MtUtil = (row['MtUtil'] * 0.3) if row['MtUtil'] != default else 0
+  PropertyType = row['PropertyType']
+
+  if PropertyType == 'aparment':
+    return int((Bdroom + Bath + Balcony + Parking + Storage + Pool + Sector) * (MtTot + MtUtil))
+  else:
+    return int((Bdroom + Bath + Balcony + Parking + Storage + Pool + Sector) * (MtTot + MtUtil * 0.7))
+
 
 # CSV processing
 def fEngCsv(snap, srce, inCsvPath, outCsvPath, cols):
+  default = -16
   # Initial Vars
   inDf = pd.read_csv(inCsvPath)
 
+  # FROM CSV
+  for idx, row in inDf.iterrows():
+    inDf.loc[idx, 'Balcony'] = 0
+    if row['MtTot'] != default and row['MtUtil'] != default:
+      MtTotInUtilPerc = round(((row['MtTot'] / row['MtUtil']) - 1)*100,0)
+      inDf.loc[idx, 'MtTotInUtilPerc'] = MtTotInUtilPerc
+      if MtTotInUtilPerc > 0.3  and row['PropertyType'] == 'aparment':
+        inDf.loc[idx, 'Balcony'] = 1
+    else:
+      inDf.loc[idx, 'MtTotInUtilPerc'] = default
+
+    inDf.loc[idx, 'Sector'] = sectorPoints(row['Province'])
+    inDf.loc[idx, 'Value'] = getValue(inDf.loc[idx])
+
   # NEW cols
   inDf['SnapDate'] = inDf.apply(lambda row: snap, axis=1)
-  inDf['UFxMt2'] = inDf.apply(lambda row: int(row['PriceUF']/row['MtTot']), axis=1)
-  inDf['ValueScore'] = inDf.apply(lambda row: int(((row['Bdroom']*4)+(row['Bath']*4)+(row['Parking']*2))*(row['MtTot'])), axis=1)
-  # inDf['ValueScore'] = inDf.apply(lambda row: int(((row['Bdroom']*4)+(row['Bath']*4)+(row['Parking']*2))*(row['MtTot'])*(1 if row['PropertyType'] == "Aparment" else 0.7)), axis=1)
-  inDf['Score'] = inDf.apply(lambda row: int(row['ValueScore']*1000/row['PriceUF']), axis=1)
+  inDf['UFxMt2'] = inDf.apply(lambda row: int(row['PriceUF']/row['MtTot'] if row['MtTot'] != 16 else row['PriceUF']/row['Util']), axis=1)
+  inDf['Score'] = inDf.apply(lambda row: int(row['Value']*1000/row['PriceUF']), axis=1)
 
   # DROP outliers rows
-  inDf.drop(inDf[inDf.Score > 4000].index, inplace=True)
+  # inDf.drop(inDf[inDf.Score > 4000].index, inplace=True)
 
   # Reorder Columns
   inDf = inDf[cols]
@@ -33,7 +164,7 @@ def fEngCsv(snap, srce, inCsvPath, outCsvPath, cols):
   inDf.to_csv(outCsvPath, index=False)
 
 # MAIN
-def fEngMain(log, baseOutPath, statsPath, snap, inCsvPaths, cols):
+def fEngMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT

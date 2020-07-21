@@ -45,7 +45,7 @@ def getProvince(rawProvince, rawProvincePref2, rawProvincePref3, default=-16):
   elif rawProvince == "macul":
     return "macul"
   elif rawProvince == "reina":
-    return "reina"
+    return "la reina"
   elif rawProvince == "penaflor":
     return "penaflor"
   elif rawProvince == "colina":

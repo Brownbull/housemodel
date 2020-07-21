@@ -24,12 +24,12 @@ cleanCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, 
 ## Format
 formatLib: D:\Reference\housemodel\main\ETL\T\houses\format.py
 formatCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
-
 ## Fill
 fillLib: D:\Reference\housemodel\main\ETL\T\houses\fill.py
+
 ## fEng
 fEngLib: D:\Reference\housemodel\main\ETL\T\houses\fEng.py
-fEngCols: [SnapDate, Srce, Province, PublishedDate, PropertyType, PropertyState, Bdroom, Bath, Parking,  MtTot, PriceUF, UFxMt2, ValueScore, Score, Link]
+fEngCols: [SnapDate, Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, Sector, MtTot, MtTotInUtilPerc, MtUtil, Bdroom, Bath, Balcony, Parking, Storage, Pool, PriceUF, UFxMt2, Value, Score, Link]
 ## Load
 loadLib: D:\Reference\housemodel\main\ETL\L\houses\postgreSQL.py
 dbCfg:
