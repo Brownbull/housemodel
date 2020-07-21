@@ -104,23 +104,23 @@ for snap in snapshots:
       formatFiles,
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath']) # statsPath
-    exit()
 
     ## ETL Step - FEATURE ENG
     fEngFiles = fEngMain(
       log,
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath'], # statsPath
       snap, 
       fillFiles,
+      etlCfg['transformPath'], # baseOutPath
+      etlCfg['statsPath'], # statsPath
       etlCfg['fEngCols'])
+    exit()
 
     ## ETL Step - LOAD
     loadMain(
       log,
+      snap, 
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
-      snap, 
       fEngFiles,
       etlCfg['fEngCols'],
       etlCfg['dbCfg'])

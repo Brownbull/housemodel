@@ -18,62 +18,35 @@ def fillCsv(srce, inCsvPath, outCsvPath):
   """
   Srce : never null
   Region : never null
-  Province : mode
-  PublishedDate : mode
+  Province : never null
+  PublishedDate : never null
   PropertyType : never null
-  PropertyState : mode
+  PropertyState : never null
   Age : -16
   Stage : -16
   Delivery : -16
   CommonExpnsCLP : -16 
   Floor : -16
   ForInvestment : N 
-  MtTot : custom
-  MtUtil : custom
-  Bdroom : custom median
-  Bath : custom median
-  Parking : custom median
-  Storage : custom median
+  MtTot : fEng
+  MtUtil : fEng
+  Bdroom : never null
+  Bath : never null
+  Parking : never null
+  Storage : never null
   Pool : 0
   PriceUF : never null 
   Link : never null
   """
-  # Means
-  mean_MtTot = round(inDf['MtTot'].mean(skipna=True),0)
-  mean_Bdroom = round(inDf['Bdroom'].mean(skipna=True),0)
-  mean_Bath = round(inDf['Bath'].mean(skipna=True),0)
-  mean_Parking = round(inDf['Parking'].mean(skipna=True),0)
-  mean_PriceUF = round(inDf['PriceUF'].mean(skipna=True),0)
-
-  # Filling
-  ## Blank replacement
-  tempMode = inDf['PublishedDate'].mode()
-  PublishedDateLastMode = "06/26/2020"
-  print("on {} : {}".format( srce, PublishedDateLastMode))
-  if len(tempMode) > 0:
-    inDf['PublishedDate'].fillna(tempMode[0], inplace = True)
-    PublishedDateLastMode = tempMode[0]
-  else:
-    inDf['PublishedDate'].fillna(PublishedDateLastMode, inplace = True)
-
-  df['column'] = df['column'].replace(np.nan, 0)
-  inDf['PropertyState'].fillna(inDf['PropertyState'].mode()[0], inplace = True)
-  inDf['MtTot'].fillna(inDf['MtTot'].median(), inplace = True)
-  inDf['Bdroom'].fillna(inDf['Bdroom'].median(), inplace = True)
-  inDf['Bath'].fillna(inDf['Bath'].median(), inplace = True)
-  inDf['Parking'].fillna(inDf['Parking'].median(), inplace = True)
-  inDf['PriceUF'].fillna(inDf['PriceUF'].median(), inplace = True)
-
+  ## Means
+  # mean_MtTot = round(inDf['MtTot'].mean(skipna=True),0)
+  ## Filling
+  # inDf['column'] = inDf['column'].replace(np.nan, 0)
+  # inDf['PropertyState'].fillna(inDf['PropertyState'].mode()[0], inplace = True)
   ## 0 replacement
-  inDf['PublishedDate'] = inDf.PublishedDate.mask(inDf.PublishedDate == 0,PublishedDateLastMode)
   # inDf['MtTot'] = inDf.MtTot.mask(inDf.MtTot == 0,mean_MtTot)
-  # inDf['Bdroom'] = inDf.Bdroom.mask(inDf.Bdroom == 0,mean_Bdroom)
-  # inDf['Bath'] = inDf.Bath.mask(inDf.Bath == 0,mean_Bath)
-  # inDf['Parking'] = inDf.Parking.mask(inDf.Parking == 0,mean_Parking)
-  # inDf['PriceUF'] = inDf.PriceUF.mask(inDf.PriceUF == 0,mean_PriceUF)
-
   ## Overwrite column types
-  inDf['Parking'] = inDf['Parking'].astype(int)
+  # inDf['Parking'] = inDf['Parking'].astype(int)
 
   # WRITE csv
   inDf.to_csv(outCsvPath, index=False)
