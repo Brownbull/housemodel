@@ -9,6 +9,49 @@ from include.files import *
 from include.program import *
 from main.ETL.stats import *
 
+def getSizeGroup(Mt2):
+  if 10000 < Mt2:
+    return "GT10K"
+  if 5000 < Mt2 <= 10000:
+    return "5KTO10K"
+  if 1000 < Mt2 <= 5000:
+    return "1KTO5K"
+  if 500 < Mt2 <= 1000:
+    return "5HTO1K"
+  if 400 < Mt2 <= 500:
+    return "4HTO5H"
+  if 300 < Mt2 <= 400:
+    return "3HTO4H"
+  if 250 < Mt2 <= 300:
+    return "250TO3H"
+  if 200 < Mt2 <= 250:
+    return "2HTO250"
+  if 150 < Mt2 <= 200:
+    return "150TO2H"
+  if 130 < Mt2 <= 150:
+    return "130TO150"
+  if 110 < Mt2 <= 130:
+    return "110TO130"
+  if 100 < Mt2 <= 110:
+    return "100TO110"
+  if 90 < Mt2 <= 100:
+    return "90TO100"
+  if 80 < Mt2 <= 90:
+    return "80TO90"
+  if 70 < Mt2 <= 80:
+    return "80TO90"
+  if 60 < Mt2 <= 70:
+    return "80TO90"
+  if 50 < Mt2 <= 60:
+    return "80TO90"
+  if 40 < Mt2 <= 50:
+    return "80TO90"
+  if 30 < Mt2 <= 40:
+    return "80TO90"
+  else:
+    return "LT30"
+
+
 def sectorPoints(sector, default=-16):
   if sector == "santiago":
     return 4
@@ -143,8 +186,13 @@ def fEngCsv(snap, srce, inCsvPath, outCsvPath, cols):
       inDf.loc[idx, 'MtTotInUtilPerc'] = MtTotInUtilPerc
       if MtTotInUtilPerc > 0.3  and row['PropertyType'] == 'aparment':
         inDf.loc[idx, 'Balcony'] = 1
+      inDf.loc[idx, 'SizeGroup'] = getSizeGroup(row['MtUtil'])
     else:
       inDf.loc[idx, 'MtTotInUtilPerc'] = default
+      if row['MtUtil'] != default:
+        inDf.loc[idx, 'SizeGroup'] = getSizeGroup(row['MtUtil'])
+      else:
+        inDf.loc[idx, 'SizeGroup'] = getSizeGroup(row['MtTot'])
 
     inDf.loc[idx, 'Sector'] = sectorPoints(row['Province'])
     inDf.loc[idx, 'Value'] = getValue(inDf.loc[idx])

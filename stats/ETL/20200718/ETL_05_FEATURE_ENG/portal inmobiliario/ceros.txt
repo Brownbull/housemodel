@@ -13,6 +13,7 @@ portal inmobiliario columns with 0 values:
                          Floor                     0
                  ForInvestment                     0
                         Sector                     0
+                     SizeGroup                     0
                          MtTot                     0
                         MtUtil                     0
                MtTotInUtilPerc                   561

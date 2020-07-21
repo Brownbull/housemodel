@@ -1,6 +1,6 @@
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 4004 entries, 0 to 4003
-Data columns (total 28 columns):
+Data columns (total 29 columns):
  #   Column           Non-Null Count  Dtype  
 ---  ------           --------------  -----  
  0   SnapDate         4004 non-null   int64  
@@ -17,19 +17,20 @@ Data columns (total 28 columns):
  11  Floor            4004 non-null   int64  
  12  ForInvestment    4004 non-null   object 
  13  Sector           4004 non-null   float64
- 14  MtTot            4004 non-null   int64  
- 15  MtUtil           4004 non-null   int64  
- 16  MtTotInUtilPerc  4004 non-null   float64
- 17  Bdroom           4004 non-null   int64  
- 18  Bath             4004 non-null   int64  
- 19  Balcony          4004 non-null   float64
- 20  Parking          4004 non-null   int64  
- 21  Storage          4004 non-null   int64  
- 22  Pool             4004 non-null   int64  
- 23  PriceUF          4004 non-null   int64  
- 24  UFxMt2           4004 non-null   int64  
- 25  Value            4004 non-null   float64
- 26  Score            4004 non-null   int64  
- 27  Link             4004 non-null   object 
-dtypes: float64(4), int64(14), object(10)
-memory usage: 719.5+ KB
+ 14  SizeGroup        4004 non-null   object 
+ 15  MtTot            4004 non-null   int64  
+ 16  MtUtil           4004 non-null   int64  
+ 17  MtTotInUtilPerc  4004 non-null   float64
+ 18  Bdroom           4004 non-null   int64  
+ 19  Bath             4004 non-null   int64  
+ 20  Balcony          4004 non-null   float64
+ 21  Parking          4004 non-null   int64  
+ 22  Storage          4004 non-null   int64  
+ 23  Pool             4004 non-null   int64  
+ 24  PriceUF          4004 non-null   int64  
+ 25  UFxMt2           4004 non-null   int64  
+ 26  Value            4004 non-null   float64
+ 27  Score            4004 non-null   int64  
+ 28  Link             4004 non-null   object 
+dtypes: float64(4), int64(14), object(11)
+memory usage: 735.2+ KB

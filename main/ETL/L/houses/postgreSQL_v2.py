@@ -24,8 +24,8 @@ def loadCsv(log, dbConn, inCsvPath, outCsvPath):
   for idx, row in inDf.iterrows():
     insertSql = """ 
     INSERT INTO public.houses_v2(
-	    "SNAP_DT", "SRCE", "REGION", "PROVINCE", "PUBLISHED_DT", "PUBLISHED_TIMESMTP", "PROPERTY_TYPE", "PROPERTY_STATE", "AGE", "STAGE", "DELIVERY", "COMMON_EXPNS_CLP", "FLOOR", "FOR_INVESTMENT", "SECTOR", "MT_TOT", "MT_UTIL", "MT_TOT_IN_UTIL_PERC", "BDROOM", "BATH", "BALCONY", "PARKING", "STORAGE", "POOL", "PRICE_UF", "ETL_UF_X_MT2", "ETL_VALUE", "ETL_SCORE", "LINK")
-	    VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}, {18}, {19}, {20}, {21}, {22}, {23}, {24}, {25}, {26}, {27}, {28});""".format(
+	    "SNAP_DT", "SRCE", "REGION", "PROVINCE", "PUBLISHED_DT", "PUBLISHED_TIMESMTP", "PROPERTY_TYPE", "PROPERTY_STATE", "AGE", "STAGE", "DELIVERY", "COMMON_EXPNS_CLP", "FLOOR", "FOR_INVESTMENT", "SECTOR", "SIZE_GROUP", "MT_TOT", "MT_UTIL", "MT_TOT_IN_UTIL_PERC", "BDROOM", "BATH", "BALCONY", "PARKING", "STORAGE", "POOL", "PRICE_UF", "ETL_UF_X_MT2", "ETL_VALUE", "ETL_SCORE", "LINK")
+	    VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}, {18}, {19}, {20}, {21}, {22}, {23}, {24}, {25}, {26}, {27}, {28}, {29});""".format(
         row['SnapDate'] if checkIfexists('SnapDate', row) else default ,
         "\'" + row['Srce'] + "\'" if checkIfexists('Srce', row) else default ,
         "\'" + row['Region'] + "\'" if checkIfexists('Region', row) else default ,
@@ -41,6 +41,7 @@ def loadCsv(log, dbConn, inCsvPath, outCsvPath):
         row['Floor'] if checkIfexists('Floor', row) else default ,
         "\'" + row['ForInvestment'] + "\'" if checkIfexists('ForInvestment', row) else default ,
         row['Sector'] if checkIfexists('Sector', row) else default ,
+        "\'" + row['SizeGroup'] + "\'" if checkIfexists('SizeGroup', row) else default ,
         row['MtTot'] if checkIfexists('MtTot', row) else default ,
         row['MtUtil'] if checkIfexists('MtUtil', row) else default ,
         row['MtTotInUtilPerc'] if checkIfexists('MtTotInUtilPerc', row) else default ,
@@ -100,6 +101,7 @@ def loadMain(log, snap, inCsvPaths, baseOutPath, statsPath,  Cols, dbCfg):
       "FLOOR" integer,
       "FOR_INVESTMENT" character varying(3),
       "SECTOR" integer,
+      "SIZE_GROUP" character varying(10),
       "MT_TOT" integer,
       "MT_UTIL" integer,
       "MT_TOT_IN_UTIL_PERC" integer,
