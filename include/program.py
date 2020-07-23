@@ -63,6 +63,13 @@ def getTimeAndStamp():
   nowTime = time.time()
   return nowTime, datetime.fromtimestamp(nowTime)
 
+# https://stackoverflow.com/questions/9750330/how-to-convert-integer-into-date-object-python
+def fromCCYYMMDDtoDate(ccyymmdd):
+  # you could also import date instead of datetime and use that.
+  return datetime(year=int(ccyymmdd[0:4]), month=int(ccyymmdd[4:6]), day=int(ccyymmdd[6:8]))
+def fromDateToCCYYMMDD(date):
+  return date.strftime("%Y%m%d")
+
 def ifDateSave(string, default, format="%d/%m/%Y"):
   if string is not None and not isNaN(string):
     if isDate(string):
@@ -70,7 +77,7 @@ def ifDateSave(string, default, format="%d/%m/%Y"):
     else:
       return default
   else:
-    return None
+    return default
 
 # https://stackoverflow.com/questions/25341945/check-if-string-has-date-any-format
 def isDate(string, fuzzy=False):

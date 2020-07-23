@@ -7,11 +7,24 @@ SELECT
   t.PROPERTY_STATE, 
   t.SIZE_GROUP, 
   count(*) as COUNT,
-  ceil(AVG(t.MT_TOT)) MT_TOT_AVG, 
+  ceil(MIN(t.MT_UTIL)) MT_UTIL_MIN, 
+  ceil(MAX(t.MT_UTIL)) MT_UTIL_MAX, 
   ceil(AVG(t.MT_UTIL)) MT_UTIL_AVG, 
+  ceil(MIN(t.MT_TOT)) MT_TOT_MIN, 
+  ceil(MAX(t.MT_TOT)) MT_TOT_MAX, 
+  ceil(AVG(t.MT_TOT)) MT_TOT_AVG, 
+  ceil(MIN(t.PRICE_UF)) PRICE_MIN,
+  ceil(MAX(t.PRICE_UF)) PRICE_MAX,
   ceil(AVG(t.PRICE_UF)) PRICE_AVG,
+  ROUND(corr(MT_UTIL, PRICE_UF)::numeric, 2) CORR_MTUTIL_PRICE_UF,
+  ceil(MIN(t.ETL_UF_X_MT2)) ETL_UF_X_MT2_MIN,
+  ceil(MAX(t.ETL_UF_X_MT2)) ETL_UF_X_MT2_MAX,
   ceil(AVG(t.ETL_UF_X_MT2)) ETL_UF_X_MT2_AVG,
+  ceil(MIN(t.ETL_VALUE)) ETL_VALUE_MIN,
+  ceil(MAX(t.ETL_VALUE)) ETL_VALUE_MAX,
   ceil(AVG(t.ETL_VALUE)) ETL_VALUE_AVG,
+  ceil(MIN(t.ETL_SCORE)) ETL_SCORE_MIN,
+  ceil(MAX(t.ETL_SCORE)) ETL_SCORE_MAX,
   ceil(AVG(t.ETL_SCORE)) ETL_SCORE_AVG
 FROM (
   SELECT
@@ -22,14 +35,16 @@ FROM (
     "houses_v2"."PROPERTY_TYPE" as PROPERTY_TYPE, 
     "houses_v2"."PROPERTY_STATE" as PROPERTY_STATE, 
     "houses_v2"."SIZE_GROUP" as SIZE_GROUP, 
-    NULLIF("houses_v2"."MT_TOT" , 16) as MT_TOT , 
-    NULLIF("houses_v2"."MT_UTIL" , 16) as MT_UTIL , 
-    NULLIF("houses_v2"."PRICE_UF" , 16) as PRICE_UF ,
-    NULLIF("houses_v2"."ETL_UF_X_MT2" , 16) as ETL_UF_X_MT2 ,
-    NULLIF("houses_v2"."ETL_VALUE" , 16) as ETL_VALUE ,
-    NULLIF("houses_v2"."ETL_SCORE" , 16) as ETL_SCORE 
+    NULLIF("houses_v2"."MT_TOT" , -16) as MT_TOT , 
+    NULLIF("houses_v2"."MT_UTIL" , -16) as MT_UTIL , 
+    NULLIF("houses_v2"."PRICE_UF" , -16) as PRICE_UF ,
+    NULLIF("houses_v2"."ETL_UF_X_MT2" , -16) as ETL_UF_X_MT2 ,
+    NULLIF("houses_v2"."ETL_VALUE" , -16) as ETL_VALUE ,
+    NULLIF("houses_v2"."ETL_SCORE" , -16) as ETL_SCORE 
   FROM
     houses_v2) t
+WHERE 
+  t.SNAP_DT = 20200721
 GROUP BY
   t.SNAP_DT, 
   t.SRCE, 

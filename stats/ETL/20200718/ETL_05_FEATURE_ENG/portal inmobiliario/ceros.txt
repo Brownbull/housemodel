@@ -24,7 +24,7 @@ portal inmobiliario columns with 0 values:
                        Storage                  1893
                           Pool                  2068
                        PriceUF                     0
-                        UFxMt2                     7
+                        UFxMt2                     2
                          Value                     0
                          Score                     0
                           Link                     0

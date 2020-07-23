@@ -1,0 +1,130 @@
+2020-07-23 08:59:26: ETL Start: 2020-07-23 08:59:26.873156
+2020-07-23 08:59:26: Available Snapshots: 20200707 20200718 20200721
+2020-07-23 08:59:26: Processing Snapshot: 20200718
+2020-07-23 08:59:26: ETL_00_COLLECT Start: 2020-07-23 08:59:26.888158
+2020-07-23 08:59:26: Processing Source: portal inmobiliario
+2020-07-23 08:59:28: ETL_00_COLLECT Output Files: D:\Reference\housemodel\data\T\ETL/20200718/ETL_00_COLLECT/portal inmobiliario.csv
+2020-07-23 08:59:28: ETL_00_COLLECT End: 2020-07-23 08:59:28.526178
+2020-07-23 08:59:28: ETL_00_COLLECT Total Execution Time: 1.6380200386047363
+2020-07-23 08:59:28: ETL_00_COLLECT Creating stats files for portal inmobiliario
+2020-07-23 08:59:28: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/info.txt
+2020-07-23 08:59:28: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/describe.csv
+2020-07-23 08:59:28: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/nulls.txt
+2020-07-23 08:59:28: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_00_COLLECT/portal inmobiliario/ceros.txt
+2020-07-23 08:59:28: ETL_01_BUILD Start: 2020-07-23 08:59:28.759159
+2020-07-23 08:59:28: Processing Source: D:\Reference\housemodel\data\T\ETL/20200718/ETL_00_COLLECT/portal inmobiliario.csv
+2020-07-23 08:59:30: ETL_01_BUILD End: 2020-07-23 08:59:30.958157
+2020-07-23 08:59:30: ETL_01_BUILD Total Execution Time: 2.198997974395752
+2020-07-23 08:59:30: ETL_01_BUILD Creating stats files for portal inmobiliario
+2020-07-23 08:59:30: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/info.txt
+2020-07-23 08:59:31: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/describe.csv
+2020-07-23 08:59:31: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/nulls.txt
+2020-07-23 08:59:31: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_01_BUILD/portal inmobiliario/ceros.txt
+2020-07-23 08:59:31: ETL_02_CLEAN Start: 2020-07-23 08:59:31.099156
+2020-07-23 08:59:31: Processing Source: D:\Reference\housemodel\data\T\ETL/20200718/ETL_01_BUILD/portal inmobiliario.csv
+2020-07-23 08:59:32: ETL_02_CLEAN End: 2020-07-23 08:59:32.616158
+2020-07-23 08:59:32: ETL_02_CLEAN Total Execution Time: 1.5170021057128906
+2020-07-23 08:59:32: ETL_02_CLEAN Creating stats files for portal inmobiliario
+2020-07-23 08:59:32: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_02_CLEAN/portal inmobiliario/info.txt
+2020-07-23 08:59:32: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_02_CLEAN/portal inmobiliario/describe.csv
+2020-07-23 08:59:32: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_02_CLEAN/portal inmobiliario/nulls.txt
+2020-07-23 08:59:32: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_02_CLEAN/portal inmobiliario/ceros.txt
+2020-07-23 08:59:32: ETL_03_FORMAT Start: 2020-07-23 08:59:32.723159
+2020-07-23 08:59:32: Processing Source: D:\Reference\housemodel\data\T\ETL/20200718/ETL_02_CLEAN/portal inmobiliario.csv
+2020-07-23 08:59:32: ETL_03_FORMAT End: 2020-07-23 08:59:32.813158
+2020-07-23 08:59:32: ETL_03_FORMAT Total Execution Time: 0.08999896049499512
+2020-07-23 08:59:32: ETL_03_FORMAT Creating stats files for portal inmobiliario
+2020-07-23 08:59:32: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_03_FORMAT/portal inmobiliario/info.txt
+2020-07-23 08:59:32: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_03_FORMAT/portal inmobiliario/describe.csv
+2020-07-23 08:59:32: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_03_FORMAT/portal inmobiliario/nulls.txt
+2020-07-23 08:59:32: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_03_FORMAT/portal inmobiliario/ceros.txt
+2020-07-23 08:59:32: ETL_04_FILL Start: 2020-07-23 08:59:32.919160
+2020-07-23 08:59:32: Processing Source: D:\Reference\housemodel\data\T\ETL/20200718/ETL_03_FORMAT/portal inmobiliario.csv
+2020-07-23 08:59:32: ETL_04_FILL End: 2020-07-23 08:59:32.995156
+2020-07-23 08:59:32: ETL_04_FILL Total Execution Time: 0.07599639892578125
+2020-07-23 08:59:33: ETL_04_FILL Creating stats files for portal inmobiliario
+2020-07-23 08:59:33: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_04_FILL/portal inmobiliario/info.txt
+2020-07-23 08:59:33: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_04_FILL/portal inmobiliario/describe.csv
+2020-07-23 08:59:33: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_04_FILL/portal inmobiliario/nulls.txt
+2020-07-23 08:59:33: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_04_FILL/portal inmobiliario/ceros.txt
+2020-07-23 08:59:33: ETL_05_FEATURE_ENG Start: 2020-07-23 08:59:33.119158
+2020-07-23 08:59:33: Processing Source: D:\Reference\housemodel\data\T\ETL/20200718/ETL_04_FILL/portal inmobiliario.csv
+2020-07-23 08:59:43: ETL_05_FEATURE_ENG End: 2020-07-23 08:59:43.615159
+2020-07-23 08:59:43: ETL_05_FEATURE_ENG Total Execution Time: 10.496000528335571
+2020-07-23 08:59:43: ETL_05_FEATURE_ENG Creating stats files for portal inmobiliario
+2020-07-23 08:59:43: 	Info:		D:\Reference\housemodel\stats\ETL/20200718/ETL_05_FEATURE_ENG/portal inmobiliario/info.txt
+2020-07-23 08:59:43: 	Describe:	D:\Reference\housemodel\stats\ETL/20200718/ETL_05_FEATURE_ENG/portal inmobiliario/describe.csv
+2020-07-23 08:59:43: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200718/ETL_05_FEATURE_ENG/portal inmobiliario/nulls.txt
+2020-07-23 08:59:43: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200718/ETL_05_FEATURE_ENG/portal inmobiliario/ceros.txt
+2020-07-23 08:59:43: ETL_06_LOAD Start: 2020-07-23 08:59:43.926167
+2020-07-23 08:59:58: Connection Open OK
+2020-07-23 08:59:58: houses_v2 table does not Exists
+2020-07-23 08:59:58: Processing Source: D:\Reference\housemodel\data\T\ETL/20200718/ETL_05_FEATURE_ENG/portal inmobiliario.csv
+2020-07-23 09:00:07: Connection Closed OK
+2020-07-23 09:00:07: ETL_06_LOAD End: 2020-07-23 09:00:07.232710
+2020-07-23 09:00:07: ETL_06_LOAD Total Execution Time: 23.306543350219727
+2020-07-23 09:00:07: Processing Snapshot: 20200721
+2020-07-23 09:00:07: ETL_00_COLLECT Start: 2020-07-23 09:00:07.249715
+2020-07-23 09:00:07: Processing Source: portal inmobiliario
+2020-07-23 09:00:08: ETL_00_COLLECT Output Files: D:\Reference\housemodel\data\T\ETL/20200721/ETL_00_COLLECT/portal inmobiliario.csv
+2020-07-23 09:00:08: ETL_00_COLLECT End: 2020-07-23 09:00:08.868711
+2020-07-23 09:00:08: ETL_00_COLLECT Total Execution Time: 1.6189963817596436
+2020-07-23 09:00:08: ETL_00_COLLECT Creating stats files for portal inmobiliario
+2020-07-23 09:00:08: 	Info:		D:\Reference\housemodel\stats\ETL/20200721/ETL_00_COLLECT/portal inmobiliario/info.txt
+2020-07-23 09:00:09: 	Describe:	D:\Reference\housemodel\stats\ETL/20200721/ETL_00_COLLECT/portal inmobiliario/describe.csv
+2020-07-23 09:00:09: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200721/ETL_00_COLLECT/portal inmobiliario/nulls.txt
+2020-07-23 09:00:09: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200721/ETL_00_COLLECT/portal inmobiliario/ceros.txt
+2020-07-23 09:00:09: ETL_01_BUILD Start: 2020-07-23 09:00:09.044725
+2020-07-23 09:00:09: Processing Source: D:\Reference\housemodel\data\T\ETL/20200721/ETL_00_COLLECT/portal inmobiliario.csv
+2020-07-23 09:00:11: ETL_01_BUILD End: 2020-07-23 09:00:11.279716
+2020-07-23 09:00:11: ETL_01_BUILD Total Execution Time: 2.2349908351898193
+2020-07-23 09:00:11: ETL_01_BUILD Creating stats files for portal inmobiliario
+2020-07-23 09:00:11: 	Info:		D:\Reference\housemodel\stats\ETL/20200721/ETL_01_BUILD/portal inmobiliario/info.txt
+2020-07-23 09:00:11: 	Describe:	D:\Reference\housemodel\stats\ETL/20200721/ETL_01_BUILD/portal inmobiliario/describe.csv
+2020-07-23 09:00:11: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200721/ETL_01_BUILD/portal inmobiliario/nulls.txt
+2020-07-23 09:00:11: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200721/ETL_01_BUILD/portal inmobiliario/ceros.txt
+2020-07-23 09:00:11: ETL_02_CLEAN Start: 2020-07-23 09:00:11.389751
+2020-07-23 09:00:11: Processing Source: D:\Reference\housemodel\data\T\ETL/20200721/ETL_01_BUILD/portal inmobiliario.csv
+2020-07-23 09:00:12: ETL_02_CLEAN End: 2020-07-23 09:00:12.834713
+2020-07-23 09:00:12: ETL_02_CLEAN Total Execution Time: 1.4449613094329834
+2020-07-23 09:00:12: ETL_02_CLEAN Creating stats files for portal inmobiliario
+2020-07-23 09:00:12: 	Info:		D:\Reference\housemodel\stats\ETL/20200721/ETL_02_CLEAN/portal inmobiliario/info.txt
+2020-07-23 09:00:12: 	Describe:	D:\Reference\housemodel\stats\ETL/20200721/ETL_02_CLEAN/portal inmobiliario/describe.csv
+2020-07-23 09:00:12: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200721/ETL_02_CLEAN/portal inmobiliario/nulls.txt
+2020-07-23 09:00:12: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200721/ETL_02_CLEAN/portal inmobiliario/ceros.txt
+2020-07-23 09:00:12: ETL_03_FORMAT Start: 2020-07-23 09:00:12.938716
+2020-07-23 09:00:12: Processing Source: D:\Reference\housemodel\data\T\ETL/20200721/ETL_02_CLEAN/portal inmobiliario.csv
+2020-07-23 09:00:13: ETL_03_FORMAT End: 2020-07-23 09:00:13.041710
+2020-07-23 09:00:13: ETL_03_FORMAT Total Execution Time: 0.10299444198608398
+2020-07-23 09:00:13: ETL_03_FORMAT Creating stats files for portal inmobiliario
+2020-07-23 09:00:13: 	Info:		D:\Reference\housemodel\stats\ETL/20200721/ETL_03_FORMAT/portal inmobiliario/info.txt
+2020-07-23 09:00:13: 	Describe:	D:\Reference\housemodel\stats\ETL/20200721/ETL_03_FORMAT/portal inmobiliario/describe.csv
+2020-07-23 09:00:13: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200721/ETL_03_FORMAT/portal inmobiliario/nulls.txt
+2020-07-23 09:00:13: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200721/ETL_03_FORMAT/portal inmobiliario/ceros.txt
+2020-07-23 09:00:13: ETL_04_FILL Start: 2020-07-23 09:00:13.159726
+2020-07-23 09:00:13: Processing Source: D:\Reference\housemodel\data\T\ETL/20200721/ETL_03_FORMAT/portal inmobiliario.csv
+2020-07-23 09:00:13: ETL_04_FILL End: 2020-07-23 09:00:13.227713
+2020-07-23 09:00:13: ETL_04_FILL Total Execution Time: 0.06798696517944336
+2020-07-23 09:00:13: ETL_04_FILL Creating stats files for portal inmobiliario
+2020-07-23 09:00:13: 	Info:		D:\Reference\housemodel\stats\ETL/20200721/ETL_04_FILL/portal inmobiliario/info.txt
+2020-07-23 09:00:13: 	Describe:	D:\Reference\housemodel\stats\ETL/20200721/ETL_04_FILL/portal inmobiliario/describe.csv
+2020-07-23 09:00:13: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200721/ETL_04_FILL/portal inmobiliario/nulls.txt
+2020-07-23 09:00:13: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200721/ETL_04_FILL/portal inmobiliario/ceros.txt
+2020-07-23 09:00:13: ETL_05_FEATURE_ENG Start: 2020-07-23 09:00:13.345712
+2020-07-23 09:00:13: Processing Source: D:\Reference\housemodel\data\T\ETL/20200721/ETL_04_FILL/portal inmobiliario.csv
+2020-07-23 09:00:23: ETL_05_FEATURE_ENG End: 2020-07-23 09:00:23.543712
+2020-07-23 09:00:23: ETL_05_FEATURE_ENG Total Execution Time: 10.197999715805054
+2020-07-23 09:00:23: ETL_05_FEATURE_ENG Creating stats files for portal inmobiliario
+2020-07-23 09:00:23: 	Info:		D:\Reference\housemodel\stats\ETL/20200721/ETL_05_FEATURE_ENG/portal inmobiliario/info.txt
+2020-07-23 09:00:23: 	Describe:	D:\Reference\housemodel\stats\ETL/20200721/ETL_05_FEATURE_ENG/portal inmobiliario/describe.csv
+2020-07-23 09:00:23: 	Nulls:		D:\Reference\housemodel\stats\ETL/20200721/ETL_05_FEATURE_ENG/portal inmobiliario/nulls.txt
+2020-07-23 09:00:23: 	Ceros:		D:\Reference\housemodel\stats\ETL/20200721/ETL_05_FEATURE_ENG/portal inmobiliario/ceros.txt
+2020-07-23 09:00:23: ETL_06_LOAD Start: 2020-07-23 09:00:23.696714
+2020-07-23 09:00:32: Connection Open OK
+2020-07-23 09:00:32: houses_v2 table Exists
+2020-07-23 09:00:32: Processing Source: D:\Reference\housemodel\data\T\ETL/20200721/ETL_05_FEATURE_ENG/portal inmobiliario.csv
+2020-07-23 09:00:41: Connection Closed OK
+2020-07-23 09:00:41: ETL_06_LOAD End: 2020-07-23 09:00:41.536757
+2020-07-23 09:00:41: ETL_06_LOAD Total Execution Time: 17.84004259109497
+2020-07-23 09:00:41: ETL End: 2020-07-23 09:00:41.539754
+2020-07-23 09:00:41: ETL Total Execution Time: 74.66659832000732

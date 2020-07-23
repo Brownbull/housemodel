@@ -24,7 +24,7 @@ def loadCsv(log, dbConn, inCsvPath, outCsvPath):
   for idx, row in inDf.iterrows():
     insertSql = """ 
     INSERT INTO public.houses_v2(
-	    "SNAP_DT", "SRCE", "REGION", "PROVINCE", "PUBLISHED_DT", "PUBLISHED_TIMESMTP", "PROPERTY_TYPE", "PROPERTY_STATE", "AGE", "STAGE", "DELIVERY", "COMMON_EXPNS_CLP", "FLOOR", "FOR_INVESTMENT", "SECTOR", "SIZE_GROUP", "MT_TOT", "MT_UTIL", "MT_TOT_IN_UTIL_PERC", "BDROOM", "BATH", "BALCONY", "PARKING", "STORAGE", "POOL", "PRICE_UF", "ETL_UF_X_MT2", "ETL_VALUE", "ETL_SCORE", "LINK")
+	    "SNAP_DT", "SRCE", "REGION", "PROVINCE", "PUBLISHED_DT", "UPDATED_DT", "PROPERTY_TYPE", "PROPERTY_STATE", "AGE", "STAGE", "DELIVERY", "COMMON_EXPNS_CLP", "FLOOR", "FOR_INVESTMENT", "SECTOR", "SIZE_GROUP", "MT_TOT", "MT_UTIL", "MT_TOT_IN_UTIL_PERC", "BDROOM", "BATH", "BALCONY", "PARKING", "STORAGE", "POOL", "PRICE_UF", "ETL_UF_X_MT2", "ETL_VALUE", "ETL_SCORE", "LINK")
 	    VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}, {18}, {19}, {20}, {21}, {22}, {23}, {24}, {25}, {26}, {27}, {28}, {29});""".format(
         row['SnapDate'] if checkIfexists('SnapDate', row) else default ,
         "\'" + row['Srce'] + "\'" if checkIfexists('Srce', row) else default ,
@@ -91,7 +91,7 @@ def loadMain(log, snap, inCsvPaths, baseOutPath, statsPath,  Cols, dbCfg):
       "REGION" character varying(200),
       "PROVINCE" character varying(100),
       "PUBLISHED_DT" date,
-      "PUBLISHED_TIMESMTP" timestamp without time zone DEFAULT now(),
+      "UPDATED_DT" date,
       "PROPERTY_TYPE" character varying(20),
       "PROPERTY_STATE" character varying(10),
       "AGE" integer,

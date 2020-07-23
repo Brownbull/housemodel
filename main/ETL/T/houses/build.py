@@ -112,6 +112,9 @@ def getProvince(rawProvince, rawProvincePref2, rawProvincePref3, default=-16):
   else:
     return default
 
+def getUniqueLink(Link):
+  return Link.split('#')[0]
+
 class buildHouse:
   def __init__(self, default=-16):
     self.Srce = default 
@@ -188,7 +191,7 @@ class buildHouse:
     if self.Province == default:
       self.PropertyState = "nueva"
     else:
-      self.Stage = "Done"
+      self.Stage = "disponible"
     
   def linkSection(self, Section, default=-16):
     return
@@ -312,6 +315,8 @@ class buildHouse:
           self.Stage = "lanzamiento"
         elif strListInPhrase(["venta","verde"], fld3):
           self.Stage = "venta en verde"
+        else:
+          self.Stage = "disponible"
 
   """
   banos 1
@@ -383,7 +388,7 @@ class buildHouse:
   https://www.portalinmobiliario.com/venta/departamento/nunoa-metropolitana/9066-edificio-new-nva#position=5&type=item&tracking_id=700b3753-3c55-4408-ad96-5748ac0fa507
   """
   def linkLink(self, Link, default=-16):
-    self.Link = Link
+    self.Link = getUniqueLink(Link)
     if self.Province == default:
       words = Link.split('/')
       rawPlace = words[5].split('-')
@@ -417,7 +422,7 @@ class buildHouse:
       elif "bano" in Description:
         self.Bath = 1
     
-def build_portalinmobiliario(inDf, outCsvPath):
+def build_portalinmobiliario(snap, inDf, outCsvPath):
   default = -16
   # dateFormat = "%Y/%m/%d"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
@@ -429,7 +434,7 @@ def build_portalinmobiliario(inDf, outCsvPath):
       houseToWrite.linkRegion(row['Region'])
       houseToWrite.linkPropertyType(row['PropertyType'])
       houseToWrite.linkPropertyState(row['PropertyState'])
-      houseToWrite.linkPublishedDate(row['PublishedDate'])
+      houseToWrite.linkPublishedDate(row['PublishedDate'], default=fromCCYYMMDDtoDate(snap))
       houseToWrite.linkTitle(row['Title'])
       houseToWrite.linkSection(row['Section'])
       houseToWrite.linkModels(row['Models'])
@@ -447,13 +452,13 @@ def build_portalinmobiliario(inDf, outCsvPath):
       outCsv.write(houseToWrite.toCsvRow())
 
 # CSV processing
-def buildCsv(srce, inCsvPath, outCsvPath):
+def buildCsv(snap, srce, inCsvPath, outCsvPath):
   # Initial Vars
   inDf = pd.read_csv(inCsvPath)
 
   # SRCE switch
   if srce == "portal inmobiliario":
-    build_portalinmobiliario(inDf, outCsvPath)
+    build_portalinmobiliario(snap, inDf, outCsvPath)
   else:
     print("srce {} is not supported".format(srce))
     exit()
@@ -486,6 +491,7 @@ def buildMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
 
     ## FORMAT
     buildCsv(
+      snap,
       srce, 
       inCsvPath, # inFile
       outCsvPath) # outFile

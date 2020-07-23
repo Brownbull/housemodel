@@ -1,8 +1,8 @@
 ,Srce,Region,Province,PublishedDate,PropertyType,PropertyState,Age,Stage,Delivery,CommonExpnsCLP,Floor,ForInvestment,MtTot,MtUtil,Bdroom,Bath,Parking,Storage,Pool,PriceUF,Link
 count,4004,4004,4004,4004,4004,4004,4004.0,4004,4004,4004.0,4004.0,4004,4004.0,4004.0,4004.0,4004.0,4004.0,4004.0,4004.0,4004.0,4004
-unique,1,1,49,13,2,2,,5,4,,,2,,,,,,,,,3985
-top,portal inmobiliario,rm,las condes,17/07/2020,aparment,usada,,Done,-16,,,N,,,,,,,,,https://www.portalinmobiliario.com/venta/casa/la-reina-metropolitana/7653-townhouse-garden-nva#position=37&type=item&tracking_id=cce6de3d-c3d9-4787-80c3-08f8f46edd44
-freq,4004,4004,845,840,2005,3976,,3976,3992,,,3612,,,,,,,,,6
+unique,1,1,49,13,2,2,,6,4,,,2,,,,,,,,,3975
+top,portal inmobiliario,rm,las condes,17/07/2020,aparment,usada,,disponible,-16,,,N,,,,,,,,,https://www.portalinmobiliario.com/venta/casa/la-reina-metropolitana/7653-townhouse-garden-nva
+freq,4004,4004,845,840,2005,3976,,3942,3992,,,3612,,,,,,,,,6
 mean,,,,,,,-15.757242757242757,,,3266.853146853147,-15.916083916083917,,513.2672327672327,213.83441558441558,3.24000999000999,2.5214785214785214,0.9488011988011988,0.5284715284715285,0.4835164835164835,9244.435064935065,
 std,,,,,,,3.108578862294258,,,21247.27411401179,1.6077973410022015,,4630.257711419486,4074.8333856691193,1.3275036348254359,1.1195303482432861,0.9286975837359723,0.5017466981722117,0.4997906351351488,5931.903457243693,
 min,,,,,,,-16.0,,,-16.0,-16.0,,-16.0,-16.0,1.0,1.0,0.0,0.0,0.0,1041.0,

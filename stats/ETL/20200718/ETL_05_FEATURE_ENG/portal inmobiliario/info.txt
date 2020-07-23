@@ -28,9 +28,9 @@ Data columns (total 29 columns):
  22  Storage          4004 non-null   int64  
  23  Pool             4004 non-null   int64  
  24  PriceUF          4004 non-null   int64  
- 25  UFxMt2           4004 non-null   int64  
+ 25  UFxMt2           4004 non-null   float64
  26  Value            4004 non-null   float64
  27  Score            4004 non-null   int64  
  28  Link             4004 non-null   object 
-dtypes: float64(4), int64(14), object(11)
+dtypes: float64(5), int64(13), object(11)
 memory usage: 735.2+ KB

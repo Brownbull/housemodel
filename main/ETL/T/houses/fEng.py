@@ -171,6 +171,15 @@ def getValue(row, default=-16):
   else:
     return int((Bdroom + Bath + Balcony + Parking + Storage + Pool + Sector) * (MtTot + MtUtil * 0.7))
 
+def getUFxMt2(row, default=-16):
+  if row['MtUtil'] != default and row['MtTot'] != default:
+    return round(row['PriceUF']/min(row['MtUtil'], row['MtTot']), 0)
+  elif row['MtUtil'] != default:
+    return round(row['PriceUF']/row['MtUtil'], 0)
+  elif row['MtTot'] != default:
+    return round(row['PriceUF']/row['MtTot'], 0)
+  else:
+    return default
 
 # CSV processing
 def fEngCsv(snap, srce, inCsvPath, outCsvPath, cols):
@@ -195,11 +204,11 @@ def fEngCsv(snap, srce, inCsvPath, outCsvPath, cols):
         inDf.loc[idx, 'SizeGroup'] = getSizeGroup(row['MtTot'])
 
     inDf.loc[idx, 'Sector'] = sectorPoints(row['Province'])
+    inDf.loc[idx, 'UFxMt2'] = getUFxMt2(row)
     inDf.loc[idx, 'Value'] = getValue(inDf.loc[idx])
 
   # NEW cols
   inDf['SnapDate'] = inDf.apply(lambda row: snap, axis=1)
-  inDf['UFxMt2'] = inDf.apply(lambda row: int(row['PriceUF']/row['MtTot'] if row['MtTot'] != 16 else row['PriceUF']/row['Util']), axis=1)
   inDf['Score'] = inDf.apply(lambda row: int(row['Value']*1000/row['PriceUF']), axis=1)
 
   # DROP outliers rows
