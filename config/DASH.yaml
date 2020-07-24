@@ -1,0 +1,18 @@
+# Dashboards configuration file
+
+dbCfg:
+  db: houses
+  user: postgres
+  hst: localhost
+  prt: 5432
+# Execution setup
+info: False
+force: False
+stats: True
+debug: True
+# Author details
+version: 2
+author:
+  alias: Brownbull
+  name: Gabriel Carcamo
+  email: carcamo.gabriel@gmail.com
