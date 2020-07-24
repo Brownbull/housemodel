@@ -1,0 +1,85 @@
+Date,AmntUF,Years,Bank,Type,DwnPmntUF,InterestType,MnthPmnt,InterestRate
+6/19/2020,6000,15,Banco Falabella,Mutuo Endosable,0,Fija,"$1,193,635 ",2.80%
+6/19/2020,6000,15,Banco Consorcio,Mutuo Endosable,0,Fija,"$1,201,385 ",3.10%
+6/19/2020,6000,15,Banco Security,Mutuo Endosable,0,Fija,"$1,307,314 ",4.35%
+6/19/2020,6000,15,Consorcio,Hipotecario,1800,Fija,"$854,716 ",3.10%
+6/19/2020,6000,15,Banco Estado,Mutuo,1800,Fija,"$868,188 ",2.80%
+6/19/2020,6000,15,Itau,Mutuo,1800,Fija,"$907,204 ",3.64%
+6/19/2020,6000,15,Scotiabank,Hipotecario,1800,Fija,"$908,430 ",3.79%
+6/19/2020,6000,15,Banco de Chile,Mutuo,1800,Fija,"$913,253 ",3.79%
+6/19/2020,6000,15,Security,Hipotecario,1800,Fija,"$919,067 ",4.00%
+6/19/2020,6000,15,Santander,Hipotecario,1800,Fija,"$920,035 ",3.80%
+6/19/2020,6000,15,BCI,Hipotecario,1800,Fija,"$921,645 ",3.83%
+6/19/2020,6000,15,Falabella,Hipotecario,1800,Fija,"$930,041 ",4.10%
+6/19/2020,6000,15,BICE,Credito U,1800,Fija,"$930,590 ",4.00%
+6/19/2020,6000,15,Metfile,Hipotecario,1800,Fija,"$934,110 ",4.20%
+6/19/2020,6000,20,Banco Falabella,Mutuo Endosable,0,Fija,"$975,175 ",3.00%
+6/19/2020,6000,20,Banco Consorcio,Mutuo Endosable,0,Fija,"$984,361 ",3.30%
+6/19/2020,6000,20,Banco Security,Mutuo Endosable,0,Fija,"$1,078,233 ",4.35%
+6/19/2020,6000,20,Banco Estado,Mutuo,1800,Fija,"$693,671 ",2.63%
+6/19/2020,6000,20,Consorcio,Mutuo,1800,Fija,"$703,202 ",3.30%
+6/19/2020,6000,20,Banco de Chile,Mutuo,1800,Fija,"$757,708 ",3.89%
+6/19/2020,6000,20,Edwards,Mutuo,1800,Fija,"$757,708 ",3.89%
+6/19/2020,6000,20,Security,Mutuo,1800,Fija,"$757,857 ",4.00%
+6/19/2020,6000,20,Scotiabank,Mutuo,1800,Fija,"$757,950 ",3.97%
+6/19/2020,6000,20,Itau,Mutuo,1800,Fija,"$760,619 ",3.89%
+6/19/2020,6000,20,BCI,Mutuo,1800,Fija,"$768,133 ",3.96%
+6/19/2020,6000,20,BICE,Mutuo,1800,Fija,"$769,380 ",4.00%
+6/19/2020,6000,20,MetLife,Mutuo,1800,Fija,"$773,536 ",4.20%
+6/19/2020,6000,20,Santander,Mutuo,1800,Fija,"$774,041 ",4.05%
+6/19/2020,7000,15,Banco Falabella,Mutuo Endosable,0,Fija,"$1,392,287 ",2.80%
+6/19/2020,7000,15,Banco Consorcio,Mutuo Endosable,0,Fija,"$1,401,760 ",3.10%
+6/19/2020,7000,15,Banco Security,Mutuo Endosable,0,Fija,"$1,525,200 ",4.35%
+6/19/2020,7000,15,Consorcio,Mutuo,1800,Fija,"$1,067,290 ",3.10%
+6/19/2020,7000,15,Banco Estado,Mutuo,1800,Fija,"$1,078,976 ",2.75%
+6/19/2020,7000,15,BCI,Mutuo,1800,Fija,"$1,129,330 ",3.56%
+6/19/2020,7000,15,Itau,Mutuo,1800,Fija,"$1,131,608 ",3.64%
+6/19/2020,7000,15,Scotiabank,Mutuo,1800,Fija,"$1,133,714 ",3.79%
+6/19/2020,7000,15,Banco de Chile,Mutuo,1800,Fija,"$1,139,743 ",3.79%
+6/19/2020,7000,15,Edwards,Mutuo,1800,Fija,"$1,139,743 ",3.79%
+6/19/2020,7000,15,Security,Mutuo,1800,Fija,"$1,146,402 ",3.99%
+6/19/2020,7000,15,Santander,Mutuo,1800,Fija,"$1,147,575 ",3.80%
+6/19/2020,7000,15,BICE,Mutuo,1800,Fija,"$1,155,482 ",3.92%
+6/19/2020,7000,15,Metlife,Mutuo,1800,Fija,"$1,162,495 ",4.15%
+6/19/2020,7000,20,Banco Falabella,Mutuo Endosable,0,Fija,"$1,137,656 ",3.00%
+6/19/2020,7000,20,Banco Consorcio,Mutuo Endosable,0,Fija,"$1,148,278 ",3.30%
+6/19/2020,7000,20,Banco Security,Mutuo Endosable,0,Fija,"$1,257,938 ",4.35%
+6/19/2020,7000,20,Banco Estado,Mutuo,1800,Fija,"$860,726 ",2.58%
+6/19/2020,7000,20,Consorcio,Mutuo,1800,Fija,"$877,897 ",3.30%
+6/19/2020,7000,20,BCI,Mutuo,1800,Fija,"$935,544 ",3.68%
+6/19/2020,7000,20,Security,Mutuo,1800,Fija,"$944,850 ",3.99%
+6/19/2020,7000,20,Banco de Chile,Mutuo,1800,Fija,"$945,312 ",3.89%
+6/19/2020,7000,20,Edwards,Mutuo,1800,Fija,"$945,312 ",3.89%
+6/19/2020,7000,20,Scotiabank,Mutuo,1800,Fija,"$945,615 ",3.97%
+6/19/2020,7000,20,Itau,Mutuo,1800,Fija,"$948,377 ",3.89%
+6/19/2020,7000,20,BICE,Mutuo,1800,Fija,"$953,662 ",3.92%
+6/19/2020,7000,20,Metlife,Mutuo,1800,Fija,"$961,576 ",4.15%
+6/19/2020,7000,20,Santander,Mutuo,1800,Fija,"$965,083 ",4.05%
+6/19/2020,8000,15,Banco Falabella,Mutuo Endosable,0,Fija,"$1,591,226 ",2.80%
+6/19/2020,8000,15,Banco Consorcio,Mutuo Endosable,0,Fija,"$1,601,847 ",3.10%
+6/19/2020,8000,15,Banco Security,Mutuo Endosable,0,Fija,"$1,743,372 ",4.35%
+6/19/2020,8000,15,Consorcio,Mutuo,1800,Fija,"$1,251,815 ",3.10%
+6/19/2020,8000,15,Banco Estado,Mutuo,1800,Fija,"$1,264,859 ",2.75%
+6/19/2020,8000,15,BCI,Mutuo,1800,Fija,"$1,323,978 ",3.56%
+6/19/2020,8000,15,Itau,Mutuo,1800,Fija,"$1,326,730 ",3.64%
+6/19/2020,8000,15,Scotiabank,Mutuo,1800,Fija,"$1,329,447 ",3.79%
+6/19/2020,8000,15,Banco de Chile,Mutuo,1800,Fija,"$1,336,521 ",3.79%
+6/19/2020,8000,15,Edwards,Mutuo,1800,Fija,"$1,336,521 ",3.79%
+6/19/2020,8000,15,Security,Mutuo,1800,Fija,"$1,344,396 ",3.99%
+6/19/2020,8000,15,Santander,Mutuo,1800,Fija,"$1,345,435 ",3.80%
+6/19/2020,8000,15,BICE,Mutuo,1800,Fija,"$1,355,031 ",3.92%
+6/19/2020,8000,15,Metlife,Mutuo,1800,Fija,"$1,363,423 ",4.15%
+6/19/2020,8000,20,Banco Falabella,Mutuo Endosable,0,Fija,"$1,300,137 ",3.00%
+6/19/2020,8000,20,Banco Consorcio,Mutuo Endosable,0,Fija,"$1,312,481 ",3.30%
+6/19/2020,8000,20,Banco Security,Mutuo Endosable,0,Fija,"$1,437,931 ",4.35%
+6/19/2020,8000,20,Banco Estado,Mutuo,1800,Fija,"$1,008,780 ",2.58%
+6/19/2020,8000,20,Consorcio,Mutuo,1800,Fija,"$1,029,594 ",3.30%
+6/19/2020,8000,20,BCI,Mutuo,1800,Fija,"$1,096,603 ",3.68%
+6/19/2020,8000,20,Banco de Chile,Mutuo,1800,Fija,"$1,108,388 ",3.89%
+6/19/2020,8000,20,Edwards,Mutuo,1800,Fija,"$1,108,388 ",3.89%
+6/19/2020,8000,20,Scotiabank,Mutuo,1800,Fija,"$1,108,744 ",3.97%
+6/19/2020,8000,20,Itau,Mutuo,1800,Fija,"$1,111,739 ",3.89%
+6/19/2020,8000,20,BICE,Mutuo,1800,Fija,"$1,118,228 ",3.92%
+6/19/2020,8000,20,Metlife,Mutuo,1800,Fija,"$1,127,677 ",4.15%
+6/19/2020,8000,20,Santander,Mutuo,1800,Fija,"$1,131,311 ",4.05%
+6/19/2020,8000,20,Security,Mutuo,1800,Fija,"$1,131,565 ",4.25%

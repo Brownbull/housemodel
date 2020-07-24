@@ -1,36 +1,36 @@
 # Transformation configuration file
 # Input Setup
-dataIndex: D:\Reference\housemodel\data\E\byHand\segment2_datasources.csv
-dataFolder: D:/Reference/housemodel/data/E/webscrapper
+dataIndex: D:/Reference/housemodel/data/ETL/E/byHand/segment2_datasources.csv
+dataFolder: D:/Reference/housemodel/data/ETL/E/webscrapper
 dataSrces: &dataSrces [ 'portal inmobiliario' ]
 # Processing Initial Date format YYYYMMDD
 procDtIni: 20200710
 # Processing End Date format YYYYMMDD
 procDtEnd: 20210101
 # Stats
-statsPath: D:\Reference\housemodel\stats\ETL
+statsPath: D:/Reference/housemodel/stats/ETL
 # Extract Setup
 # Transform Setup
-transformPath: D:\Reference\housemodel\data\T\ETL
+transformPath: D:/Reference/housemodel/data/ETL/T/python
 ## Collect
-collectLib: D:\Reference\housemodel\main\ETL\T\houses\collect.py
+collectLib: D:/Reference/housemodel/main/ETL/T/houses/collect.py
 collectionCols: [Srce, Region, PropertyType, PropertyState, PublishedDate, Title, Section, Models, fld0, fld1, fld2, fld3, fld4, fld5, FullPrice, Link, Description]
 ## Build
-buildLib: D:\Reference\housemodel\main\ETL\T\houses\build.py
+buildLib: D:/Reference/housemodel/main/ETL/T/houses/build.py
 buildCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
 ## Clean
-cleanLib: D:\Reference\housemodel\main\ETL\T\houses\clean.py
+cleanLib: D:/Reference/housemodel/main/ETL/T/houses/clean.py
 cleanCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
 ## Format
-formatLib: D:\Reference\housemodel\main\ETL\T\houses\format.py
+formatLib: D:/Reference/housemodel/main/ETL/T/houses/format.py
 formatCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
 ## Fill
-fillLib: D:\Reference\housemodel\main\ETL\T\houses\fill.py
+fillLib: D:/Reference/housemodel/main/ETL/T/houses/fill.py
 ## fEng
-fEngLib: D:\Reference\housemodel\main\ETL\T\houses\fEng.py
+fEngLib: D:/Reference/housemodel/main/ETL/T/houses/fEng.py
 fEngCols: [SnapDate, Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, Sector, SizeGroup, MtTot, MtUtil, MtTotInUtilPerc, Bdroom, Bath, Balcony, Parking, Storage, Pool, PriceUF, UFxMt2, Value, Score, Link]
 ## Load
-loadLib: D:\Reference\housemodel\main\ETL\L\houses\postgreSQL_v2.py
+loadLib: D:/Reference/housemodel/main/ETL/L/houses/postgreSQL_v2.py
 dbCfg:
   db: houses
   user: postgres
@@ -42,7 +42,7 @@ force: False
 stats: True
 debug: True
 # Author details
-version: 1
+version: 2
 author:
   alias: Brownbull
   name: Gabriel Carcamo

@@ -1,0 +1,12 @@
+,Srce,Province,PublishedDate,PropertyType,PropertyState,MtTot,Bdroom,Bath,Parking,PriceUF,Link,Description
+count,94,94,94,94,94,94,94.0,94.0,94,94,94,93
+unique,1,5,1,2,1,56,,,1,78,94,92
+top,chile propiedades,Santiago,TBD,House,TBD,100 m²,,,TBD,180.000.000 CLP,https://chilepropiedades.cl/ver-publicacion/venta-usada/santiago/casa/los-alacalufes-1004/3711760,Departamento en venta en Ñuñoa. EXCELENTE OPORTUNIDAD en el mejor sector de Ñuñoa cercano a bancos comercios colegio campus oriente UC. Para visita coordinar con Waleska Baricic 569 9369 49 50. Mail: waleska@catabrochet.cl Hall de entrada 3 dormitorios 1 en suite con walk in closet 2 baños orientación Sur-oriente ventanas de aluminio calefacción central cocina con encimera horno eléctrico comedor de diario logia balcones cerrados piso flotante alarma circuito cerrado de televisión año 2009 1 estacionamiento 1 bodega El edificio cuenta con: Accesos controlados las 24 horas piscina sala multiuso sala de juegos lavandería quincho gimnasio.
+freq,94,44,94,54,94,14,,,94,5,1,2
+mean,,,,,,,3.5425531914893615,2.4148936170212765,,,,
+std,,,,,,,0.742922065942972,0.6785432604505814,,,,
+min,,,,,,,3.0,1.0,,,,
+25%,,,,,,,3.0,2.0,,,,
+50%,,,,,,,3.0,2.0,,,,
+75%,,,,,,,4.0,3.0,,,,
+max,,,,,,,6.0,4.0,,,,
