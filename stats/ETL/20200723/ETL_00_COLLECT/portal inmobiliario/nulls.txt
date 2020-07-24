@@ -1,0 +1,18 @@
+portal inmobiliario columns with null values:
+                          Srce                     0
+                        Region                     0
+                  PropertyType                     0
+                 PropertyState                     0
+                 PublishedDate                     0
+                         Title                     0
+                       Section                     0
+                        Models                  3938
+                          fld0                     6
+                          fld1                     8
+                          fld2                    30
+                          fld3                   104
+                          fld4                  1615
+                          fld5                  3924
+                     FullPrice                     0
+                          Link                     0
+                   Description                     0

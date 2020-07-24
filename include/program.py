@@ -30,7 +30,7 @@ def stripAccents(text):
     return str(text)
 
 def sanitize(string, rmve=","):
-  return stripAccents(rmEscSep(string).replace(rmve,"").lower())
+  return stripAccents(rmEscSep(string).replace(rmve,"").strip('\"').lower())
 
 # https://stackoverflow.com/questions/19926089/python-equivalent-of-java-stringbuffer/29000388
 def array2Str(array, separator):

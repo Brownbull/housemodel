@@ -19,7 +19,7 @@ def loadCsv(log, dbConn, inCsvPath, outCsvPath):
   # WRITE
   ## CSV
   inDf.to_csv(outCsvPath, mode='a', header=False, index=False)
-  print("loadCsv input: {}".format(inCsvPath))
+  logPrint(log, "loadCsv input: {}".format(inCsvPath))
   ## DB
   for idx, row in inDf.iterrows():
     insertSql = """ 
@@ -58,7 +58,19 @@ def loadCsv(log, dbConn, inCsvPath, outCsvPath):
         "\'" + row['Link'] + "\'" if checkIfexists('Link', row) else default 
       )
     dbExec(log, dbConn, insertSql)
-    
+
+def updateSnap(log, dbConn, snap):
+  snapUpdateQry = """ 
+    UPDATE houses_v2 
+    SET "UPDATED_DT"=NOW(), "STAGE"='out' 
+    WHERE "LINK" IN 
+      ( SELECT A."LINK"
+        FROM      (SELECT * FROM houses_v2 WHERE "SNAP_DT" < {0}) A
+        LEFT JOIN (SELECT * FROM houses_v2 WHERE "SNAP_DT" = {0}) B
+        ON A."LINK" = B."LINK"
+        WHERE b IS NULL);""".format(snap, snap)
+  logPrint(log, "updateSnap executing: {}".format(snapUpdateQry))
+  dbExec(log, dbConn, snapUpdateQry)
 
 # MAIN
 def loadMain(log, snap, inCsvPaths, baseOutPath, statsPath,  Cols, dbCfg):
@@ -134,12 +146,18 @@ def loadMain(log, snap, inCsvPaths, baseOutPath, statsPath,  Cols, dbCfg):
     srce = getRawFileName(inCsvPath)
     logPrint(log, "Processing Source: {}".format(inCsvPath))
 
-    ## FORMAT
+    ## LOAD
     loadCsv(
       log, 
       dbConn,
       inCsvPath,
       outCsvPath)
+
+    # UPDATE SNAP
+    updateSnap(
+      log, 
+      dbConn,
+      snap)
 
   dbEnd(log, dbConn)
   ## FINISH

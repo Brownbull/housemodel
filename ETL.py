@@ -69,6 +69,7 @@ for snap in snapshots:
       etlCfg['statsPath'], # statsPath
       etlCfg['dataSrces'], 
       etlCfg['collectionCols'])
+    # input("After COLLECT: Press Enter to continue...")
               
     ## ETL Step - BUILD
     buildFiles = buildMain(
@@ -78,6 +79,7 @@ for snap in snapshots:
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
       etlCfg['buildCols'])
+    # input("After BUILD: Press Enter to continue...")
 
     ## ETL Step - CLEAN
     cleanFiles = cleanMain(
@@ -87,6 +89,7 @@ for snap in snapshots:
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
       etlCfg['cleanCols'])
+    # input("After CLEAN: Press Enter to continue...")
               
     ## ETL Step - FORMAT
     formatFiles = formatMain(
@@ -96,6 +99,7 @@ for snap in snapshots:
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
       etlCfg['formatCols'])
+    # input("After FORMAT: Press Enter to continue...")
               
     ## ETL Step - FILL
     fillFiles = fillMain(
@@ -104,6 +108,7 @@ for snap in snapshots:
       formatFiles,
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath']) # statsPath
+    # input("After FILL: Press Enter to continue...")
 
     ## ETL Step - FEATURE ENG
     fEngFiles = fEngMain(
@@ -113,16 +118,18 @@ for snap in snapshots:
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
       etlCfg['fEngCols'])
+    # input("After FEATURE: Press Enter to continue...")
 
     ## ETL Step - LOAD
     loadMain(
       log,
-      snap, 
+      snap,
       fEngFiles,
       etlCfg['transformPath'], # baseOutPath
       etlCfg['statsPath'], # statsPath
       etlCfg['fEngCols'],
       etlCfg['dbCfg'])
+    # input("After LOAD: Press Enter to continue...")
               
 # END TIMING & LOG
 endTime, endStamp = getTimeAndStamp()
