@@ -181,9 +181,21 @@ class buildHouse:
 
   def linkTitle(self, Title, default=-16):
     words = Title.split()
-    rawProvince = words[len(words)-1]
-    rawProvincePref2 = words[len(words)-2]
-    rawProvincePref3 = words[len(words)-3]
+    lenWords = len(words)
+    if lenWords > 3:
+      rawProvincePref3 = words[len(words)-3]
+    else:
+      rawProvincePref3 = default
+
+    if lenWords > 2:
+      rawProvincePref2 = words[len(words)-2]
+    else:
+      rawProvincePref2 = default
+
+    if lenWords > 1:
+      rawProvince = words[len(words)-1]
+    else:
+      rawProvince = default
 
     self.Province = getProvince(rawProvince, rawProvincePref2, rawProvincePref3)
     
