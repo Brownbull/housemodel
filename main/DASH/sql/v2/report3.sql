@@ -43,8 +43,8 @@ FROM (
     NULLIF("houses_v2"."ETL_SCORE" , -16) as ETL_SCORE 
   FROM
     houses_v2) t
-WHERE 
-  t.SNAP_DT = 20200721
+-- WHERE 
+--   t.SNAP_DT = 20200721
 GROUP BY
   t.SNAP_DT, 
   t.SRCE, 

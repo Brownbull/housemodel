@@ -1,0 +1,24 @@
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 4016 entries, 0 to 4015
+Data columns (total 17 columns):
+ #   Column         Non-Null Count  Dtype 
+---  ------         --------------  ----- 
+ 0   Srce           4016 non-null   object
+ 1   Region         4016 non-null   object
+ 2   PropertyType   4016 non-null   object
+ 3   PropertyState  4016 non-null   object
+ 4   PublishedDate  3992 non-null   object
+ 5   Title          4016 non-null   object
+ 6   Section        4016 non-null   object
+ 7   Models         34 non-null     object
+ 8   fld0           4015 non-null   object
+ 9   fld1           4012 non-null   object
+ 10  fld2           3990 non-null   object
+ 11  fld3           3875 non-null   object
+ 12  fld4           2016 non-null   object
+ 13  fld5           107 non-null    object
+ 14  FullPrice      4016 non-null   object
+ 15  Link           4016 non-null   object
+ 16  Description    4016 non-null   object
+dtypes: object(17)
+memory usage: 266.8+ KB
