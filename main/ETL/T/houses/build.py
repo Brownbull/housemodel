@@ -433,9 +433,14 @@ class buildHouse:
         self.Bath = 2
       elif "bano" in Description:
         self.Bath = 1
-    
+  
+  def defaultOverwrite(self, default=-16):
+    if self.Bdroom == default:
+      self.Bdroom = 1
+    if self.Bath == default:
+      self.Bath = 1
+
 def build_portalinmobiliario(snap, inDf, outCsvPath):
-  default = -16
   # dateFormat = "%Y/%m/%d"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
@@ -459,6 +464,9 @@ def build_portalinmobiliario(snap, inDf, outCsvPath):
       houseToWrite.linkFullPrice(row['FullPrice'])
       houseToWrite.linkLink(row['Link'])
       houseToWrite.linkDescription(row['Description'])
+
+      # DEFAULT handle
+      houseToWrite.defaultOverwrite()
 
       # WRITE row
       outCsv.write(houseToWrite.toCsvRow())

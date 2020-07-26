@@ -15,8 +15,8 @@ portal inmobiliario columns with 0 values:
                         MtUtil                     0
                         Bdroom                     0
                           Bath                     0
-                       Parking                  1277
-                       Storage                  1940
-                          Pool                  1894
+                       Parking                  1254
+                       Storage                  1916
+                          Pool                  1864
                        PriceUF                     0
                           Link                     0

@@ -1,36 +1,36 @@
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 4002 entries, 0 to 4001
+RangeIndex: 3906 entries, 0 to 3905
 Data columns (total 29 columns):
  #   Column           Non-Null Count  Dtype  
 ---  ------           --------------  -----  
- 0   SnapDate         4002 non-null   int64  
- 1   Srce             4002 non-null   object 
- 2   Region           4002 non-null   object 
- 3   Province         4002 non-null   object 
- 4   PublishedDate    4002 non-null   object 
- 5   PropertyType     4002 non-null   object 
- 6   PropertyState    4002 non-null   object 
- 7   Age              4002 non-null   int64  
- 8   Stage            4002 non-null   object 
- 9   Delivery         4002 non-null   object 
- 10  CommonExpnsCLP   4002 non-null   int64  
- 11  Floor            4002 non-null   int64  
- 12  ForInvestment    4002 non-null   object 
- 13  Sector           4002 non-null   float64
- 14  SizeGroup        4002 non-null   object 
- 15  MtTot            4002 non-null   int64  
- 16  MtUtil           4002 non-null   int64  
- 17  MtTotInUtilPerc  4002 non-null   float64
- 18  Bdroom           4002 non-null   int64  
- 19  Bath             4002 non-null   int64  
- 20  Balcony          4002 non-null   float64
- 21  Parking          4002 non-null   int64  
- 22  Storage          4002 non-null   int64  
- 23  Pool             4002 non-null   int64  
- 24  PriceUF          4002 non-null   int64  
- 25  UFxMt2           4002 non-null   float64
- 26  Value            4002 non-null   float64
- 27  Score            4002 non-null   int64  
- 28  Link             4002 non-null   object 
+ 0   SnapDate         3906 non-null   int64  
+ 1   Srce             3906 non-null   object 
+ 2   Region           3906 non-null   object 
+ 3   Province         3906 non-null   object 
+ 4   PublishedDate    3906 non-null   object 
+ 5   PropertyType     3906 non-null   object 
+ 6   PropertyState    3906 non-null   object 
+ 7   Age              3906 non-null   int64  
+ 8   Stage            3906 non-null   object 
+ 9   Delivery         3906 non-null   object 
+ 10  CommonExpnsCLP   3906 non-null   int64  
+ 11  Floor            3906 non-null   int64  
+ 12  ForInvestment    3906 non-null   object 
+ 13  Sector           3906 non-null   float64
+ 14  SizeGroup        3906 non-null   object 
+ 15  MtTot            3906 non-null   int64  
+ 16  MtUtil           3906 non-null   int64  
+ 17  MtTotInUtilPerc  3906 non-null   float64
+ 18  Bdroom           3906 non-null   int64  
+ 19  Bath             3906 non-null   int64  
+ 20  Balcony          3906 non-null   float64
+ 21  Parking          3906 non-null   int64  
+ 22  Storage          3906 non-null   int64  
+ 23  Pool             3906 non-null   int64  
+ 24  PriceUF          3906 non-null   int64  
+ 25  UFxMt2           3906 non-null   float64
+ 26  Value            3906 non-null   float64
+ 27  Score            3906 non-null   int64  
+ 28  Link             3906 non-null   object 
 dtypes: float64(5), int64(13), object(11)
-memory usage: 734.8+ KB
+memory usage: 717.2+ KB

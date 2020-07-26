@@ -16,15 +16,15 @@ portal inmobiliario columns with 0 values:
                      SizeGroup                     0
                          MtTot                     0
                         MtUtil                     0
-               MtTotInUtilPerc                   613
+               MtTotInUtilPerc                   605
                         Bdroom                     0
                           Bath                     0
-                       Balcony                  2644
-                       Parking                  1277
-                       Storage                  1940
-                          Pool                  1894
+                       Balcony                  2591
+                       Parking                  1254
+                       Storage                  1916
+                          Pool                  1864
                        PriceUF                     0
                         UFxMt2                     0
                          Value                     0
-                         Score                     2
+                         Score                     0
                           Link                     0

@@ -26,12 +26,24 @@ def getSizeGroup(Mt2):
     return "250TO3H"
   if 200 < Mt2 <= 250:
     return "2HTO250"
-  if 150 < Mt2 <= 200:
-    return "150TO2H"
-  if 130 < Mt2 <= 150:
-    return "130TO150"
-  if 110 < Mt2 <= 130:
-    return "110TO130"
+  if 190 < Mt2 <= 200:
+    return "190TO2H"
+  if 180 < Mt2 <= 190:
+    return "180TO190"
+  if 170 < Mt2 <= 180:
+    return "170TO180"
+  if 160 < Mt2 <= 170:
+    return "160TO170"
+  if 150 < Mt2 <= 160:
+    return "150TO160"
+  if 140 < Mt2 <= 150:
+    return "140TO150"
+  if 130 < Mt2 <= 140:
+    return "130TO140"
+  if 120 < Mt2 <= 130:
+    return "120TO130"
+  if 110 < Mt2 <= 120:
+    return "110TO120"
   if 100 < Mt2 <= 110:
     return "100TO110"
   if 90 < Mt2 <= 100:
@@ -50,7 +62,6 @@ def getSizeGroup(Mt2):
     return "80TO90"
   else:
     return "LT30"
-
 
 def sectorPoints(sector, default=-16):
   if sector == "santiago":
