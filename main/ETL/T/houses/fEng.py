@@ -195,20 +195,18 @@ def getUFxMt2(row, default=-16):
 # CSV processing
 def fEngCsv(snap, srce, inCsvPath, outCsvPath, cols):
   default = -16
+  minPropertyArea = 15 # 15 mt2
   # Initial Vars
   inDf = pd.read_csv(inCsvPath)
 
   # FROM CSV
   for idx, row in inDf.iterrows():
     inDf.loc[idx, 'Balcony'] = 0
-    if row['MtTot'] != default and row['MtUtil'] != default:
-      MtTotInUtilPerc = round(((row['MtTot'] / row['MtUtil']) - 1)*100,0)
-      inDf.loc[idx, 'MtTotInUtilPerc'] = MtTotInUtilPerc
-      if MtTotInUtilPerc > 0.3  and row['PropertyType'] == 'aparment':
+    if row['MtTot'] != default and row['MtUtil'] != default and row['MtTot'] > minPropertyArea and row['MtUtil'] > minPropertyArea:
+      if row['MtTot'] > row['MtUtil'] > minPropertyArea and row['PropertyType'] == 'aparment':
         inDf.loc[idx, 'Balcony'] = 1
       inDf.loc[idx, 'SizeGroup'] = getSizeGroup(row['MtUtil'])
     else:
-      inDf.loc[idx, 'MtTotInUtilPerc'] = default
       if row['MtUtil'] != default:
         inDf.loc[idx, 'SizeGroup'] = getSizeGroup(row['MtUtil'])
       else:

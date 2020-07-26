@@ -1,7 +1,7 @@
 ,Srce,Region,Province,PublishedDate,PropertyType,PropertyState,Age,Stage,Delivery,CommonExpnsCLP,Floor,ForInvestment,MtTot,MtUtil,Bdroom,Bath,Parking,Storage,Pool,PriceUF,Link
 count,3906,3906,3906,3906,3906,3906,3906.0,3906,3906,3906.0,3906.0,3906,3906.0,3906.0,3906.0,3906.0,3906.0,3906.0,3906.0,3906.0,3906
 unique,1,1,48,15,2,2,,6,20,,,2,,,,,,,,,3805
-top,portal inmobiliario,rm,las condes,20/07/2020,aparment,usada,,disponible,-16,,,N,,,,,,,,,https://www.portalinmobiliario.com/venta/departamento/nunoa-metropolitana/9124-parque-jardin-nva
+top,portal inmobiliario,rm,las condes,20/07/2020,aparment,usada,,disponible,-16,,,N,,,,,,,,,https://www.portalinmobiliario.com/venta/casa/las-condes-metropolitana/7624-estoril-820-casas-nva
 freq,3906,3906,689,819,2023,3752,,3753,3775,,,3449,,,,,,,,,5
 mean,,,,,,,-15.718381976446492,,,2911.6612903225805,-15.867127496159755,,450.55273937532,208.13082437275986,3.1705069124423964,2.480542754736303,0.9825908858166923,0.5360983102918587,0.49795186891961085,8754.393241167434,
 std,,,,,,,3.8517408862851825,,,18260.79243464884,2.877349362215595,,3076.5808480570468,4122.184037617301,1.345209396978467,1.1415806874265346,0.9238365947707013,0.5033587923294138,0.5000598209928591,5818.917478602577,

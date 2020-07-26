@@ -1,7 +1,7 @@
 ,Srce,Region,Province,PublishedDate,PropertyType,PropertyState,Age,Stage,Delivery,CommonExpnsCLP,Floor,ForInvestment,MtTot,MtUtil,Bdroom,Bath,Parking,Storage,Pool,PriceUF,Link
 count,4097,4097,4097,4097,4097,4097,4097.0,4097,4097,4097.0,4097.0,4097,4097.0,4097.0,4097.0,4097.0,4097.0,4097.0,4097.0,4097.0,4097
 unique,1,1,48,15,2,2,,6,20,,,2,,,,,,,,,3996
-top,portal inmobiliario,rm,las condes,20/07/2020,aparment,usada,,disponible,-16,,,N,,,,,,,,,https://www.portalinmobiliario.com/venta/departamento/nunoa-metropolitana/9124-parque-jardin-nva
+top,portal inmobiliario,rm,las condes,20/07/2020,aparment,usada,,disponible,-16,,,N,,,,,,,,,https://www.portalinmobiliario.com/venta/departamento/vitacura-metropolitana/8464-andes-tabancura-nva
 freq,4097,4097,717,847,2096,3943,,3944,3966,,,3607,,,,,,,,,5
 mean,,,,,,,-15.731510861606052,,,2775.1752501830606,-15.873321942885038,,431.82792287039297,204.24969489870637,3.1742738589211617,2.477666585306322,0.9931657310226996,0.5316084940200146,0.49035879912130825,8766.410300219673,
 std,,,,,,,3.761332549222612,,,17840.634090894255,2.8096015485145514,,3008.289226006379,4025.021277225707,1.3560095251175575,1.1418236951130258,1.404843796962642,0.5039290692566728,0.49996805868807576,5842.768700013443,
