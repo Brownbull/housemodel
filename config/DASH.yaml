@@ -1,5 +1,13 @@
 # Dashboards configuration file
-
+dataFolder: D:/Reference/housemodel/data/DASH/python
+# SQL scripts
+createMarketView: D:\Reference\housemodel\main\DASH\sql\create_house_market_v2.sql
+selectMarketView: D:\Reference\housemodel\main\DASH\sql\select_house_market_v2.sql
+## Group
+groupLib: D:\Reference\housemodel\main\DASH\houseMarket.py
+# Stats
+statsPath: D:/Reference/housemodel/stats/DASH
+# Setup
 dbCfg:
   db: houses
   user: postgres

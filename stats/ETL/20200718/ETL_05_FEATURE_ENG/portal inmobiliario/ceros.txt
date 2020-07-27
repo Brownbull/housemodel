@@ -16,7 +16,6 @@ portal inmobiliario columns with 0 values:
                      SizeGroup                     0
                          MtTot                     0
                         MtUtil                     0
-               MtTotInUtilPerc                   558
                         Bdroom                     0
                           Bath                     0
                        Balcony                  2559

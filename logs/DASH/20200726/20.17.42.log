@@ -1,0 +1,19 @@
+2020-07-26 20:17:42: DASH Start: 2020-07-26 20:17:42.046489
+2020-07-26 20:17:42: DASH_01_GROUP Start: 2020-07-26 20:17:42.047452
+2020-07-26 20:17:43: Connection Open OK
+2020-07-26 20:17:43: houses_v2 table does Exists, OK.
+2020-07-26 20:17:43: house_market_v2 table does not Exists, Creating.
+2020-07-26 20:17:43: Executing from sql script: D:\Reference\housemodel\main\DASH\sql\create_house_market_v2.sql
+2020-07-26 20:17:43: Execution OK.
+2020-07-26 20:17:43: dbExec Failed:
+2020-07-26 20:17:43: ERROR:  syntax error at or near ";"
+LINE 35:   ;) to stdout with csv header
+           ^
+
+2020-07-26 20:17:43: None
+2020-07-26 20:17:43: Execution OK.
+2020-07-26 20:17:43: Connection Closed OK
+2020-07-26 20:17:43: DASH_01_GROUP End: 2020-07-26 20:17:43.504591
+2020-07-26 20:17:43: DASH_01_GROUP Total Execution Time: 1.457139253616333
+2020-07-26 20:17:43: DASH End: 2020-07-26 20:17:43.517555
+2020-07-26 20:17:43: DASH Total Execution Time: 1.4710662364959717

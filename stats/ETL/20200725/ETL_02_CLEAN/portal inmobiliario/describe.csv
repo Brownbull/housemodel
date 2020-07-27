@@ -1,7 +1,7 @@
 ,Srce,Region,Province,PublishedDate,PropertyType,PropertyState,Age,Stage,Delivery,CommonExpnsCLP,Floor,ForInvestment,MtTot,MtUtil,Bdroom,Bath,Parking,Storage,Pool,PriceUF,Link
 count,3931,3931,3931,3931,3931,3931,3931.0,3931,3931,3931.0,3931.0,3931,3931.0,3931.0,3931.0,3931.0,3931.0,3931.0,3931.0,3931.0,3931
 unique,1,1,48,7,2,2,,6,7,,,2,,,,,,,,,3903
-top,portal inmobiliario,rm,las condes,23/07/2020,house,usada,,disponible,-16,,,N,,,,,,,,,https://www.portalinmobiliario.com/venta/departamento/san-miguel-metropolitana/8456-edificio-tercera-avenida-nva
+top,portal inmobiliario,rm,las condes,23/07/2020,house,usada,,disponible,-16,,,N,,,,,,,,,https://www.portalinmobiliario.com/venta/departamento/san-joaquin-metropolitana/9636-edificio-lira-nva
 freq,3931,3931,686,1401,1977,3896,,3884,3909,,,3442,,,,,,,,,4
 mean,,,,,,,-15.806156194352582,,,3109.5802594759602,-15.82727041465276,,433.4118544899517,197.84049860086492,3.3067921648435514,2.6461460188247266,0.9216484355125922,0.5141185448995167,0.5258204019333503,9448.242431951157,
 std,,,,,,,3.0919863186027574,,,19140.396094339336,5.7443348928938125,,1035.0580183376603,3993.942213506942,1.396834721426215,1.2270062360701397,0.9009279522240925,0.503414908566929,0.4993963860837681,5984.038328634391,

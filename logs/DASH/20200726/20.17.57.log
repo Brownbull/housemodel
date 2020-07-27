@@ -1,0 +1,13 @@
+2020-07-26 20:17:57: DASH Start: 2020-07-26 20:17:57.637758
+2020-07-26 20:17:57: DASH_01_GROUP Start: 2020-07-26 20:17:57.639753
+2020-07-26 20:18:00: Connection Open OK
+2020-07-26 20:18:00: houses_v2 table does Exists, OK.
+2020-07-26 20:18:00: house_market_v2 table does not Exists, Creating.
+2020-07-26 20:18:00: Executing from sql script: D:\Reference\housemodel\main\DASH\sql\create_house_market_v2.sql
+2020-07-26 20:18:00: Execution OK.
+2020-07-26 20:18:00: Execution OK.
+2020-07-26 20:18:00: Connection Closed OK
+2020-07-26 20:18:00: DASH_01_GROUP End: 2020-07-26 20:18:00.276365
+2020-07-26 20:18:00: DASH_01_GROUP Total Execution Time: 2.6366121768951416
+2020-07-26 20:18:00: DASH End: 2020-07-26 20:18:00.287339
+2020-07-26 20:18:00: DASH Total Execution Time: 2.6495814323425293
