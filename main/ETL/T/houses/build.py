@@ -181,9 +181,21 @@ class buildHouse:
 
   def linkTitle(self, Title, default=-16):
     words = Title.split()
-    rawProvince = words[len(words)-1]
-    rawProvincePref2 = words[len(words)-2]
-    rawProvincePref3 = words[len(words)-3]
+    lenWords = len(words)
+    if lenWords > 3:
+      rawProvincePref3 = words[len(words)-3]
+    else:
+      rawProvincePref3 = default
+
+    if lenWords > 2:
+      rawProvincePref2 = words[len(words)-2]
+    else:
+      rawProvincePref2 = default
+
+    if lenWords > 1:
+      rawProvince = words[len(words)-1]
+    else:
+      rawProvince = default
 
     self.Province = getProvince(rawProvince, rawProvincePref2, rawProvincePref3)
     
@@ -421,9 +433,14 @@ class buildHouse:
         self.Bath = 2
       elif "bano" in Description:
         self.Bath = 1
-    
+  
+  def defaultOverwrite(self, default=-16):
+    if self.Bdroom == default:
+      self.Bdroom = 1
+    if self.Bath == default:
+      self.Bath = 1
+
 def build_portalinmobiliario(snap, inDf, outCsvPath):
-  default = -16
   # dateFormat = "%Y/%m/%d"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
@@ -447,6 +464,9 @@ def build_portalinmobiliario(snap, inDf, outCsvPath):
       houseToWrite.linkFullPrice(row['FullPrice'])
       houseToWrite.linkLink(row['Link'])
       houseToWrite.linkDescription(row['Description'])
+
+      # DEFAULT handle
+      houseToWrite.defaultOverwrite()
 
       # WRITE row
       outCsv.write(houseToWrite.toCsvRow())

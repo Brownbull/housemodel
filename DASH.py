@@ -24,22 +24,26 @@ if dashCfg['debug']:
   getVersions()
   print("# Debug Options:\n{}".format(args))
 
+# LOAD DASH LIBS
+imp.load_source('groupLib', dashCfg['groupLib'])
+from groupLib import *
+
 # INITIALIZE TIMING & LOG
 startTime, startStamp = getTimeAndStamp()
 log = logInit("logs", "DASH")
 logPrint(log, "DASH Start: {}".format(str(startStamp)))
 
+## DASH Step - GROUP
+houseMarketPath = groupHouseMarket(
+  log,
+  dashCfg['createMarketView'],
+  dashCfg['selectMarketView'],
+  dashCfg['dataFolder'],
+  dashCfg['statsPath'],
+  dashCfg['dbCfg']
+)
 
-
-
-
-
-
-
-
-
-
-
+## DASH Step - SHOW
 
               
 # END TIMING & LOG

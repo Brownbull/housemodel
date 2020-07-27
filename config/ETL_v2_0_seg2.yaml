@@ -4,7 +4,7 @@ dataIndex: D:/Reference/housemodel/data/ETL/E/byHand/segment2_datasources.csv
 dataFolder: D:/Reference/housemodel/data/ETL/E/webscrapper
 dataSrces: &dataSrces [ 'portal inmobiliario' ]
 # Processing Initial Date format YYYYMMDD
-procDtIni: 20200724
+procDtIni: 20200718
 # Processing End Date format YYYYMMDD
 procDtEnd: 20210101
 # Stats
@@ -28,7 +28,7 @@ formatCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState,
 fillLib: D:/Reference/housemodel/main/ETL/T/houses/fill.py
 ## fEng
 fEngLib: D:/Reference/housemodel/main/ETL/T/houses/fEng.py
-fEngCols: [SnapDate, Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, Sector, SizeGroup, MtTot, MtUtil, MtTotInUtilPerc, Bdroom, Bath, Balcony, Parking, Storage, Pool, PriceUF, UFxMt2, Value, Score, Link]
+fEngCols: [SnapDate, Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, Sector, SizeGroup, MtTot, MtUtil, Bdroom, Bath, Balcony, Parking, Storage, Pool, PriceUF, UFxMt2, Value, Score, Link]
 ## Load
 loadLib: D:/Reference/housemodel/main/ETL/L/houses/postgreSQL_v2.py
 dbCfg:

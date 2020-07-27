@@ -1,0 +1,18 @@
+2020-07-26 20:10:53: DASH Start: 2020-07-26 20:10:53.847509
+2020-07-26 20:10:53: DASH_01_GROUP Start: 2020-07-26 20:10:53.848507
+2020-07-26 20:10:55: Connection Open OK
+2020-07-26 20:10:55: houses_v2 table does Exists, OK.
+2020-07-26 20:10:55: house_market_v2 table does not Exists, Creating.
+2020-07-26 20:10:55: Executing from sql script: D:\Reference\housemodel\main\DASH\sql\create_house_market_v2.sql
+2020-07-26 20:10:55: Execution OK.
+2020-07-26 20:10:55: Error on Execution of: 
+    SELECT 
+*
+FROM 
+  market_houses_v2_view
+ORDER BY
+  REGION,
+  PROVINCE,
+  PROPERTY_TYPE,
+  SIZE_GROUP
+    

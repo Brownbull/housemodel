@@ -24,14 +24,15 @@ def loadCsv(log, dbConn, inCsvPath, outCsvPath):
   for idx, row in inDf.iterrows():
     insertSql = """ 
     INSERT INTO public.houses_v2(
-	    "SNAP_DT", "SRCE", "REGION", "PROVINCE", "PUBLISHED_DT", "UPDATED_DT", "PROPERTY_TYPE", "PROPERTY_STATE", "AGE", "STAGE", "DELIVERY", "COMMON_EXPNS_CLP", "FLOOR", "FOR_INVESTMENT", "SECTOR", "SIZE_GROUP", "MT_TOT", "MT_UTIL", "MT_TOT_IN_UTIL_PERC", "BDROOM", "BATH", "BALCONY", "PARKING", "STORAGE", "POOL", "PRICE_UF", "ETL_UF_X_MT2", "ETL_VALUE", "ETL_SCORE", "LINK")
+	    "SNAP_DT", "SNAP_DT_TIME", "PUBLISHED_DT", "UPDATED_DT", "SRCE", "REGION", "PROVINCE", "PROPERTY_TYPE", "PROPERTY_STATE", "AGE", "STAGE", "DELIVERY", "COMMON_EXPNS_CLP", "FLOOR", "FOR_INVESTMENT", "SECTOR", "SIZE_GROUP", "MT_TOT", "MT_UTIL", "BDROOM", "BATH", "BALCONY", "PARKING", "STORAGE", "POOL", "PRICE_UF", "ETL_UF_X_MT2", "ETL_VALUE", "ETL_SCORE", "LINK")
 	    VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}, {18}, {19}, {20}, {21}, {22}, {23}, {24}, {25}, {26}, {27}, {28}, {29});""".format(
         row['SnapDate'] if checkIfexists('SnapDate', row) else default ,
+        "\'" + fromCCYYMMDDtoDateStr(row['SnapDate']) + "\'" if checkIfexists('SnapDate', row) else default ,
+        "\'" + row['PublishedDate'] + "\'" if checkIfexists('PublishedDate', row) else default ,
+        "\'" + row['PublishedDate'] + "\'" if checkIfexists('PublishedDate', row) else default ,
         "\'" + row['Srce'] + "\'" if checkIfexists('Srce', row) else default ,
         "\'" + row['Region'] + "\'" if checkIfexists('Region', row) else default ,
         "\'" + row['Province'] + "\'" if checkIfexists('Province', row) else default ,
-        "\'" + row['PublishedDate'] + "\'" if checkIfexists('PublishedDate', row) else default ,
-        "\'" + row['PublishedDate'] + "\'" if checkIfexists('PublishedDate', row) else default ,
         "\'" + row['PropertyType'] + "\'" if checkIfexists('PropertyType', row) else default ,
         "\'" + row['PropertyState'] + "\'" if checkIfexists('PropertyState', row) else default ,
         row['Age'] if checkIfexists('Age', row) else default ,
@@ -44,7 +45,6 @@ def loadCsv(log, dbConn, inCsvPath, outCsvPath):
         "\'" + row['SizeGroup'] + "\'" if checkIfexists('SizeGroup', row) else default ,
         row['MtTot'] if checkIfexists('MtTot', row) else default ,
         row['MtUtil'] if checkIfexists('MtUtil', row) else default ,
-        row['MtTotInUtilPerc'] if checkIfexists('MtTotInUtilPerc', row) else default ,
         row['Bdroom'] if checkIfexists('Bdroom', row) else default ,
         row['Bath'] if checkIfexists('Bath', row) else default ,
         row['Balcony'] if checkIfexists('Balcony', row) else default ,
@@ -99,11 +99,12 @@ def loadMain(log, snap, inCsvPaths, baseOutPath, statsPath,  Cols, dbCfg):
     (
       "ID" bigserial NOT NULL,
       "SNAP_DT" integer,
+      "SNAP_DT_TIME" timestamp without time zone DEFAULT now(),
+      "PUBLISHED_DT" date,
+      "UPDATED_DT" date,
       "SRCE" character varying(50),
       "REGION" character varying(200),
       "PROVINCE" character varying(100),
-      "PUBLISHED_DT" date,
-      "UPDATED_DT" date,
       "PROPERTY_TYPE" character varying(20),
       "PROPERTY_STATE" character varying(10),
       "AGE" integer,
@@ -116,7 +117,6 @@ def loadMain(log, snap, inCsvPaths, baseOutPath, statsPath,  Cols, dbCfg):
       "SIZE_GROUP" character varying(10),
       "MT_TOT" integer,
       "MT_UTIL" integer,
-      "MT_TOT_IN_UTIL_PERC" integer,
       "BDROOM" integer,
       "BATH" integer,
       "BALCONY" integer,

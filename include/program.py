@@ -65,8 +65,11 @@ def getTimeAndStamp():
 
 # https://stackoverflow.com/questions/9750330/how-to-convert-integer-into-date-object-python
 def fromCCYYMMDDtoDate(ccyymmdd):
+  ccyymmdd = str(ccyymmdd)
   # you could also import date instead of datetime and use that.
   return datetime(year=int(ccyymmdd[0:4]), month=int(ccyymmdd[4:6]), day=int(ccyymmdd[6:8]))
+def fromCCYYMMDDtoDateStr(ccyymmdd):
+  return str(fromCCYYMMDDtoDate(ccyymmdd))
 def fromDateToCCYYMMDD(date):
   return date.strftime("%Y%m%d")
 

@@ -35,6 +35,7 @@ def toCsvRow(row):
 
 def clean_portalinmobiliario(inDf, outCsvPath):
   default = -16
+  minPropertyArea = 15 # 15 mt2
   # dateFormat = "%Y/%m/%d"
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     for idx, row in inDf.iterrows():
@@ -42,6 +43,9 @@ def clean_portalinmobiliario(inDf, outCsvPath):
       # EVALUATE values
       if row['Parking'] > 10 or (row['MtUtil'] == default and row['MtTot'] == default):
         writeRow = False
+      if row['MtTot'] < minPropertyArea and row['MtTot'] < minPropertyArea:
+        writeRow = False
+
       # WRITE row
       if writeRow:
         outCsv.write(toCsvRow(row))
