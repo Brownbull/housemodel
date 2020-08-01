@@ -12,7 +12,7 @@ from include.dbPostgreSQL import *
 # from main.DASH.stats import *
 
 
-def groupHouseMarket( log, createMarketView, selectMarketView, baseOutPath, statsPath, dbCfg):
+def groupHouseMarket( log, selectBaseTable, createMarketView, selectMarketView, baseOutPath, statsPath, dbCfg):
   baseTable = "houses_v2"
   marketView = "house_market_v2"
   # TIME start
@@ -27,7 +27,8 @@ def groupHouseMarket( log, createMarketView, selectMarketView, baseOutPath, stat
   dbConn = dbGetConn(log, dbCfg['db'], dbCfg['user'], dbCfg['hst'], dbCfg['prt'])
 
   # OUTPUT setup
-  houseMarketPath = initFilePath(outStepPath, "houseMarket.csv")
+  baseTablePath = initFilePath(outStepPath, baseTable + ".csv")
+  houseMarketPath = initFilePath(outStepPath, marketView + ".csv")
 
   ## CHECK table
   if not dbCheckTableExists(dbConn, baseTable):
@@ -37,14 +38,18 @@ def groupHouseMarket( log, createMarketView, selectMarketView, baseOutPath, stat
     logPrint(log, "{} table does Exists, OK.".format(baseTable))
 
   if not dbCheckViewExists(dbConn, marketView):
-    logPrint(log, "{} table does not Exists, Creating.".format(marketView))
-    dbExecFile(log, dbConn, createMarketView)
-    # dbConn.execute(open(createMarketView, "r").read())
+    logPrint(log, "{} view does not Exists, Creating.".format(marketView))
   else:
-    logPrint(log, "{} table does Exists, OK.".format(marketView))
+    logPrint(log, "{} view does Exists, Redefining.".format(marketView))
+    dbDropView(log, dbConn, marketView)
+  dbExecFile(log, dbConn, createMarketView)
 
   # SAVE 
   dbExecFileToCSV(log, dbConn, selectMarketView, houseMarketPath)
+  saveBasetoCsv = input("Save base table {} on {} file? y/n\t".format(baseTable, baseTablePath))
+  if saveBasetoCsv.lower() == 'y':
+    logPrint(log, "Saving base table {} on {}".format(baseTable, baseTablePath))
+    dbExecFileToCSV(log, dbConn, selectBaseTable, baseTablePath)
 
   dbEnd(log, dbConn)
   ## FINISH

@@ -1,0 +1,23 @@
+2020-07-26 21:51:31: DASH Start: 2020-07-26 21:51:31.287897
+2020-07-26 21:51:31: DASH_01_GROUP Start: 2020-07-26 21:51:31.289850
+2020-07-26 21:51:33: Connection Open OK
+2020-07-26 21:51:33: houses_v2 table does Exists, OK.
+2020-07-26 21:51:33: house_market_v2 table does not Exists, Creating.
+2020-07-26 21:51:33: Executing from sql script: D:\Reference\housemodel\main\DASH\sql\create_house_market_v2.sql
+2020-07-26 21:51:33: dbExec Failed:
+2020-07-26 21:51:33: ERROR:  cannot change name of view column "snap_dt" to "snap_dt_time"
+
+2020-07-26 21:51:33: None
+2020-07-26 21:51:33: Execution OK.
+2020-07-26 21:51:33: dbExec Failed:
+2020-07-26 21:51:33: ERROR:  column "snap_dt_time" does not exist
+LINE 2:   SNAP_DT_TIME, 
+          ^
+
+2020-07-26 21:51:33: None
+2020-07-26 21:51:33: Execution OK.
+2020-07-26 21:51:33: Connection Closed OK
+2020-07-26 21:51:33: DASH_01_GROUP End: 2020-07-26 21:51:33.275259
+2020-07-26 21:51:33: DASH_01_GROUP Total Execution Time: 1.9854083061218262
+2020-07-26 21:51:33: DASH End: 2020-07-26 21:51:33.279164
+2020-07-26 21:51:33: DASH Total Execution Time: 1.991267442703247

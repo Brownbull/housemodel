@@ -6,10 +6,15 @@
 import psycopg2
 import getpass 
 from include.logs import *
+from include.keys import * 
 
-def dbGetConn(log, db, user, hst, prt):
+def dbGetConn(log, db, user, hst, prt, passPath=-16, keyPath=-16):
   # passwd = input("Postgresql connect to {} {} {} {}:\n".format(db, user, hst, prt))
-  passwd = getpass.getpass(prompt="Postgresql connect to {} {} {} {}:\n".format(db, user, hst, prt)) 
+  if passPath == -16 and keyPath == -16:
+    passwd = getpass.getpass(prompt="Postgresql connect to {} {} {} {}:\n".format(db, user, hst, prt)) 
+  else:
+    key = loadKey(keyPath)
+    passwd = passDecryptGet(passPath, key)
   try:
     dbConn = psycopg2.connect(database = db, user = user, password = passwd, host = hst, port = prt)
   except:
@@ -54,7 +59,6 @@ def dbExec(log, dbConn, qry):
     logPrint(log, "Error on Execution of: {}".format(qry))
     exit()
   dbConn.commit()
-  logPrint(log, "Execution OK.")
 
 def dbExecFile(log, dbConn, file):
   logPrint(log, "Executing from sql script: {}".format(file))
@@ -84,3 +88,8 @@ def dbExecFileToCSV(log, dbConn, file, outCsvPath):
     dbConn.commit()
     logPrint(log, "Execution OK.")
 
+def dbDropView(log, dbConn, view):
+  dropQry = """
+    DROP VIEW {0}
+    """.format(view)
+  return dbExec(log, dbConn, dropQry)

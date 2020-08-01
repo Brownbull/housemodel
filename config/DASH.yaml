@@ -1,6 +1,7 @@
 # Dashboards configuration file
 dataFolder: D:/Reference/housemodel/data/DASH/python
 # SQL scripts
+selectBaseTable: D:\Reference\housemodel\main\DASH\sql\select_houses_v2.sql
 createMarketView: D:\Reference\housemodel\main\DASH\sql\create_house_market_v2.sql
 selectMarketView: D:\Reference\housemodel\main\DASH\sql\select_house_market_v2.sql
 ## Group
@@ -13,6 +14,8 @@ dbCfg:
   user: postgres
   hst: localhost
   prt: 5432
+  keyPath: D:\Reference\housemodel\config\secrets\key.key
+  passPath: D:\Reference\housemodel\config\secrets\postgresql.pass
 # Execution setup
 info: False
 force: False

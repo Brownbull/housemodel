@@ -1,2 +1,23 @@
-target = "https://www.portalinmobiliario.com/venta/departamento/penalolen-metropolitana/5724667-metro-quilin-frente-colegio-pedro-de-valdivia-uda#position=48&type=item&tracking_id=b4643808-5b79-423b-b71e-66c0eda8f4af"
-print("{}".format(target.split('#')[0]))
+# -*- coding: utf-8 -*-
+"""
+  @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
+  ETL - Extract Transform Load Module
+"""
+import getpass
+from include.keys import * 
+
+keyPath = "D:\Reference\housemodel\config\secrets\postgresql.key"
+passPath = "D:\Reference\housemodel\config\secrets\postgresql.pass"
+# generate and write a new key
+genKey(keyPath)
+# load the previously generated key
+key = loadKey(keyPath)
+
+passwd = getpass.getpass(prompt="Encrypt:\n").encode()
+passEncryptSave(passwd, key, passPath)
+
+## Just for checking
+decPass = passDecryptGet(passPath, key)
+print("decPass: {}".format(decPass))
+
+

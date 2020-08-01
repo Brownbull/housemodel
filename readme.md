@@ -6,6 +6,7 @@
     - [activate](#activate)
     - [install](#install)
     - [Update requierements](#update-requierements)
+  - [Tag](#tag)
 ***
 ## Setup
 ### Clone
@@ -27,4 +28,11 @@ pip install -r requirements.txt
 ### Update requierements
 ```shell
 pip freeze > requirements.txt
+```
+
+## Tag
+Register tag
+```sh
+git tag <tagname> -a
+git push origin --tags
 ```

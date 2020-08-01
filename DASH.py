@@ -36,6 +36,7 @@ logPrint(log, "DASH Start: {}".format(str(startStamp)))
 ## DASH Step - GROUP
 houseMarketPath = groupHouseMarket(
   log,
+  dashCfg['selectBaseTable'],
   dashCfg['createMarketView'],
   dashCfg['selectMarketView'],
   dashCfg['dataFolder'],

@@ -83,8 +83,7 @@ def loadMain(log, snap, inCsvPaths, baseOutPath, statsPath,  Cols, dbCfg):
   # SET
   outSnapPath = baseOutPath + "/" + snap
   statsSnapPath = statsPath + "/" + snap
-  dbConn = dbGetConn(log, dbCfg['db'], dbCfg['user'], dbCfg['hst'], dbCfg['prt'])
-
+  dbConn = dbGetConn(log, dbCfg['db'], dbCfg['user'], dbCfg['hst'], dbCfg['prt'], passPath=dbCfg['passPath'], keyPath=dbCfg['keyPath'])
   # OUTPUT setup
   outSnapStepPath = outSnapPath + "/" + currStep
   outCsvPath = initFilePath(outSnapStepPath, "allHouses.csv")

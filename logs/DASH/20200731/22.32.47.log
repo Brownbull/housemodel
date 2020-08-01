@@ -1,0 +1,14 @@
+2020-07-31 22:32:47: DASH Start: 2020-07-31 22:32:47.278299
+2020-07-31 22:32:47: DASH_01_GROUP Start: 2020-07-31 22:32:47.279242
+2020-07-31 22:32:53: Connection Open OK
+2020-07-31 22:32:53: houses_v2 table does Exists, OK.
+2020-07-31 22:32:53: house_market_v2 view does Exists, Redefining.
+2020-07-31 22:32:54: Executing from sql script: D:\Reference\housemodel\main\DASH\sql\create_house_market_v2.sql
+2020-07-31 22:32:54: Execution OK.
+2020-07-31 22:32:57: Saving base table houses_v2 on D:/Reference/housemodel/data/DASH/python/DASH_01_GROUP/houses_v2.csv
+2020-07-31 22:32:57: Execution OK.
+2020-07-31 22:32:57: Connection Closed OK
+2020-07-31 22:32:57: DASH_01_GROUP End: 2020-07-31 22:32:57.867952
+2020-07-31 22:32:57: DASH_01_GROUP Total Execution Time: 10.588709592819214
+2020-07-31 22:32:57: DASH End: 2020-07-31 22:32:57.872831
+2020-07-31 22:32:57: DASH Total Execution Time: 10.594532012939453

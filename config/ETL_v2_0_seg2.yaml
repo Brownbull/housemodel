@@ -4,7 +4,7 @@ dataIndex: D:/Reference/housemodel/data/ETL/E/byHand/segment2_datasources.csv
 dataFolder: D:/Reference/housemodel/data/ETL/E/webscrapper
 dataSrces: &dataSrces [ 'portal inmobiliario' ]
 # Processing Initial Date format YYYYMMDD
-procDtIni: 20200718
+procDtIni: 20200726
 # Processing End Date format YYYYMMDD
 procDtEnd: 20210101
 # Stats
@@ -36,6 +36,8 @@ dbCfg:
   user: postgres
   hst: localhost
   prt: 5432
+  passPath: D:\Reference\housemodel\config\secrets\postgresql.pass
+  keyPath: D:\Reference\housemodel\config\secrets\key.key
 # Execution setup
 info: False
 force: False

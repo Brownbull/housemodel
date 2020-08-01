@@ -1,5 +1,5 @@
 SELECT 
-  SNAP_DT, 
+  SNAP_DT_TIME, 
   SRCE, 
   REGION, 
   PROVINCE, 
@@ -26,7 +26,7 @@ SELECT
   ETL_SCORE_MAX,
   ETL_SCORE_AVG
 FROM 
-  market_houses_v2_view
+  house_market_v2
 ORDER BY
   REGION,
   PROVINCE,

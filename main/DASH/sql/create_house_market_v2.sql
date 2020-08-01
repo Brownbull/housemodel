@@ -1,6 +1,6 @@
-CREATE OR REPLACE VIEW market_houses_v2_view AS
+CREATE OR REPLACE VIEW house_market_v2 AS
 SELECT 
-  t.SNAP_DT, 
+  t.SNAP_DT_TIME, 
   t.SRCE, 
   t.REGION, 
   t.PROVINCE, 
@@ -28,7 +28,7 @@ SELECT
   ceil(AVG(t.ETL_SCORE)) ETL_SCORE_AVG
 FROM (
   SELECT
-    "houses_v2"."SNAP_DT" as SNAP_DT, 
+    "houses_v2"."SNAP_DT_TIME" as SNAP_DT_TIME, 
     "houses_v2"."SRCE" as SRCE, 
     "houses_v2"."REGION" as REGION, 
     "houses_v2"."PROVINCE" as PROVINCE, 
@@ -44,7 +44,7 @@ FROM (
   FROM
     houses_v2) t
 GROUP BY
-  t.SNAP_DT, 
+  t.SNAP_DT_TIME, 
   t.SRCE, 
   t.REGION, 
   t.PROVINCE, 

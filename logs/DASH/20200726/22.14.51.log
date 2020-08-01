@@ -1,0 +1,9 @@
+2020-07-26 22:14:51: DASH Start: 2020-07-26 22:14:51.680587
+2020-07-26 22:14:51: DASH_01_GROUP Start: 2020-07-26 22:14:51.681529
+2020-07-26 22:14:53: Connection Open OK
+2020-07-26 22:14:53: houses_v2 table does Exists, OK.
+2020-07-26 22:14:53: house_market_v2 view does Exists, Redefining.
+2020-07-26 22:14:53: Execution OK.
+2020-07-26 22:14:53: Executing from sql script: D:\Reference\housemodel\main\DASH\sql\create_house_market_v2.sql
+2020-07-26 22:14:53: Execution OK.
+2020-07-26 22:14:53: Execution OK.
