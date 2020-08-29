@@ -1,11 +1,3 @@
 ﻿SrceId,Srce,Region,PropertyType,Link
 1,portal inmobiliario,RM,Aparment,https://www.portalinmobiliario.com/venta/departamento/metropolitana/_OrderId_BEGINS*DESC_PriceRange_1000CLF-25000CLF
 1,portal inmobiliario,RM,House,https://www.portalinmobiliario.com/venta/casa/metropolitana/_OrderId_BEGINS*DESC_PriceRange_1000CLF-25000CLF
-2,toctoc,RM,Aparment,
-2,toctoc,RM,House,
-3,propiedades emol,RM,Aparment,http://www.propiedades.emol.com/propiedades/buscar?o=Venta&tp=Departamento&r=Metropolitana%20de%20Santiago&pd=1000&ph=25000&m=uf&sp=precioNum&sd=desc
-3,propiedades emol,RM,House,http://www.propiedades.emol.com/propiedades/buscar?o=Venta&tp=Casa&r=Metropolitana%20de%20Santiago&pd=1000&ph=25000&m=uf&sp=precioNum&sd=desc
-4,icasas,RM,Aparment,
-4,icasas,RM,House,
-5,chile propiedades,RM,Aparment,
-5,chile propiedades,RM,House,

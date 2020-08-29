@@ -37,7 +37,7 @@ def loadCsv(log, dbConn, inCsvPath, outCsvPath):
         "\'" + row['PropertyState'] + "\'" if checkIfexists('PropertyState', row) else default ,
         row['Age'] if checkIfexists('Age', row) else default ,
         "\'" + row['Stage'] + "\'" if checkIfexists('Stage', row) else default ,
-        "\'" + row['Delivery'] + "\'" if checkIfexists('Delivery', row) else default ,
+        "\'" + str(row['Delivery']) + "\'" if checkIfexists('Delivery', row) else default ,
         row['CommonExpnsCLP'] if checkIfexists('CommonExpnsCLP', row) else default ,
         row['Floor'] if checkIfexists('Floor', row) else default ,
         "\'" + row['ForInvestment'] + "\'" if checkIfexists('ForInvestment', row) else default ,

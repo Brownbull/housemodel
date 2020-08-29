@@ -403,9 +403,10 @@ class buildHouse:
     self.Link = getUniqueLink(Link)
     if self.Province == default:
       words = Link.split('/')
-      rawPlace = words[5].split('-')
-      rawProvince = rawPlace[len(rawPlace)-2]
-      self.Province = getProvince(rawProvince, default, default)
+      if len(words) > 4:
+        rawPlace = words[5].split('-')
+        rawProvince = rawPlace[len(rawPlace)-2]
+        self.Province = getProvince(rawProvince, default, default)
     
   def linkDescription(self, Description, default=-16):
     investKeys = ["remodelar", "inversion"]

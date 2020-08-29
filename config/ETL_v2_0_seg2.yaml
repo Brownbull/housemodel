@@ -4,7 +4,7 @@ dataIndex: D:/Reference/housemodel/data/ETL/E/byHand/segment2_datasources.csv
 dataFolder: D:/Reference/housemodel/data/ETL/E/webscrapper
 dataSrces: &dataSrces [ 'portal inmobiliario' ]
 # Processing Initial Date format YYYYMMDD
-procDtIni: 20200726
+procDtIni: 20200826
 # Processing End Date format YYYYMMDD
 procDtEnd: 20210101
 # Stats

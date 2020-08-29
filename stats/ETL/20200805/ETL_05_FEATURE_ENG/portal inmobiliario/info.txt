@@ -1,0 +1,35 @@
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 3904 entries, 0 to 3903
+Data columns (total 28 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   SnapDate        3904 non-null   int64  
+ 1   Srce            3904 non-null   object 
+ 2   Region          3904 non-null   object 
+ 3   Province        3904 non-null   object 
+ 4   PublishedDate   3904 non-null   object 
+ 5   PropertyType    3904 non-null   object 
+ 6   PropertyState   3904 non-null   object 
+ 7   Age             3904 non-null   int64  
+ 8   Stage           3904 non-null   object 
+ 9   Delivery        3904 non-null   object 
+ 10  CommonExpnsCLP  3904 non-null   int64  
+ 11  Floor           3904 non-null   int64  
+ 12  ForInvestment   3904 non-null   object 
+ 13  Sector          3904 non-null   float64
+ 14  SizeGroup       3904 non-null   object 
+ 15  MtTot           3904 non-null   int64  
+ 16  MtUtil          3904 non-null   int64  
+ 17  Bdroom          3904 non-null   int64  
+ 18  Bath            3904 non-null   int64  
+ 19  Balcony         3904 non-null   float64
+ 20  Parking         3904 non-null   int64  
+ 21  Storage         3904 non-null   int64  
+ 22  Pool            3904 non-null   int64  
+ 23  PriceUF         3904 non-null   int64  
+ 24  UFxMt2          3904 non-null   float64
+ 25  Value           3904 non-null   float64
+ 26  Score           3904 non-null   int64  
+ 27  Link            3904 non-null   object 
+dtypes: float64(4), int64(13), object(11)
+memory usage: 686.3+ KB
