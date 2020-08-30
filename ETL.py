@@ -25,7 +25,10 @@ if etlCfg['debug']:
   getVersions()
   print("# Debug Options:\n{}".format(args))
 
-# LOAD TRANSFORM LIBS
+# EXTRACT LIBS
+imp.load_source('seeLib', etlCfg['seeLib'])
+from seeLib import *
+# TRANSFORM LIBS
 imp.load_source('collectLib', etlCfg['collectLib'])
 from collectLib import *
 imp.load_source('buildLib', etlCfg['buildLib'])
@@ -38,6 +41,7 @@ imp.load_source('fillLib', etlCfg['fillLib'])
 from fillLib import *
 imp.load_source('fEngLib', etlCfg['fEngLib'])
 from fEngLib import *
+# LOAD LIBS
 imp.load_source('loadLib', etlCfg['loadLib'])
 from loadLib import *
 
@@ -49,17 +53,34 @@ logPrint(log, "ETL Start: {}".format(str(startStamp)))
 # GET INPUT DATA INDEX
 dataIndex = pd.read_csv(etlCfg['dataIndex'])
 
-# GET AVAILABLE DATA SNAPSHOTS
-snapshots = os.listdir(etlCfg['dataFolder'])
+# MAIN
+## Create SNAPSHOT
+if etlCfg['version'] > 2:
+  snap = datetime.now().strftime('%Y%m%d')
+  logPrint(log, "Version {} detected".format(etlCfg['version']))
+  logPrint(log, "Creating Snapshot for {}".format(snap))
+  ## ETL E Step - SEE
+  SeeFiles = seeMain(
+    log, 
+    snap, 
+    etlCfg['dataLinks'], 
+    etlCfg['statsPath'])
+
+  snapshots = os.listdir(etlCfg['dataFolder'] + "/" + snap)
+else:
+  # GET AVAILABLE DATA SNAPSHOTS
+  snapshots = os.listdir(etlCfg['dataFolder'])
+  
 logPrint(log, "Available Snapshots: " + array2Str(snapshots, ' '))
+exit()
 
 # MAIN
 ## iterate SNAPSHOTS
 for snap in snapshots:
-  if int(etlCfg['procDtIni']) <= int(snap) <= int(etlCfg['procDtEnd']):
+  if (int(etlCfg['procDtIni']) <= int(snap) <= int(etlCfg['procDtEnd'])) or etlCfg['version'] > 2:
     logPrint(log, "Processing Snapshot: {}".format(snap))
 
-    ## ETL Step - COLLECT
+    ## ETL T Step - COLLECT
     collectFiles = collectMain(
       log, 
       snap, 
@@ -71,7 +92,7 @@ for snap in snapshots:
       etlCfg['collectionCols'])
     # input("After COLLECT: Press Enter to continue...")
               
-    ## ETL Step - BUILD
+    ## ETL T Step - BUILD
     buildFiles = buildMain(
       log, 
       snap, 
@@ -81,7 +102,7 @@ for snap in snapshots:
       etlCfg['buildCols'])
     # input("After BUILD: Press Enter to continue...")
 
-    ## ETL Step - CLEAN
+    ## ETL T Step - CLEAN
     cleanFiles = cleanMain(
       log, 
       snap, 
@@ -91,7 +112,7 @@ for snap in snapshots:
       etlCfg['cleanCols'])
     # input("After CLEAN: Press Enter to continue...")
               
-    ## ETL Step - FORMAT
+    ## ETL T Step - FORMAT
     formatFiles = formatMain(
       log, 
       snap, 
@@ -101,7 +122,7 @@ for snap in snapshots:
       etlCfg['formatCols'])
     # input("After FORMAT: Press Enter to continue...")
               
-    ## ETL Step - FILL
+    ## ETL T Step - FILL
     fillFiles = fillMain(
       log, 
       snap, 
@@ -110,7 +131,7 @@ for snap in snapshots:
       etlCfg['statsPath']) # statsPath
     # input("After FILL: Press Enter to continue...")
 
-    ## ETL Step - FEATURE ENG
+    ## ETL T Step - FEATURE ENG
     fEngFiles = fEngMain(
       log,
       snap, 
@@ -120,7 +141,7 @@ for snap in snapshots:
       etlCfg['fEngCols'])
     # input("After FEATURE: Press Enter to continue...")
 
-    ## ETL Step - LOAD
+    ## ETL L Step - LOAD
     loadMain(
       log,
       snap,

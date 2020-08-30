@@ -67,7 +67,7 @@ def cleanMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
-  currStep = "ETL_02_CLEAN"
+  currStep = "ETL_T_02_CLEAN"
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET

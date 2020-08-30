@@ -56,7 +56,7 @@ def fillMain(log, snap, inCsvPaths, baseOutPath, statsPath):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
-  currStep = "ETL_04_FILL"
+  currStep = "ETL_T_04_FILL"
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET

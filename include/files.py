@@ -6,6 +6,9 @@
 import os
 import sys
 import yaml
+import time
+import shutil
+from datetime import datetime
 from pathlib import Path
 
 def initPath(path):
@@ -37,4 +40,20 @@ def readConfg(fConfig):
   else:
     sys.exit('Error: File ' + fConfig + " was not found.")
 
+def timeCp(fileIn, fileOutPath, ext = "csv"):
+  now = datetime.now().strftime('%H.%M.%S')
+  fileName = now + "." + ext
+  initFilePath(fileOutPath, fileName)
+  fileOut = fileOutPath + "/" + fileName
+  shutil.copy2(fileIn, fileOut)
+  return fileOut
 
+def dayTimeCp(fileIn, fileOutPath, ext = "csv"):
+  today = datetime.now().strftime('%Y%m%d')
+  fileOutPath = fileOutPath + today + "/"
+  now = datetime.now().strftime('%H.%M.%S')
+  fileName = now + "." + ext
+  initFilePath(fileOutPath, fileName)
+  fileOut = fileOutPath + fileName
+  shutil.copy2(fileIn, fileOut)
+  return fileOut

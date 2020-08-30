@@ -77,7 +77,7 @@ def loadMain(log, snap, inCsvPaths, baseOutPath, statsPath,  Cols, dbCfg):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
-  currStep = "ETL_06_LOAD"
+  currStep = "ETL_L_00_LOAD"
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET

@@ -489,7 +489,7 @@ def buildMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
-  currStep = "ETL_01_BUILD"
+  currStep = "ETL_T_01_BUILD"
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET

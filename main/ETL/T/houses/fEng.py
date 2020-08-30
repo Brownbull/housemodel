@@ -234,7 +234,7 @@ def fEngMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
-  currStep = "ETL_05_FEATURE_ENG"
+  currStep = "ETL_T_05_FEATURE_ENG"
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET

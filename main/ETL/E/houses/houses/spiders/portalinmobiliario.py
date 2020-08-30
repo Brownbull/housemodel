@@ -7,7 +7,6 @@
 import imp
 import scrapy
 import pandas as pd
-from scrapy_gui import load_selector
 imp.load_source('program', "D:\Reference\python\include\program.py")
 from program import *
 # House Class
@@ -30,13 +29,13 @@ class PortalInmobiliarioSpyder(scrapy.Spider):
     "link" 
     ]
 
-  outCsvPath = "D:\Reference\housemodel\data\ETL\E\python\houses.csv"
+  outCsvPath = "D:\Reference\housemodel\data\ETL\E\python\housesLinks.csv"
   with open(outCsvPath, 'w', encoding="utf-8") as outCsv:
     outCsv.write(array2Str(cols, ',') + "\n")
 
   def parse(self, response):
     waitSeconds = 1
-    outCsvPath = "D:\Reference\housemodel\data\ETL\E\python\houses.csv"
+    outCsvPath = "D:\Reference\housemodel\data\ETL\E\python\housesLinks.csv"
 
     housesLinks = response.xpath('/html/body/main/div[2]/div/section/ol/li/div/div[2]/a')
 

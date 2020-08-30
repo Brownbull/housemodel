@@ -1,0 +1,53 @@
+# Transformation configuration file
+# Input Setup
+dataIndex: D:/Reference/housemodel/data/ETL/E/byHand/segment2_datasources.csv
+dataLinks:  D:/Reference/housemodel/data/ETL/E/python/links
+dataFolder: D:/Reference/housemodel/data/ETL/E/python/scrape
+dataSrces: &dataSrces [ 'portal inmobiliario' ]
+# Processing Initial Date format YYYYMMDD
+procDtIni: 20200829
+# Processing End Date format YYYYMMDD
+procDtEnd: 20210101
+# Stats
+statsPath: D:/Reference/housemodel/stats/ETL
+# Extract Setup
+seeLib: D:/Reference/housemodel/main/ETL/E/see.py
+# Transform Setup
+transformPath: D:/Reference/housemodel/data/ETL/T/python
+## Collect
+collectLib: D:/Reference/housemodel/main/ETL/T/houses/collect.py
+collectionCols: [Srce, Region, PropertyType, PropertyState, PublishedDate, Title, Section, Models, fld0, fld1, fld2, fld3, fld4, fld5, FullPrice, Link, Description]
+## Build
+buildLib: D:/Reference/housemodel/main/ETL/T/houses/build.py
+buildCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
+## Clean
+cleanLib: D:/Reference/housemodel/main/ETL/T/houses/clean.py
+cleanCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
+## Format
+formatLib: D:/Reference/housemodel/main/ETL/T/houses/format.py
+formatCols: [Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, MtTot, MtUtil, Bdroom, Bath, Parking, Storage, Pool, PriceUF, Link]
+## Fill
+fillLib: D:/Reference/housemodel/main/ETL/T/houses/fill.py
+## fEng
+fEngLib: D:/Reference/housemodel/main/ETL/T/houses/fEng.py
+fEngCols: [SnapDate, Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, Sector, SizeGroup, MtTot, MtUtil, Bdroom, Bath, Balcony, Parking, Storage, Pool, PriceUF, UFxMt2, Value, Score, Link]
+## Load
+loadLib: D:/Reference/housemodel/main/ETL/L/houses/postgreSQL_v2.py
+dbCfg:
+  db: houses
+  user: postgres
+  hst: localhost
+  prt: 5432
+  passPath: D:\Reference\housemodel\config\secrets\postgresql.pass
+  keyPath: D:\Reference\housemodel\config\secrets\key.key
+# Execution setup
+info: False
+force: False
+stats: True
+debug: True
+# Author details
+version: 2.1
+author:
+  alias: Brownbull
+  name: Gabriel Carcamo
+  email: carcamo.gabriel@gmail.com

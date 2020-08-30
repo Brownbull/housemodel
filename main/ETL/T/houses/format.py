@@ -43,7 +43,7 @@ def formatMain(log, snap, inCsvPaths, baseOutPath, statsPath, formatCols):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
-  currStep = "ETL_03_FORMAT"
+  currStep = "ETL_T_03_FORMAT"
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET

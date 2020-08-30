@@ -76,7 +76,7 @@ def collectMain(log, snap, dataIndex, baseInPath, baseOutPath, statsPath, srces,
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
-  currStep = "ETL_00_COLLECT"
+  currStep = "ETL_T_00_COLLECT"
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET
