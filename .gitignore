@@ -1,3 +1,11 @@
 env/*
 .vscode/
 config/secrets/*
+stats/ETL/*
+stats/DASH/*
+logs/ETL/*
+logs/DASH/*
+data/ETL/E/webscrapper
+data/ETL/E/python
+data/ETL/T/python
+data/DASH/python
