@@ -5,9 +5,9 @@
 """
 # IMPORT LIBRARIES
 from main.ETL.imports import *
-from include.logs import *
-from include.files import *
-from include.program import *
+from main.include.logs import *
+from main.include.files import *
+from main.include.program import *
 
 # CHECK ARGUMENTS
 parser = argparse.ArgumentParser(description='Main process of Transform Module.')
@@ -28,6 +28,8 @@ if etlCfg['debug']:
 # EXTRACT LIBS
 imp.load_source('seeLib', etlCfg['seeLib'])
 from seeLib import *
+imp.load_source('differentiateLib', etlCfg['differentiateLib'])
+from differentiateLib import *
 # TRANSFORM LIBS
 imp.load_source('collectLib', etlCfg['collectLib'])
 from collectLib import *
@@ -60,12 +62,26 @@ if etlCfg['version'] > 2:
   logPrint(log, "Version {} detected".format(etlCfg['version']))
   logPrint(log, "Creating Snapshot for {}".format(snap))
   ## ETL E Step - SEE
-  SeeFiles = seeMain(
+  seeFile = seeMain(
     log, 
     snap, 
-    etlCfg['dataLinks'], 
+    etlCfg['dataExtract'], 
     etlCfg['statsPath'])
+  
+  # seeFile = "D:/Reference/housemodel/data/ETL/E/python/20200831/portalinmobiliario/ETL_E_00_SEE/20.36.13.csv"
 
+  ## ETL E Step - APPEND
+  diffsFile = differentiateMain(
+    log, 
+    snap, 
+    etlCfg['dataExtract'], 
+    etlCfg['statsPath'],
+    seeFile,
+    etlCfg['seenFile'],
+    etlCfg['newFile'],
+    etlCfg['goneFile'])
+
+  exit()
   snapshots = os.listdir(etlCfg['dataFolder'] + "/" + snap)
 else:
   # GET AVAILABLE DATA SNAPSHOTS

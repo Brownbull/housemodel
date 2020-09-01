@@ -4,14 +4,12 @@
   Extract - Extract Module inside Transform on ETL for houses model
 """
 # IMPORT LIBRARIES
-import time
-from datetime import datetime
 import scrapy
 from scrapy.crawler import CrawlerProcess
-from main.ETL.E.houses.portalinmobiliario import PortalInmobiliarioSpyder
-from include.logs import *
-from include.files import *
-from include.program import *
+from main.ETL.E.houses.scrapy.portalinmobiliario import PortalInmobiliarioSpyder
+from main.include.logs import *
+from main.include.files import *
+from main.include.program import *
 from main.ETL.stats import *
 
 def callCrawler():
@@ -21,7 +19,7 @@ def callCrawler():
   })
   process.crawl(PortalInmobiliarioSpyder)
   process.start() # the script will block here until the crawling is finished
-  return "D:\Reference\housemodel\data\ETL\E\python\housesLinks.csv"
+  return "D:\Reference\housemodel\data\ETL\E\python\see.csv"
 
 # MAIN
 def seeMain(log, snap, outCsvPath, statsPath):
@@ -32,9 +30,8 @@ def seeMain(log, snap, outCsvPath, statsPath):
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET
-  outSnapPath = outCsvPath + "/portalinmobiliario/" + snap
+  outSnapPath = outCsvPath + "/" + snap + "/portalinmobiliario/" +  currStep
   statsSnapPath = statsPath + "/" + snap
-  outSeeFiles = []
 
   # SCRAPY
   scrapyOut = callCrawler()
@@ -42,9 +39,8 @@ def seeMain(log, snap, outCsvPath, statsPath):
 
   # SEE file
   seeTimeFile = timeCp(scrapyOut, outSnapPath, ext = "csv")
+  pdCsvSort(seeTimeFile, "link")
   logPrint(log, "New time associated file: {}".format(seeTimeFile))
-
-  outSeeFiles.append(seeTimeFile)
 
   ## FINISH
   # END TIMING & LOG
@@ -53,7 +49,7 @@ def seeMain(log, snap, outCsvPath, statsPath):
   logPrint(log, "{} Total Execution Time: {}".format(currStep, str(endTime - startTime)))
   ## STATS
   statsSnapStepPath = statsSnapPath + "/" + currStep
-  stepEnd(log, statsSnapStepPath, currStep, outSeeFiles)
-  return outSeeFiles
+  stepEnd(log, statsSnapStepPath, currStep, [seeTimeFile])
+  return seeTimeFile
 
 

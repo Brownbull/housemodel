@@ -4,11 +4,11 @@
   Load Module inside Transform on ETL for houses model
 """
 import pandas as pd
-from include.logs import *
-from include.files import *
-from include.common import *
-from include.program import *
-from include.dbPostgreSQL import *
+from main.include.logs import *
+from main.include.files import *
+from main.include.common import *
+from main.include.program import *
+from main.include.dbPostgreSQL import *
 from main.ETL.stats import *
 
 # CSV processing

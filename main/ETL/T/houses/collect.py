@@ -4,9 +4,9 @@
   Format - Format Module inside Transform on ETL for houses model
 """
 import pandas as pd
-from include.logs import *
-from include.files import *
-from include.program import *
+from main.include.logs import *
+from main.include.files import *
+from main.include.program import *
 from main.ETL.stats import *
 
 def toCsvRow(Srce, Region, PropertyType, PropertyState, PublishedDate, Title, Section, Models, fld0, fld1, fld2, fld3, fld4, fld5, FullPrice, Link, Description):

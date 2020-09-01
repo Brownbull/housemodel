@@ -8,3 +8,4 @@ logs/DASH/*
 data/ETL/E/webscrapper/*
 data/ETL/E/python/*
 data/ETL/T/python/*
+data/DASH/python/*

@@ -8,6 +8,7 @@ import sys
 import yaml
 import time
 import shutil
+import pandas as pd
 from datetime import datetime
 from pathlib import Path
 
@@ -40,20 +41,36 @@ def readConfg(fConfig):
   else:
     sys.exit('Error: File ' + fConfig + " was not found.")
 
-def timeCp(fileIn, fileOutPath, ext = "csv"):
+def file2Folder(fileIn, fileOutPath, debug=False):
+  if debug:
+    print("file2Folder: {} --> {}".format(fileIn, fileOutPath))
+  shutil.copy2(fileIn, fileOutPath)
+
+def file2File(fileIn, fileOut, debug=False):
+  if debug:
+    print("file2File: {} --> {}".format(fileIn, fileOut))
+  shutil.copy2(fileIn, fileOut)
+  return fileOut
+
+def timeCp(fileIn, fileOutPath, ext="csv", pre=""):
   now = datetime.now().strftime('%H.%M.%S')
-  fileName = now + "." + ext
+  fileName = pre + now + "." + ext
   initFilePath(fileOutPath, fileName)
   fileOut = fileOutPath + "/" + fileName
   shutil.copy2(fileIn, fileOut)
   return fileOut
 
-def dayTimeCp(fileIn, fileOutPath, ext = "csv"):
+def dayTimeCp(fileIn, fileOutPath, ext="csv", pre=""):
   today = datetime.now().strftime('%Y%m%d')
   fileOutPath = fileOutPath + today + "/"
   now = datetime.now().strftime('%H.%M.%S')
-  fileName = now + "." + ext
+  fileName = pre + now + "." + ext
   initFilePath(fileOutPath, fileName)
   fileOut = fileOutPath + fileName
   shutil.copy2(fileIn, fileOut)
   return fileOut
+
+def pdCsvSort(filePath, key):
+  df = pd.read_csv(filePath)
+  df = df.sort_values(key)
+  df.to_csv(filePath, index=False)

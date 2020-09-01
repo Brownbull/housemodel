@@ -5,9 +5,9 @@
 """
 
 import pandas as pd
-from include.logs import *
-from include.files import *
-from include.program import *
+from main.include.logs import *
+from main.include.files import *
+from main.include.program import *
 
 def stepEnd(log, outPath, stepName, csvFilePaths):
   for csvPath in csvFilePaths:

@@ -1,8 +1,8 @@
 # Transformation configuration file
 # Input Setup
 dataIndex: D:/Reference/housemodel/data/ETL/E/byHand/segment2_datasources.csv
-dataLinks:  D:/Reference/housemodel/data/ETL/E/python/links
-dataFolder: D:/Reference/housemodel/data/ETL/E/python/scrape
+dataExtract:  D:/Reference/housemodel/data/ETL/E/python
+dataFolder: D:/Reference/housemodel/data/ETL/E/webscrapper
 dataSrces: &dataSrces [ 'portal inmobiliario' ]
 # Processing Initial Date format YYYYMMDD
 procDtIni: 20200829
@@ -10,8 +10,16 @@ procDtIni: 20200829
 procDtEnd: 20210101
 # Stats
 statsPath: D:/Reference/housemodel/stats/ETL
+
 # Extract Setup
-seeLib: D:/Reference/housemodel/main/ETL/E/see.py
+## See
+seeLib: D:/Reference/housemodel/main/ETL/E/houses/see.py
+## Differentiate
+differentiateLib: D:/Reference/housemodel/main/ETL/E/houses/differentiate.py
+seenFile: "D:/Reference/housemodel/data/ETL/E/python/seen.csv"
+newFile: "D:/Reference/housemodel/data/ETL/E/python/new.csv"
+goneFile: "D:/Reference/housemodel/data/ETL/E/python/gone.csv"
+
 # Transform Setup
 transformPath: D:/Reference/housemodel/data/ETL/T/python
 ## Collect
@@ -31,8 +39,11 @@ fillLib: D:/Reference/housemodel/main/ETL/T/houses/fill.py
 ## fEng
 fEngLib: D:/Reference/housemodel/main/ETL/T/houses/fEng.py
 fEngCols: [SnapDate, Srce, Region, Province, PublishedDate, PropertyType, PropertyState, Age, Stage, Delivery, CommonExpnsCLP, Floor, ForInvestment, Sector, SizeGroup, MtTot, MtUtil, Bdroom, Bath, Balcony, Parking, Storage, Pool, PriceUF, UFxMt2, Value, Score, Link]
-## Load
+
+# Load Setup
+## Postgresql load
 loadLib: D:/Reference/housemodel/main/ETL/L/houses/postgreSQL_v2.py
+## Postgresql config
 dbCfg:
   db: houses
   user: postgres
@@ -40,6 +51,7 @@ dbCfg:
   prt: 5432
   passPath: D:\Reference\housemodel\config\secrets\postgresql.pass
   keyPath: D:\Reference\housemodel\config\secrets\key.key
+
 # Execution setup
 info: False
 force: False

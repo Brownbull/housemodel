@@ -5,9 +5,9 @@
 """
 # IMPORT LIBRARIES
 from main.DASH.imports import *
-from include.logs import *
-from include.files import *
-from include.program import *
+from main.include.logs import *
+from main.include.files import *
+from main.include.program import *
 
 # CHECK ARGUMENTS
 parser = argparse.ArgumentParser(description='Main process of Dashboards Module.')

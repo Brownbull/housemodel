@@ -5,8 +5,8 @@
 """
 import psycopg2
 import getpass 
-from include.logs import *
-from include.keys import * 
+from main.include.logs import *
+from main.include.keys import * 
 
 def dbGetConn(log, db, user, hst, prt, passPath=-16, keyPath=-16):
   # passwd = input("Postgresql connect to {} {} {} {}:\n".format(db, user, hst, prt))

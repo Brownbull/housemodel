@@ -5,7 +5,7 @@
 """
 import time
 from datetime import datetime
-from include.files import *
+from main.include.files import *
 
 def logPrint(logPath, msg):
   now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')

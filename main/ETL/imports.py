@@ -12,7 +12,7 @@ import random
 import json
 from pathlib import Path
 from datetime import datetime
-from include.program import *
+from main.include.program import *
 
 # processing
 import pandas as pd #collection of functions for data processing and analysis modeled after R dataframes with SQL like features

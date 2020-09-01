@@ -10,7 +10,7 @@ import pandas as pd
 imp.load_source('program', "D:\Reference\python\include\program.py")
 from program import *
 # House Class
-from main.ETL.E.houses.scrapHouse import ScrapHouse
+from main.ETL.E.houses.scrapy.scrapHouse import ScrapHouse
 
 class PortalInmobiliarioSpyder(scrapy.Spider):
   name = 'portalinmobiliario'
@@ -29,13 +29,13 @@ class PortalInmobiliarioSpyder(scrapy.Spider):
     "link" 
     ]
 
-  outCsvPath = "D:\Reference\housemodel\data\ETL\E\python\housesLinks.csv"
+  outCsvPath = "D:\Reference\housemodel\data\ETL\E\python\see.csv"
   with open(outCsvPath, 'w', encoding="utf-8") as outCsv:
     outCsv.write(array2Str(cols, ',') + "\n")
 
   def parse(self, response):
     waitSeconds = 1
-    outCsvPath = "D:\Reference\housemodel\data\ETL\E\python\housesLinks.csv"
+    outCsvPath = "D:\Reference\housemodel\data\ETL\E\python\see.csv"
 
     housesLinks = response.xpath('/html/body/main/div[2]/div/section/ol/li/div/div[2]/a')
 
@@ -47,7 +47,7 @@ class PortalInmobiliarioSpyder(scrapy.Spider):
         PriceUnit = houseLink.xpath('normalize-space(.//*[@class="price__symbol"]/text())')[0].extract()
         Price = houseLink.xpath('normalize-space(.//*[@class="price__fraction"]/text())')[0].extract()
         item = "{} {}".format(PriceUnit, Price)
-        itemRef = houseLink.xpath('@href')[0].extract()
+        itemRef = houseLink.xpath('@href')[0].extract().split('#')[0]
         houseRow.setPortalFields(PriceUnit , Price , item , itemRef)
         outCsv.write(houseRow.toCsvRowScrapy())
 
