@@ -70,7 +70,35 @@ def dayTimeCp(fileIn, fileOutPath, ext="csv", pre=""):
   shutil.copy2(fileIn, fileOut)
   return fileOut
 
-def pdCsvSort(filePath, key):
+def pdCsvSort(filePath, key, dedup=False):
   df = pd.read_csv(filePath)
+  if dedup:
+    df = df.drop_duplicates(keep="first")  
   df = df.sort_values(key)
   df.to_csv(filePath, index=False)
+
+def joinConcat(df1, df2, key, cols):
+  df1 = df1.sort_values(key)
+  df2 = df2.sort_values(key)
+  df = df1.merge(df2.drop_duplicates(), on=key, how='outer', indicator=True)
+  df = df[cols] 
+  df = df.drop_duplicates(keep="first")  
+  return df
+
+def joinLeftOnly(df1, df2, key, cols):
+  df1 = df1.sort_values(key)
+  df2 = df2.sort_values(key)
+  df = df1.merge(df2.drop_duplicates(), on=key, how='left', indicator=True)
+  df = df[df['_merge'] == 'left_only']
+  df = df[cols] 
+  df = df.drop_duplicates(keep="first")  
+  return df
+
+def joinRightOnly(df1, df2, key, cols):
+  df1 = df1.sort_values(key)
+  df2 = df2.sort_values(key)
+  df = df1.merge(df2.drop_duplicates(), on=key, how='right', indicator=True)
+  df = df[df['_merge'] == 'right_only']
+  df = df[cols] 
+  df = df.drop_duplicates(keep="first")  
+  return df

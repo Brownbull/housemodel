@@ -22,7 +22,7 @@ def callCrawler():
   return "D:\Reference\housemodel\data\ETL\E\python\see.csv"
 
 # MAIN
-def seeMain(log, snap, outCsvPath, statsPath):
+def seeMain(log, snap, seeFilePath, outCsvPath, statsPath):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
@@ -38,8 +38,8 @@ def seeMain(log, snap, outCsvPath, statsPath):
   logPrint(log, "Scrapy executed, file {} created.".format(scrapyOut))
 
   # SEE file
-  seeTimeFile = timeCp(scrapyOut, outSnapPath, ext = "csv")
-  pdCsvSort(seeTimeFile, "link")
+  pdCsvSort(seeFilePath, "link", dedup=True)
+  seeTimeFile = timeCp(seeFilePath, outSnapPath, ext = "csv")
   logPrint(log, "New time associated file: {}".format(seeTimeFile))
 
   ## FINISH
@@ -50,6 +50,6 @@ def seeMain(log, snap, outCsvPath, statsPath):
   ## STATS
   statsSnapStepPath = statsSnapPath + "/" + currStep
   stepEnd(log, statsSnapStepPath, currStep, [seeTimeFile])
-  return seeTimeFile
+  return outSnapPath
 
 

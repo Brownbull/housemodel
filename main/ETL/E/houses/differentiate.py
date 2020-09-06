@@ -11,29 +11,18 @@ from main.include.common import *
 from main.include.program import *
 from main.ETL.stats import *
 
-# https://stackoverflow.com/questions/28901683/pandas-get-rows-which-are-not-in-other-dataframe
-def getDiffs(log, seeFile, seenFile, newFile, goneFile):
-  logPrint(log, "Files for Diffs:\n\tsee File: {}\n\tseen File:{}".format(seeFile, seenFile))
-  seeDf = pd.read_csv(seeFile)
-  seenDf = pd.read_csv(seenFile)
-
-  # Get houses that you see now but not before
-  dfNew = seeDf.merge(seenDf.drop_duplicates(), on=['link'], 
-                    how='left', indicator=True)
-  dfNew['_merge'] == 'left_only'
-  dfNew = dfNew[dfNew['_merge'] == 'left_only']
-
-  # Get houses that you saw before but not now
-  dfGone = seeDf.merge(seenDf.drop_duplicates(), on=['link'], 
-                    how='right', indicator=True)
-  dfGone = dfGone[dfGone['_merge'] == 'right_only']
-
-  # WRITE csv
-  dfNew.to_csv(newFile, index=False)
-  dfGone.to_csv(goneFile, index=False)
+def initializeCsv1Col(filePath, col, force=False):
+  if force:
+    with open(filePath, 'w', encoding="utf-8") as csvFile:
+      csvFile.write(col + "\n")
+  else:
+    if not Path(filePath).is_file():
+      with open(filePath, 'w', encoding="utf-8") as csvFile:
+        csvFile.write(col + "\n")
+  return pd.read_csv(filePath)
 
 # MAIN
-def differentiateMain(log, snap, outCsvPath, statsPath, seeFile, seenFile, newFile, goneFile):
+def differentiateMain(log, snap, outCsvPath, statsPath, seeFilePath, seenFilePath, seenFilesPath, newFilePath, goneFilePath, dayDeleteFilePath, dayArchiveFilePath):
   dbg = False
 
   # TIME start
@@ -49,21 +38,52 @@ def differentiateMain(log, snap, outCsvPath, statsPath, seeFile, seenFile, newFi
   initPath(outSnapPath)
   outDifferentiateFiles = []
   # outCsvPath = initFilePath(outSnapPath, "allHouses.csv")
+  
+  # DATAFRAMES
+  key = "link"
+  cols = ["link"]
+  seeDf = pd.read_csv(seeFilePath)
+  # Initialize csv if they not exists
+  seenDf = initializeCsv1Col(seenFilePath, key)
+  deleteDf = initializeCsv1Col(dayDeleteFilePath, key)
+  archivesDf = initializeCsv1Col(dayArchiveFilePath, key)
 
-  # ROLLOUT on first run
-  if not Path(seenFile).is_file():
-    logPrint(log, "seenFile does not exist, seeFile will be copied as seenFile")
-    file2File(seeFile, seenFile, debug=dbg)
+  # ROLLOUT on first day run
+  seenFiles = os.listdir(seenFilesPath)
+  logPrint(log, "Files for Diffs:\n\tsee File:\n\t\t{}".format(seeFilePath))
 
-  # get DIFFS from see and seen elements
-  getDiffs(log, seeFile, seenFile, newFile, goneFile)
+  # New day?
+  if len(seenFiles) > 1:
+    # Append seen to Archives
+    archivesDf = joinConcat(seenDf, archivesDf, key, cols)
+  else:
+    # New Day, so New Archives only with what is new today
+    archivesDf = joinLeftOnly(seeDf, archivesDf, key, cols)
+    # New Day, so new delete file
+    deleteDf = initializeCsv1Col(dayDeleteFilePath, key, force=True)
+
+  # Get new offers and seen offers that are not present
+  newDf = joinLeftOnly(seeDf, archivesDf, key, cols)
+  oldDf = joinRightOnly(seeDf, archivesDf, key, cols)
+
+  # update delete day file
+  deleteDf = joinConcat(oldDf, deleteDf, key, cols)
+
+  # WRITE csv
+  newDf.to_csv(newFilePath, index=False)
+  oldDf.to_csv(goneFilePath, index=False)
+  deleteDf.to_csv(dayDeleteFilePath, index=False)
+  archivesDf.to_csv(dayArchiveFilePath, index=False)
 
   # Save Files on date folder with time name
-  newTimeFile = timeCp(newFile, outSnapPath + "/new/", pre="new_")
-  goneTimeFile = timeCp(goneFile, outSnapPath + "/gone/", pre="gone_")
+  newTimeFile = timeCp(newFilePath, outSnapPath + "/new/", pre="new_")
+  goneTimeFile = timeCp(goneFilePath, outSnapPath + "/gone/", pre="gone_")
+  # See file has been Seen
+  shutil.copy2(seeFilePath, seenFilePath)
+
+  # Append results for stats
   outDifferentiateFiles.append(newTimeFile)
   outDifferentiateFiles.append(goneTimeFile)
-
   ## FINISH
   # END TIMING & LOG
   endTime, endStamp = getTimeAndStamp()

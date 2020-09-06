@@ -62,13 +62,15 @@ if etlCfg['version'] > 2:
   logPrint(log, "Version {} detected".format(etlCfg['version']))
   logPrint(log, "Creating Snapshot for {}".format(snap))
   ## ETL E Step - SEE
-  seeFile = seeMain(
+  seenFilesPath = seeMain(
     log, 
     snap, 
+    etlCfg['seeFile'],
     etlCfg['dataExtract'], 
     etlCfg['statsPath'])
   
-  # seeFile = "D:/Reference/housemodel/data/ETL/E/python/20200831/portalinmobiliario/ETL_E_00_SEE/20.36.13.csv"
+  # seeFile = "D:/Reference/housemodel/data/ETL/E/python/20200901/portalinmobiliario/ETL_E_00_SEE/20.25.07.csv"
+  # seenFilesPath = "D:/Reference/housemodel/data/ETL/E/python/20200901/portalinmobiliario/ETL_E_00_SEE"
 
   ## ETL E Step - APPEND
   diffsFile = differentiateMain(
@@ -76,13 +78,15 @@ if etlCfg['version'] > 2:
     snap, 
     etlCfg['dataExtract'], 
     etlCfg['statsPath'],
-    seeFile,
+    etlCfg['seeFile'],
     etlCfg['seenFile'],
+    seenFilesPath,
     etlCfg['newFile'],
-    etlCfg['goneFile'])
+    etlCfg['goneFile'],
+    etlCfg['dayDeleteFile'],
+    etlCfg['dayArchiveFile'])
 
-  exit()
-  snapshots = os.listdir(etlCfg['dataFolder'] + "/" + snap)
+  snapshots = os.listdir(etlCfg['dataFolder'])
 else:
   # GET AVAILABLE DATA SNAPSHOTS
   snapshots = os.listdir(etlCfg['dataFolder'])
