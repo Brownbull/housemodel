@@ -22,6 +22,11 @@ newFile: "D:/Reference/housemodel/data/ETL/E/python/new.csv"
 goneFile: "D:/Reference/housemodel/data/ETL/E/python/gone.csv"
 dayDeleteFile: "D:/Reference/housemodel/data/ETL/E/python/dayDelete.csv"
 dayArchiveFile: "D:/Reference/housemodel/data/ETL/E/python/dayArchive.csv"
+## LookUp
+lookupLib: D:/Reference/housemodel/main/ETL/E/houses/lookup.py
+chromeDriverPath: "D:/Reference/python/WebScrapping/chromeDriver/chromedriver84.exe"
+waitSeconds: 0.5
+lookupFile: "D:/Reference/housemodel/data/ETL/E/python/lookup.csv"
 
 # Transform Setup
 transformPath: D:/Reference/housemodel/data/ETL/T/python
@@ -52,8 +57,8 @@ dbCfg:
   user: postgres
   hst: localhost
   prt: 5432
-  passPath: D:\Reference\housemodel\config\secrets\postgresql.pass
-  keyPath: D:\Reference\housemodel\config\secrets\key.key
+  passPath: D:/Reference/housemodel/config/secrets/postgresql.pass
+  keyPath: D:/Reference/housemodel/config/secrets/key.key
 
 # Execution setup
 info: False

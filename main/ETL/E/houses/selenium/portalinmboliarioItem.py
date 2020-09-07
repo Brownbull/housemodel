@@ -21,7 +21,6 @@ import time
 import math
 import pandas as pd
 
-
 def checkElementByCSSSelector(driver, cssSel, waitSeconds):
   try:
     element = WebDriverWait(driver, waitSeconds).until(
@@ -32,9 +31,9 @@ def checkElementByCSSSelector(driver, cssSel, waitSeconds):
   except:
     return None
 
-# @detachify
 def getItemFields(driver, waitSeconds, inDf, outCsvPath):
   for idx, row in inDf.iterrows():
+    print("Processing item: {}".format(idx))
     # Open
     driver.get(row['link'])
     # Get Fields
@@ -56,32 +55,28 @@ def getItemFields(driver, waitSeconds, inDf, outCsvPath):
     
   # WRITE csv
   inDf.to_csv(outCsvPath, index=False)
+  return len(inDf.index)
 
 
-# PROGRAM SETUP
-chromeDriverPath = "D:/Reference/python/WebScrapping/chromeDriver/chromedriver84.exe"
-dfPath = "D:/Reference/housemodel/data/ETL/E/python/new.csv"
-outCsvPath = "D:/Reference/housemodel/test.csv"
-waitSeconds = 2
-# Initial Vars
-inDf = pd.read_csv(dfPath)
-# Initialize
-options = webdriver.ChromeOptions()
-# pass in headless argument to options                                                                                                                          
-# options.add_argument('--headless')
-options.add_argument("--disable-infobars")
-# options.add_argument("start-maximized")
-# options.add_argument('--no-sandbox')
-options.add_argument("--disable-extensions")         
-options.add_argument('--disable-dev-shm-usage') 
-driver = webdriver.Chrome(chromeDriverPath, options=options)
+def getFullItems(chromeDriverPath, waitSeconds, newLinksPath, outCsvPath):
+  # PROGRAM SETUP
+  # Initial Vars
+  newLinksDf = pd.read_csv(newLinksPath)
 
+  # Initialize Selenium
+  options = webdriver.ChromeOptions()
+  # pass in headless argument to options                                                                                                                          
+  # options.add_argument('--headless')
+  options.add_argument("--disable-infobars")
+  # options.add_argument("start-maximized")
+  # options.add_argument('--no-sandbox')
+  options.add_argument("--disable-extensions")         
+  options.add_argument('--disable-dev-shm-usage') 
+  driver = webdriver.Chrome(chromeDriverPath, options=options)
 
-getItemFields(driver, waitSeconds, inDf, outCsvPath)
+  # Selenium scrapper - SLOW
+  rows = getItemFields(driver, waitSeconds, newLinksDf, outCsvPath)
 
-# with Pool(5) as p:
-#   print(p.map(getItemFields, parmsArr))
-# Exec
-# getItemFields(driver, waitSeconds, inDf, outCsvPath)
-# End
-driver.quit()
+  # End Selenium
+  driver.quit()
+  return rows

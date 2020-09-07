@@ -401,6 +401,10 @@ class buildHouse:
   """
   def linkLink(self, Link, default=-16):
     self.Link = getUniqueLink(Link)
+    if "departamento" in self.Link:
+      self.PropertyType = "apartament"
+    else:
+      self.PropertyType = "house"
     if self.Province == default:
       words = Link.split('/')
       if len(words) > 4:
@@ -499,12 +503,10 @@ def buildMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
 
   ## iterate SOURCES
   for inCsvPath in inCsvPaths:
-    srce = getRawFileName(inCsvPath)
     logPrint(log, "Processing Source: {}".format(inCsvPath))
 
     # OUTPUT setup
-    outSnapStepPath = outSnapPath + "/" + currStep
-    outCsvPath = initFilePath(outSnapStepPath, srce + ".csv")
+    outCsvPath = initFilePath(outSnapPath, currStep + ".csv")
 
     # WRITE header
     with open(outCsvPath, 'w', encoding="utf-8") as outCsv:
@@ -513,7 +515,7 @@ def buildMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
     ## FORMAT
     buildCsv(
       snap,
-      srce, 
+      "portal inmobiliario", 
       inCsvPath, # inFile
       outCsvPath) # outFile
 

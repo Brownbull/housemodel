@@ -30,6 +30,8 @@ imp.load_source('seeLib', etlCfg['seeLib'])
 from seeLib import *
 imp.load_source('differentiateLib', etlCfg['differentiateLib'])
 from differentiateLib import *
+imp.load_source('lookupLib', etlCfg['lookupLib'])
+from lookupLib import *
 # TRANSFORM LIBS
 imp.load_source('collectLib', etlCfg['collectLib'])
 from collectLib import *
@@ -57,8 +59,9 @@ dataIndex = pd.read_csv(etlCfg['dataIndex'])
 
 # MAIN
 ## Create SNAPSHOT
+snap = datetime.now().strftime('%Y%m%d')
+
 if etlCfg['version'] > 2:
-  snap = datetime.now().strftime('%Y%m%d')
   logPrint(log, "Version {} detected".format(etlCfg['version']))
   logPrint(log, "Creating Snapshot for {}".format(snap))
   ## ETL E Step - SEE
@@ -68,12 +71,9 @@ if etlCfg['version'] > 2:
     etlCfg['seeFile'],
     etlCfg['dataExtract'], 
     etlCfg['statsPath'])
-  
-  # seeFile = "D:/Reference/housemodel/data/ETL/E/python/20200901/portalinmobiliario/ETL_E_00_SEE/20.25.07.csv"
-  # seenFilesPath = "D:/Reference/housemodel/data/ETL/E/python/20200901/portalinmobiliario/ETL_E_00_SEE"
 
-  ## ETL E Step - APPEND
-  diffsFile = differentiateMain(
+  ## ETL E Step - DIFFERENTIATE
+  differentiateFilesPath = differentiateMain(
     log, 
     snap, 
     etlCfg['dataExtract'], 
@@ -86,92 +86,92 @@ if etlCfg['version'] > 2:
     etlCfg['dayDeleteFile'],
     etlCfg['dayArchiveFile'])
 
-  snapshots = os.listdir(etlCfg['dataFolder'])
-else:
-  # GET AVAILABLE DATA SNAPSHOTS
-  snapshots = os.listdir(etlCfg['dataFolder'])
+  ## ETL E Step - LOOKUP
+  lookUpCsvRows = lookupMain(
+    log, 
+    snap, 
+    etlCfg['dataExtract'], 
+    etlCfg['statsPath'],
+    etlCfg['newFile'],
+    etlCfg['lookupFile'],
+    etlCfg['chromeDriverPath'],
+    etlCfg['waitSeconds'])
   
-logPrint(log, "Available Snapshots: " + array2Str(snapshots, ' '))
-exit()
-
 # MAIN
-## iterate SNAPSHOTS
-for snap in snapshots:
-  if (int(etlCfg['procDtIni']) <= int(snap) <= int(etlCfg['procDtEnd'])) or etlCfg['version'] > 2:
-    logPrint(log, "Processing Snapshot: {}".format(snap))
+if int(lookUpCsvRows) > 0:
+  logPrint(log, "Processing {} rows on lookUpCsv: {}".format(lookUpCsvRows, etlCfg['lookupFile']))
+  ## ETL T Step - COLLECT
+  collectFiles = collectMain(
+    log, 
+    snap, 
+    etlCfg['lookupFile'] , # baseInPath
+    etlCfg['transformPath'], # baseOutPath
+    etlCfg['statsPath'], # statsPath
+    etlCfg['dataSrces'], 
+    etlCfg['collectionCols'])
+  # input("After COLLECT: Press Enter to continue...")
+            
+  ## ETL T Step - BUILD
+  buildFiles = buildMain(
+    log, 
+    snap, 
+    collectFiles, 
+    etlCfg['transformPath'], # baseOutPath
+    etlCfg['statsPath'], # statsPath
+    etlCfg['buildCols'])
+  # input("After BUILD: Press Enter to continue...")
 
-    ## ETL T Step - COLLECT
-    collectFiles = collectMain(
-      log, 
-      snap, 
-      dataIndex, # index of sources
-      etlCfg['dataFolder'], # baseInPath
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath'], # statsPath
-      etlCfg['dataSrces'], 
-      etlCfg['collectionCols'])
-    # input("After COLLECT: Press Enter to continue...")
-              
-    ## ETL T Step - BUILD
-    buildFiles = buildMain(
-      log, 
-      snap, 
-      collectFiles, 
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath'], # statsPath
-      etlCfg['buildCols'])
-    # input("After BUILD: Press Enter to continue...")
+  ## ETL T Step - CLEAN
+  cleanFiles = cleanMain(
+    log, 
+    snap, 
+    buildFiles, 
+    etlCfg['transformPath'], # baseOutPath
+    etlCfg['statsPath'], # statsPath
+    etlCfg['cleanCols'])
+  # input("After CLEAN: Press Enter to continue...")
+            
+  ## ETL T Step - FORMAT
+  formatFiles = formatMain(
+    log, 
+    snap, 
+    cleanFiles, 
+    etlCfg['transformPath'], # baseOutPath
+    etlCfg['statsPath'], # statsPath
+    etlCfg['formatCols'])
+  # input("After FORMAT: Press Enter to continue...")
+            
+  ## ETL T Step - FILL
+  fillFiles = fillMain(
+    log, 
+    snap, 
+    formatFiles,
+    etlCfg['transformPath'], # baseOutPath
+    etlCfg['statsPath']) # statsPath
+  # input("After FILL: Press Enter to continue...")
 
-    ## ETL T Step - CLEAN
-    cleanFiles = cleanMain(
-      log, 
-      snap, 
-      buildFiles, 
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath'], # statsPath
-      etlCfg['cleanCols'])
-    # input("After CLEAN: Press Enter to continue...")
-              
-    ## ETL T Step - FORMAT
-    formatFiles = formatMain(
-      log, 
-      snap, 
-      cleanFiles, 
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath'], # statsPath
-      etlCfg['formatCols'])
-    # input("After FORMAT: Press Enter to continue...")
-              
-    ## ETL T Step - FILL
-    fillFiles = fillMain(
-      log, 
-      snap, 
-      formatFiles,
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath']) # statsPath
-    # input("After FILL: Press Enter to continue...")
+  ## ETL T Step - FEATURE ENG
+  fEngFiles = fEngMain(
+    log,
+    snap, 
+    fillFiles,
+    etlCfg['transformPath'], # baseOutPath
+    etlCfg['statsPath'], # statsPath
+    etlCfg['fEngCols'])
+  # input("After FEATURE: Press Enter to continue...")
 
-    ## ETL T Step - FEATURE ENG
-    fEngFiles = fEngMain(
-      log,
-      snap, 
-      fillFiles,
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath'], # statsPath
-      etlCfg['fEngCols'])
-    # input("After FEATURE: Press Enter to continue...")
-
-    ## ETL L Step - LOAD
-    loadMain(
-      log,
-      snap,
-      fEngFiles,
-      etlCfg['transformPath'], # baseOutPath
-      etlCfg['statsPath'], # statsPath
-      etlCfg['fEngCols'],
-      etlCfg['dbCfg'])
-    # input("After LOAD: Press Enter to continue...")
-              
+  ## ETL L Step - LOAD
+  loadMain(
+    log,
+    snap,
+    fEngFiles,
+    etlCfg['transformPath'], # baseOutPath
+    etlCfg['statsPath'], # statsPath
+    etlCfg['fEngCols'],
+    etlCfg['dbCfg'])
+  # input("After LOAD: Press Enter to continue...")
+else:             
+  logPrint(log, "Not processing {} rows on lookUpCsv: {}".format(lookUpCsvRows, etlCfg['lookupFile']))
 # END TIMING & LOG
 endTime, endStamp = getTimeAndStamp()
 logPrint(log, "ETL End: {}".format(str(endStamp)))

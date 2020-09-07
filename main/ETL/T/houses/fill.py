@@ -66,16 +66,14 @@ def fillMain(log, snap, inCsvPaths, baseOutPath, statsPath):
 
   ## iterate SOURCES
   for inCsvPath in inCsvPaths:
-    srce = getRawFileName(inCsvPath)
     logPrint(log, "Processing Source: {}".format(inCsvPath))
 
     # OUTPUT setup
-    outSnapStepPath = outSnapPath + "/" + currStep
-    outCsvPath = initFilePath(outSnapStepPath, srce + ".csv")
+    outCsvPath = initFilePath(outSnapPath, currStep + ".csv")
 
     ## FORMAT
     fillCsv(
-      srce, 
+      "portal inmobiliario", 
       inCsvPath, # inFile
       outCsvPath) # outFile
 

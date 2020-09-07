@@ -92,6 +92,6 @@ def differentiateMain(log, snap, outCsvPath, statsPath, seeFilePath, seenFilePat
   ## STATS
   statsSnapStepPath = statsSnapPath + "/" + currStep
   stepEnd(log, statsSnapStepPath, currStep, outDifferentiateFiles)
-  return outDifferentiateFiles
+  return outSnapPath
 
 

@@ -77,12 +77,10 @@ def cleanMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
 
   ## iterate SOURCES
   for inCsvPath in inCsvPaths:
-    srce = getRawFileName(inCsvPath)
     logPrint(log, "Processing Source: {}".format(inCsvPath))
 
     # OUTPUT setup
-    outSnapStepPath = outSnapPath + "/" + currStep
-    outCsvPath = initFilePath(outSnapStepPath, srce + ".csv")
+    outCsvPath = initFilePath(outSnapPath, currStep + ".csv")
 
     # WRITE header
     with open(outCsvPath, 'w', encoding="utf-8") as outCsv:
@@ -90,7 +88,7 @@ def cleanMain(log, snap, inCsvPaths, baseOutPath, statsPath, cols):
 
     ## FORMAT
     cleanCsv(
-      srce, 
+      "portal inmobiliario", 
       inCsvPath, # inFile
       outCsvPath) # outFile
 

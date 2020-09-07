@@ -142,7 +142,6 @@ def loadMain(log, snap, inCsvPaths, baseOutPath, statsPath,  Cols, dbCfg):
 
   ## iterate SOURCES
   for inCsvPath in inCsvPaths:
-    srce = getRawFileName(inCsvPath)
     logPrint(log, "Processing Source: {}".format(inCsvPath))
 
     ## LOAD

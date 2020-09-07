@@ -29,13 +29,13 @@ def toCsvRow(Srce, Region, PropertyType, PropertyState, PublishedDate, Title, Se
     Link, 
     Description)
 
-def collect_portalinmobiliario(srceRow, inDf, outCsvPath):
+def collect_portalinmobiliario(inDf, outCsvPath):
   default = ""
   with open(outCsvPath, 'a', encoding="utf-8") as outCsv:  
     # FROM SRCE
-    Srce = sanitize(srceRow['Srce'])
-    Region = sanitize(srceRow['Region'])
-    PropertyType = sanitize(srceRow['PropertyType'])
+    Srce = sanitize("portal inmobiliario")
+    Region = sanitize("rm")
+    PropertyType = sanitize("-16")
 
     # FROM CSV
     for idx, row in inDf.iterrows():
@@ -51,7 +51,7 @@ def collect_portalinmobiliario(srceRow, inDf, outCsvPath):
       fld4 = sanitize(row['fld4'])
       fld5 = sanitize(row['fld5'])
       FullPrice = sanitize(row['item'])
-      Link = sanitize(row['item-href'])
+      Link = sanitize(row['link'])
       Description = sanitize(row['Description'])
 
       # WRITE row
@@ -59,20 +59,20 @@ def collect_portalinmobiliario(srceRow, inDf, outCsvPath):
         rowToWrite = toCsvRow(Srce, Region, PropertyType, PropertyState, PublishedDate, Title, Section, Models, fld0, fld1, fld2, fld3, fld4, fld5, FullPrice, Link, Description)
         outCsv.write(rowToWrite)
 
-def collectCsv(outFile, srce, idxRow, inCsvPath):
+def collectCsv(outFile, srce, inCsvPath):
   # DF init
   inDf = pd.read_csv(inCsvPath)
 
   # SRCE switch
   if srce == "portal inmobiliario":
-    collect_portalinmobiliario(idxRow, inDf, outFile)
+    collect_portalinmobiliario(inDf, outFile)
   else:
     print("srce {} is not supported".format(srce))
     exit()
 
 
 # MAIN
-def collectMain(log, snap, dataIndex, baseInPath, baseOutPath, statsPath, srces, cols):
+def collectMain(log, snap, inCsvPath, baseOutPath, statsPath, srces, cols):
   # TIME start
   startTime, startStamp = getTimeAndStamp()
   # INIT
@@ -80,44 +80,26 @@ def collectMain(log, snap, dataIndex, baseInPath, baseOutPath, statsPath, srces,
   logPrint(log, "{} Start: {}".format(currStep, str(startStamp)))
 
   # SET
-  inSnapPath = baseInPath + "/" + snap 
   outSnapPath = baseOutPath + "/" + snap
   statsSnapPath = statsPath + "/" + snap
   outCollectFiles = []
 
-  ## iterate SOURCES
-  for srce in srces:
-    logPrint(log, "Processing Source: {}".format(srce))
+  # OUTPUT setup
+  outSrcPath = initFilePath(outSnapPath, currStep + ".csv")
 
-    # OUTPUT setup
-    outSnapStepPath = outSnapPath + "/" + currStep
-    outSrcPath = initFilePath(outSnapStepPath, srce + ".csv")
+  # WRITE header
+  with open(outSrcPath, 'w', encoding="utf-8") as outCsv:
+    outCsv.write(array2Str(cols, ',') + "\n")
 
-    # WRITE header
-    with open(outSrcPath, 'w', encoding="utf-8") as outCsv:
-      outCsv.write(array2Str(cols, ',') + "\n")
+  ## COLLECT
+  collectCsv(
+    outSrcPath, # outFile
+    "portal inmobiliario", 
+    inCsvPath, # csvPath
+    )
 
-    # INPUT search
-    inSnapSrcePath = inSnapPath + "/" + srce 
-    inCsvFiles = os.listdir(inSnapSrcePath)
-
-    ## iterate CSV
-    for inCsv in inCsvFiles:
-      # INPUT identification
-      inCsvPath = inSnapSrcePath + "/" + inCsv
-      csvId = inCsv.split('.')[0]
-      idxRow = dataIndex.iloc[int(csvId)-1]
-
-      ## COLLECT
-      collectCsv(
-        outSrcPath, # outFile
-        srce, 
-        idxRow, 
-        inCsvPath, # csvPath
-        )
-
-    # SAVE output
-    outCollectFiles.append(outSrcPath)
+  # SAVE output
+  outCollectFiles.append(outSrcPath)
 
   ## FINISH
   logPrint(log, "{} Output Files: {}".format(currStep, array2Str(outCollectFiles, '\n\t')))
